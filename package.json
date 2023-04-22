@@ -1,5 +1,5 @@
 {
-  "name": "appuni",
+  "name": "bookit",
   "version": "1.0.0",
   "description": "Website for university books",
   "main": "server.js",
@@ -20,5 +20,17 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonasSkjodt/bookit.git"
+  },
+  "keywords": [
+    "webdeveloping",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/JonasSkjodt/bookit/issues"
+  },
+  "homepage": "https://github.com/JonasSkjodt/bookit#readme"
 }
