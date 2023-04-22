@@ -11,23 +11,3 @@ ul {
 .flex-spacebetween{
   justify-content: space-between;
 }
-/*header*/
-.App-logo {
-  height:50px;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #f7f7f7;
-  min-height: 50px;
-}
-
-.App-link {
-  color: #61dafb;
-}
-.header-menu ul {
-  margin-right:15px;
-}
-.header-menu li {
-  margin-left:15px;
-}
