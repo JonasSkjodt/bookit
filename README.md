@@ -1,7 +1,10 @@
 # bookit
 website in react
 
-npm run dev 
-to run both server and react client
+Write
+
+## npm run dev 
+
+in the terminal to run both server and react client
 
 nodemon is installed to autorefresh on website changes
