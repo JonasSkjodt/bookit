@@ -3,7 +3,7 @@ website in react
 
 Write
 
-## npm run dev 
+#### npm run dev 
 
 in the terminal to run both server and react client
 
