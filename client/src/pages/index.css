@@ -1,6 +1,6 @@
 .placeholderFeatured {
     background:lightgray;
-    background-image: linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.15)), url(https://unsplash.it/1200/200?random);
+    background-image: linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.15)), url(https://unsplash.it/1200/200);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

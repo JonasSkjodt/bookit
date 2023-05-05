@@ -22,3 +22,11 @@ h1 {
 .bRad {
   border-radius:8px;
 }
+.card .card-image.bRadT img{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.card.bRad .card-action:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
