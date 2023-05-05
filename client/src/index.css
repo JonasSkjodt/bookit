@@ -30,3 +30,9 @@ h1 {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+.card .btn-floating.halfway-fab {
+  position: absolute;
+  right: 6px;
+  top: 7px;
+}
