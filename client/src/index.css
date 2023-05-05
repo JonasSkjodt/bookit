@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*override some materialize.css sitewide*/
+h1 {
+  font-size: 3.0rem;
+}
+
+.btn-small { margin: 0 6px;}
+
+.bRad {
+  border-radius:8px;
+}
