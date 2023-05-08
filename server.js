@@ -5,9 +5,10 @@ const app = express();
 
 app.get('/api/customers', (req, res) => {
   const customers = [
-    {id: 1, firstName: 'Harry', lastName: 'tarry'},
-    {id: 2, firstName: 'Barry', lastName: 'garry'},
-    {id: 3, firstName: 'Larry', lastName: 'sarry'},
+    {id: 1, bookName: 'Algorithms, 4th Edition', tags: 'Algorithms', image: 'https://unsplash.it/250/190?random'},
+    {id: 2, bookName: 'Teaching Danish', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
+    {id: 3, bookName: 'Greek', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
+    {id: 4, bookName: 'Spanish', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
   ];
 
   res.json(customers);
@@ -41,5 +42,4 @@ create new folder in src called components
 create customers.js and customers.css
 fill in the code to customers.js
 import customers into app
-
 */
