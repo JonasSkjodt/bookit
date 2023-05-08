@@ -42,4 +42,5 @@ create new folder in src called components
 create customers.js and customers.css
 fill in the code to customers.js
 import customers into app
+choose icons from here: https://fonts.google.com/icons
 */
