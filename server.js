@@ -5,10 +5,10 @@ const app = express();
 
 app.get('/api/customers', (req, res) => {
   const customers = [
-    {id: 1, bookName: 'Algorithms, 4th Edition', tags: 'Algorithms', image: 'https://unsplash.it/250/190?random'},
-    {id: 2, bookName: 'Teaching Danish', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
-    {id: 3, bookName: 'Greek', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
-    {id: 4, bookName: 'Spanish', tags: 'Languages', image: 'https://unsplash.it/250/190?random'},
+    {id: 1, bookName: 'C++', tags: 'Algorithms', image: 'c++book.png'},
+    {id: 2, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
+    {id: 3, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
+    {id: 4, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
   ];
 
   res.json(customers);
