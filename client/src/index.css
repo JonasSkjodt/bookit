@@ -76,6 +76,13 @@ h1 {
   right: 6px;
   top: 7px;
 }
+.section-features {
+  background: url(https://cdn.shopify.com/s/files/1/0642/3648/6870/t/17/assets/purple-glow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 6rem 0 4rem;
+  background-position: center center;
+}
 
 /*featured product*/
 .featured{

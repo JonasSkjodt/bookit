@@ -44,9 +44,9 @@ const Home = () => {
 				</div>
 
 			<div className='container'>
-				<div className='section'>
+				<div className='section section-features'>
 				<div className="section-header">
-				<h2 className="section-header__title">Browse our books</h2>
+				<	h2 className="section-header__title">Browse our books</h2>
 					<div className="row">
 						
 						{customers.map((customer) => {
