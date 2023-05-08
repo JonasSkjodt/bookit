@@ -51,7 +51,7 @@ const Home = () => {
 						
 						{customers.map((customer) => {
 							return (
-							<div key={customer.id} className="col s12 m3">
+							<div key={customer.id} className="col s6 m3">
 								<div className="card bRad">
 									<div className="card-image waves-effect waves-block waves-light bRadT">
 									<img className="activator" src={customer.image} />

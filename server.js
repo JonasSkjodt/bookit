@@ -6,9 +6,9 @@ const app = express();
 app.get('/api/customers', (req, res) => {
   const customers = [
     {id: 1, bookName: 'C++', tags: 'Algorithms', image: 'c++book.png'},
-    {id: 2, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
-    {id: 3, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
-    {id: 4, bookName: 'C++', tags: 'Programming', image: 'c++book.png'},
+    {id: 2, bookName: 'Javascript', tags: 'Programming', image: 'javascriptbook.jpg'},
+    {id: 3, bookName: 'Java', tags: 'Programming', image: 'javabook.jpg'},
+    {id: 4, bookName: 'PHP', tags: 'Programming', image: 'phpbook.png'},
   ];
 
   res.json(customers);
