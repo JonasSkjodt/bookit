@@ -20,6 +20,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.flex-it{
+  display: flex;
+}
+.flex-align-center{
+  align-items:center;
+}
+.flex-justify {
+  justify-content: space-between;
+}
 /*header*/
 .head-nav, 
 .header-icons{
@@ -241,4 +250,24 @@ h1 {
 .section-header__title {
   margin-bottom: 14px;
   display: block;
+}
+
+/*media queries*/
+
+@media (max-width:992px){
+	.featured-product__img {
+    width: 20%;
+    margin-right: 10px;
+  } 
+  .feat-btns .primary-btn {
+    min-width: 80px;
+}
+}
+@media (max-width: 782px) {
+	.featured-product__img{
+		display: none;
+	}
+  .product-details {
+    max-width: 350px;
+}
 }
