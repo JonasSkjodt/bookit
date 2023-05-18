@@ -5,14 +5,17 @@ const app = express();
 
 app.get('/api/customers', (req, res) => {
   const customers = [
-    {id: 1, bookName: 'C++', tags: 'Algorithms', image: 'c++book.png'},
-    {id: 2, bookName: 'Javascript', tags: 'Programming', image: 'javascriptbook.jpg'},
-    {id: 3, bookName: 'Java', tags: 'Programming', image: 'javabook.jpg'},
-    {id: 4, bookName: 'PHP', tags: 'Programming', image: 'phpbook.png'},
+    {id: 1, bookName: 'C++', tags: 'Algorithms', image: 'c++book.png', about: 'This is text about C++'},
+    {id: 2, bookName: 'Javascript', tags: 'Programming', image: 'javascriptbook.jpg', about: 'This is text about Javascript'},
+    {id: 3, bookName: 'Java', tags: 'Programming', image: 'javabook.jpg', about: 'This is text about Java'},
+    {id: 4, bookName: 'PHP', tags: 'Programming', image: 'phpbook.png', about: 'This is text about PHP'},
   ];
 
   res.json(customers);
 });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const port = 5000;
 

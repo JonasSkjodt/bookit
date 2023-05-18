@@ -66,7 +66,7 @@ const Home = () => {
 									</div>
 									<div className="card-reveal">
 									<span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-									<p className="black-text">{customer.bookName}  Here is some more information from the express server</p>
+									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
 									</div>
 								</div>
 							</div>)

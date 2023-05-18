@@ -27,8 +27,8 @@ return (
 		</Nav>
 		<div className="header-icons">
 			<a href="#" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
-			<a href="#" className="waves-effect waves-light"><i className="material-icons">search</i></a>
-			<a href="#" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
+			<a href="/login" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
 		</div>
 	</div>
 	</>
