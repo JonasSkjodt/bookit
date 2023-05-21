@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import { Nav, NavLink, NavMenu }
 	from "./NavbarElements";
 import useLoggedIn from './useLoggedIn';
@@ -27,9 +27,9 @@ return (
 			<a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
 			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
 			{loggedIn ? (
-					  <a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+					<a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
         		) : (
-            		<a href="/login" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+            		<a href="/login" className="waves-effect waves-light"><button className="waves-effect waves-light">Login</button></a>
           		)
 			}
 		</div>

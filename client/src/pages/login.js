@@ -28,6 +28,10 @@ const LogIn = () => {
   );
 };
 
+const setAuthUser = (username) => {
+  localStorage.setItem('authUser', username);
+}
+
 // Event handler for form submissions
 const onSubmitForm = () => {
   const username = document.querySelector('#first_name').value;
@@ -41,7 +45,10 @@ const onSubmitForm = () => {
     }
   }).then(response => {
     if (response.ok) {
-      alert('Login successful!');
+       // Set auth user
+       setAuthUser(username);
+       // Redirect to profile page
+      window.location.href = '/profile';
     } else {
       alert('Login failed!');
     }
