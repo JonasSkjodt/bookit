@@ -1,0 +1,11 @@
+.login{
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.login-box{
+    width: 100%;
+    background: #191e2b;
+    border-radius: 20px;
+}

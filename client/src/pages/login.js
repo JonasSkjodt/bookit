@@ -1,10 +1,11 @@
 import React from 'react';
+import './login.css';
 
 const LogIn = () => {
 return (
-	<div className="container">
+	<div className="container login">
         <h1>Login</h1>
-	<div className="row">
+	<div className="row login-box">
     <form className="col s12">
       <div className="row">
         <div className="input-field col s12">

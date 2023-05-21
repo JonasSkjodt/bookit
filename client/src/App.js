@@ -24,6 +24,7 @@ function App() {
 		  setLoggedIn(true)
 	  }
 	}, []);
+	
 return (
 	<Router>
 	<Navbar />

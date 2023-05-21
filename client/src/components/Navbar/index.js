@@ -12,6 +12,7 @@ const Navbar = () => {
 		  setLoggedIn(true)
 	  }
 	}, []);
+
 return (
 	<>
 	<div className="container head-nav">
@@ -29,16 +30,13 @@ return (
 			<NavLink to="/checkout" activestyle="true">
 				Checkout
 			</NavLink>
-			<NavLink to="/sign-up" activestyle="true">
-				Sign Up
-			</NavLink>
 			</NavMenu>
 		</Nav>
 		<div className="header-icons">
 			<a href="#" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
 			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
 			{loggedIn ? (
-          			<a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+					  <a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
         		) : (
             		<a href="/login" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
           		)
