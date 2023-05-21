@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/footer';
+import useLoggedIn from './components/Navbar/useLoggedIn';
 import { BrowserRouter as Router, Routes, Route}
 	from 'react-router-dom';
 import Home from './pages';
@@ -16,14 +17,7 @@ import Profile from './pages/profile';
 
 function App() {
 	/*the user is logged in since its set to true*/ 
-	const [loggedIn, setLoggedIn] = useState(true);
-
-	useEffect(() => {
-	  const authUser = localStorage.getItem('authUser');
-	  if (authUser) {
-		  setLoggedIn(true)
-	  }
-	}, []);
+	const loggedIn = useLoggedIn();
 	
 return (
 	<Router>

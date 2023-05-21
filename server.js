@@ -17,6 +17,34 @@ app.get('/api/customers', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Define the user credentials
+const users = [
+  {id: 'bob', password: '123'}
+];
+
+// Add the login route
+//(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
+app.post('/api/login', (req, res) => {
+  const { body: { username, password } } = req;
+  const user = users.find(user => user.id === username && user.password === password);
+
+  // if credentials valid
+  if (user) {
+    console.log('User is logged in')
+    res.json({
+      message: `Welcome ${user.id}`,
+      token: `${user.id}2019`,
+      loggedIn: true
+    })
+  } else {
+    console.log('User is not logged in')
+    res.json({
+      message: 'Invalid Credentials',
+      loggedIn: false
+    })
+  }
+});
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
