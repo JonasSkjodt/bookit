@@ -1,9 +1,33 @@
 import React from "react";
 import './about.css';
 
+
 const About = () => {
 return (
 	<div className="container">
+		 <div class="section white">
+      <div class="row container">
+        <h2 class="header our_goal">About Us</h2>
+      </div>
+    </div>
+		<div class="parallax-container">
+      <div class="parallax"><img src="/javascriptbook.jpg" /></div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+        <h2 class="header our_goal">The Goal</h2>
+        <p class="grey-text text-darken-3 lighten-3">Our goal with bookit has been and always will be to allow students...</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="/javascriptbook.jpg" /></div>
+    </div>
+	<div class="section white">
+      <div class="row container">
+        <h2 class="header our_goal">The Story</h2>
+        <p class="grey-text text-darken-3 lighten-3">Bookit started as a ...</p>
+      </div>
+    </div>
 	<h1>about</h1>
 	<div className="row">
 		<div className="col s3 about-img">
@@ -24,6 +48,7 @@ I modsætning til hvad mange tror, er Lorem Ipsum ikke bare tilfældig tekst. De
 		</div>
 	</div>
 	</div>
+	
 );
 };
 
