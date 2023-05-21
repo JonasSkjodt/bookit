@@ -12,3 +12,12 @@ footer img {
     width: 50px;
     height: 50x;
 }
+
+footer .hor_list li{
+    display: inline-block;
+    padding-right: 20px;
+}
+
+footer .social_but {
+    
+}
