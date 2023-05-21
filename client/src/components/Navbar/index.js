@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useState, useEffect } from 'react';
 import { Nav, NavLink, NavMenu }
 	from "./NavbarElements";
 
 const Navbar = () => {
+	/*the user is logged in since its set to true*/ 
+	const [loggedIn, setLoggedIn] = useState(true);
+
+	useEffect(() => {
+	  const authUser = localStorage.getItem('authUser');
+	  if (authUser) {
+		  setLoggedIn(true)
+	  }
+	}, []);
 return (
 	<>
 	<div className="container head-nav">
@@ -28,7 +37,12 @@ return (
 		<div className="header-icons">
 			<a href="#" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
 			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
-			<a href="/login" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+			{loggedIn ? (
+          			<a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+        		) : (
+            		<a href="/login" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+          		)
+			}
 		</div>
 	</div>
 	</>

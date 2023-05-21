@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,8 +11,19 @@ import Contact from './pages/contact';
 import Checkout from './pages/checkout';
 import LogIn from './pages/login';
 import Search from './pages/search';
+import Profile from './pages/profile';
+
 
 function App() {
+	/*the user is logged in since its set to true*/ 
+	const [loggedIn, setLoggedIn] = useState(true);
+
+	useEffect(() => {
+	  const authUser = localStorage.getItem('authUser');
+	  if (authUser) {
+		  setLoggedIn(true)
+	  }
+	}, []);
 return (
 	<Router>
 	<Navbar />
@@ -20,9 +31,14 @@ return (
 		<Route path='/' element={<Home />} />
 		<Route path='/about' element={<About/>} />
 		<Route path='/contact' element={<Contact/>} />
-		<Route path='/checkout' element={<Checkout/>} />
-		<Route path='/sign-up' element={<SignUp/>} />
-		<Route path='/login' element={<LogIn/>} />
+		<Route path="/signup" element={<SignUp />} />
+		<Route path="/checkout" element={<Checkout />} />
+		{loggedIn ? (
+          <Route path="/profile" element={<Profile />} />
+        ) : (
+            <Route path="/login" element={<LogIn />} />
+          )
+        }
 		<Route path='/search' element={<Search/>} />
 	</Routes>
 	<Footer />
