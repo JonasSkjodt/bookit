@@ -9,7 +9,7 @@ const Navbar = () => {
 
 return (
 	<>
-	<div className="head-nav">
+	<div className="container head-nav">
 	
 		<div id="menuToggle">
 			<input type="checkbox" />
