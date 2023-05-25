@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const CreateBook = () => {
   const [bookID, setBookID] = useState('');
@@ -7,32 +7,32 @@ const CreateBook = () => {
   const [bookAuthor, setBookAuthor] = useState('');
   /*should add images etc*/
 
-  const handleInputChange = e => {
-    if (e.target.name === 'bookID') {
+  const handleInputChange = (e) => {
+    if (e.target.name === "bookID") {
       setBookID(e.target.value);
-    } else if (e.target.name === 'bookTitle') {
+    } else if (e.target.name === "bookTitle") {
       setBookTitle(e.target.value);
     } else {
       setBookAuthor(e.target.value);
     }
-};
-
-const handleSubmit = e => {
-  e.preventDefault();
-
-  const book = {
-    bookID,
-    bookTitle,
-    bookAuthor,
   };
 
-  axios
-    .post('/create', book)
-    .then(() => console.log('Book Created'))
-    .catch(err => {
-      console.error(err);
-    });
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const book = {
+      bookID,
+      bookTitle,
+      bookAuthor,
+    };
+
+    axios
+      .post("/create", book)
+      .then(() => console.log("Book Created"))
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <div className="col s12 m8">
