@@ -36,7 +36,8 @@ const CreateBook = () => {
 
   return (
     <div className="col s12 m8">
-      <br />
+      
+      <p>Want to sell your books? Fill out this form and we'll display it on BookIt.</p>
       <div className="book-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

@@ -29,6 +29,9 @@ code {
 .flex-justify {
   justify-content: space-between;
 }
+.flex-column {
+  flex-direction: column;
+}
 /*header*/
 .head-nav, 
 .header-icons{
