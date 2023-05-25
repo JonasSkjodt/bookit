@@ -21,8 +21,10 @@ https://cdn.jsdelivr.net/npm/material-icons@1.13.6/iconfont/material-icons.min.c
 " rel="stylesheet">
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.collapsible');
-      var instances = M.Collapsible.init(elems);
+      var elem = document.querySelector('.collapsible.expandable');
+var instance = M.Collapsible.init(elem, {
+  accordion: false
+});
     });
     </script>
     <title>React App</title>
