@@ -5,27 +5,27 @@ import './about.css';
 const About = () => {
 return (
 	<div className="container">
-		 <div class="section white">
-      <div class="row container">
-        <h2 class="header our_goal">About Us</h2>
+		 <div className="section white">
+      <div className="row container">
+        <h2 className="header our_goal">About Us</h2>
       </div>
     </div>
-		<div class="parallax-container">
-      <div class="parallax"><img src="/javascriptbook.jpg" /></div>
+		<div className="parallax-container">
+      <div className="parallax"><img src="/javascriptbook.jpg" /></div>
     </div>
-    <div class="section white">
-      <div class="row container">
-        <h2 class="header our_goal">The Goal</h2>
-        <p class="grey-text text-darken-3 lighten-3">Our goal with bookit has been and always will be to allow students...</p>
+    <div className="section white">
+      <div className="row container">
+        <h2 className="header our_goal">The Goal</h2>
+        <p className="grey-text text-darken-3 lighten-3">Our goal with bookit has been and always will be to allow students...</p>
       </div>
     </div>
-    <div class="parallax-container">
-      <div class="parallax"><img src="/javascriptbook.jpg" /></div>
+    <div className="parallax-container">
+      <div className="parallax"><img src="/javascriptbook.jpg" /></div>
     </div>
-	<div class="section white">
-      <div class="row container">
-        <h2 class="header our_goal">The Story</h2>
-        <p class="grey-text text-darken-3 lighten-3">Bookit started as a ...</p>
+	<div className="section white">
+      <div className="row container">
+        <h2 className="header our_goal">The Story</h2>
+        <p className="grey-text text-darken-3 lighten-3">Bookit started as a ...</p>
       </div>
     </div>
 	<h1>about</h1>
