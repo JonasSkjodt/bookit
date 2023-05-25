@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-function makeNumber(str)
 
 const Checkout = () => {
   const [value, setValue] = useState("");
