@@ -1,6 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+
+function makeNumber(str)
 
 const Checkout = () => {
+  const [value, setValue] = useState("");
+  const [valueDateM, setValueDateM] = useState("");
+  const [valueDateY, setValueDateY] = useState("");
+  const [valueCVC, setValueCVC] = useState("");
+
+  const handleChange = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+
+    setValue(result);
+  };
+
+  const handleChangeDateM = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+    let check = parseInt(result);
+    if (check >= 1 && check <= 9) {
+      setValueDateM(result);
+    } else if (check > 12) {
+      setValueDateM("12");
+    } else {
+      setValueDateM(result);
+    }
+  };
+
+  const handleChangeDateY = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+
+    setValueDateY(result);
+  };
+
+  const handleChangeCVC = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+
+    setValueCVC(result);
+  };
+
   return (
     <div className="container checkout">
       <h1>Checkout</h1>
@@ -42,10 +79,11 @@ const Checkout = () => {
             <input
               className="validate white-text"
               id="cardnumber"
-              type="number"
+              type="text"
               pattern="\d*"
-              //pattern="[0-9\s]{13,19}"
               max="9999999999999999"
+              value={value}
+              onChange={handleChange}
               inputmode="numeric"
               maxLength="19"
             />
@@ -55,14 +93,13 @@ const Checkout = () => {
                 <input
                   className="validate white-text"
                   id="carddate1"
-                  type="number"
+                  type="text"
                   pattern="\d*"
                   inputmode="numeric"
                   placeholder="MM"
-                  min="01"
-                  max="12"
+                  value={valueDateM}
+                  onChange={handleChangeDateM}
                   maxLength="2"
-                  onkeypress="return isNumber(event)"
                 />
                 <span
                   className="helper-text"
@@ -80,13 +117,13 @@ const Checkout = () => {
                 <input
                   className="validate white-text"
                   id="carddate2"
-                  type="number"
+                  type="text"
                   pattern="[0-9]"
-                  min="2023"
-                  max="2100"
                   inputmode="number"
                   placeholder="YY"
-                  maxLength="2"
+                  maxLength="4"
+                  value={valueDateY}
+                  onChange={handleChangeDateY}
                 />
               </div>
             </div>
@@ -95,13 +132,13 @@ const Checkout = () => {
                 <input
                   className="validate white-text"
                   id="cardcvc"
-                  type="number"
+                  type="text"
                   pattern="[0-9]"
                   inputmode="number"
-                  min="000"
-                  max="999"
                   placeholder="CVC"
                   maxLength="3"
+                  value={valueCVC}
+                  onChange={handleChangeCVC}
                 />
               </div>
             </div>
