@@ -12,15 +12,15 @@ const Footer = () => {
                         <h2>BookIT</h2>
                     </div>
                     <div className="">
-                    <div class="col l4 offset-l2 s12">
+                    <div className="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="waves-effect waves-light" href="#!">Contact us</a></li>
-                  <li><a href="#" rel="" className="waves-effect waves-light">About us</a></li>
+                  <li><a className="waves-effect waves-light" href="#!">Contact us</a></li>
+                  <li><a className="waves-effect waves-light" href="/about" rel="">About us</a></li>
                 </ul>
-                    <a href="https://www.facebook.com/" className="social_but"><img src="/facebook.png" /></a>
-                    <a href="https://www.twitter.com/" className="social_but"><img src="/twitter.png" /></a>
-                    <a href="https://www.reddit.com/" className="social_but"><img src="/reddit-logo.png" /></a>
+                    <a href="https://www.facebook.com/" className="social_but"><img src="/facebook.png" alt="facebook"/></a>
+                    <a href="https://www.twitter.com/" className="social_but"><img src="/twitter.png" alt="twitter"/></a>
+                    <a href="https://www.reddit.com/" className="social_but"><img src="/reddit-logo.png" alt="reddit"/></a>
               </div>
                         
                     </div>
