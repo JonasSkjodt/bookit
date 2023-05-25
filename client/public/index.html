@@ -19,7 +19,13 @@
      <link href="
 https://cdn.jsdelivr.net/npm/material-icons@1.13.6/iconfont/material-icons.min.css
 " rel="stylesheet">
-    <title>React App</title>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elem = document.querySelector('.collapsible.expandable');
+      var instance = M.Collapsible.init(elem);
+    });
+    </script>
+    <title>BookIT</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

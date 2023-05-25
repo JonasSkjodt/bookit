@@ -263,7 +263,8 @@ h1 {
     margin-right: 10px;
   } 
   .feat-btns .primary-btn {
-    min-width: 80px;
+    min-width: 70px;
+    margin-bottom:10px;
 }
 }
 @media (max-width: 782px) {
@@ -272,7 +273,13 @@ h1 {
 	}
   .product-details {
     max-width: 350px;
-}
+  }
+  .feat-btns {
+    flex-direction:column;
+  }
+  .section-features {
+    padding:0;
+  }
 }
 
 /*header mobile*/
@@ -325,12 +332,15 @@ h1 {
     
     -webkit-touch-callout: none;
   }
-
+/*overrides materializes pointer-event:0*/
   #menuToggle input[type="checkbox"]+span:not(.lever):before,
   #menuToggle input[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
     border:transparent;
   }
 
+  #menuToggle input[type="checkbox"]+span:not(.lever) {
+    padding-left: 33px;
+  }
   /*
   * The hamburger
   */

@@ -19,9 +19,25 @@
 }
 
 .parallax1 {
-    background-image: url("https://i.kym-cdn.com/entries/icons/original/000/026/489/crying.jpg");
+    background-image: url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80");
 }
 
 .parallax2 {
-    background-image: url("");
+    background-image: url("https://images.unsplash.com/photo-1549383028-df014fa3a325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80");
+}
+
+.parallax3 {
+    background-image: url("https://images.unsplash.com/photo-1465929639680-64ee080eb3ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80");
+}
+
+.about_us_section {
+    
+}
+
+.paragraphText {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-shadow: 0 0 1px #fff;
+    text-align: justify;
 }
