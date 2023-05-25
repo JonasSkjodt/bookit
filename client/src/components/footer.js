@@ -15,8 +15,8 @@ const Footer = () => {
                     <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="waves-effect waves-light" href="#!">Contact us</a></li>
-                  <li><a href="#" rel="" className="waves-effect waves-light">About us</a></li>
+                  <li><a class="waves-effect waves-light" href="/contact">Contact us</a></li>
+                  <li><a href="/about" rel="" className="waves-effect waves-light">About us</a></li>
                 </ul>
                     <a href="https://www.facebook.com/" className="social_but"><img src="/facebook.png" /></a>
                     <a href="https://www.twitter.com/" className="social_but"><img src="/twitter.png" /></a>
