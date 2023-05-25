@@ -1,13 +1,13 @@
 [{
     "id": 1,
-    "text": "Algs4"
+    "text": "About"
 }, {
     "id": 2,
-    "text": "Javascript"
+    "text": "Contact"
 }, {
     "id": 3,
-    "text": "Java"
+    "text": "Profile"
 }, {
     "id": 4,
-    "text": "C++"
+    "text": "Login"
 }] 

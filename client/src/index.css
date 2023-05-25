@@ -263,7 +263,8 @@ h1 {
     margin-right: 10px;
   } 
   .feat-btns .primary-btn {
-    min-width: 80px;
+    min-width: 70px;
+    margin-bottom:10px;
 }
 }
 @media (max-width: 782px) {
@@ -272,7 +273,13 @@ h1 {
 	}
   .product-details {
     max-width: 350px;
-}
+  }
+  .feat-btns {
+    flex-direction:column;
+  }
+  .section-features {
+    padding:0;
+  }
 }
 
 /*header mobile*/
