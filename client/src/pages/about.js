@@ -10,18 +10,14 @@ return (
         <h2 className="header our_goal">About Us</h2>
       </div>
     </div>
-		<div className="parallax parallax1">
-      
-    </div>
+		<div className="parallax parallax1"></div>
     <div className="section white">
       <div className="row container">
         <h2 className="header our_goal">The Goal</h2>
         <p className="grey-text text-darken-3 lighten-3">Our goal with bookit has been and always will be to allow students...</p>
       </div>
     </div>
-    <div className="parallax-container">
-      <div className="parallax"><img src="/javascriptbook.jpg" /></div>
-    </div>
+    <div className="parallax parallax2"></div>
 	<div className="section white">
       <div className="row container">
         <h2 className="header our_goal">The Story</h2>
