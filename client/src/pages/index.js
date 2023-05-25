@@ -33,8 +33,8 @@ const Home = () => {
 								</div>
 								<div className="feat-btns">
 
-								<a href="#" className="primary-btn waves-effect waves-light">Add to cart</a>
-                				<a href="#" className="primary-btn feat-details-btn waves-effect waves-light">View details</a>
+								<a href="#bookbrowsing" className="primary-btn waves-effect waves-light">Buy a book</a>
+                				<a href="#" className="primary-btn feat-details-btn waves-effect waves-light">Become a seller</a>
                 				
 								</div>
 							</div>
@@ -42,11 +42,11 @@ const Home = () => {
 					</div>
 				</div>
 				</div>
-
-			<div className='container'>
-				<div className='section section-features'>
+			
+				<div id="bookbrowsing" className='section section-features'>
 				<div className="section-header">
-				<	h2 className="section-header__title">Browse our books</h2>
+				<div className='container'>
+					<h2 className="section-header__title">Browse our books</h2>
 					<div className="row">
 						
 						{customers.map((customer) => {
