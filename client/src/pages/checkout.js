@@ -27,7 +27,7 @@ return (
     </form>
   	</div>
 	<div className="input-field">
-		<input id="cardnumber" type="text" pattern="[0-9]" inputmode="numeric"/>
+		<input id="cardnumber" type="text" pattern="[0-9]" inputmode="number"/>
 		<label for="cardnumber">cardnumber</label>
 	</div>
 	
