@@ -9,7 +9,21 @@ const Navbar = () => {
 
 return (
 	<>
-	<div className="container head-nav">
+	<div className="head-nav">
+	
+		<div id="menuToggle">
+			<input type="checkbox" />
+			<span></span>
+			<span></span>
+			<span></span>
+			
+			<ul id="menu">
+			<a href="/"><li>Home</li></a>
+			<a href="/about"><li>About</li></a>
+			<a href="/contact"><li>Contact</li></a>
+			</ul>
+		</div>
+
 		<Nav>
 			<NavMenu>
 			<NavLink to="/" activestyle="true">
@@ -23,21 +37,7 @@ return (
 			</NavLink>
 			</NavMenu>
 		</Nav>
-		<div role="mob-nav">
-			<div id="menuToggle">
-				<input type="checkbox" />
-				<span></span>
-				<span></span>
-				<span></span>
-				<ul id="menu">
-				<a href="#"><li>Home</li></a>
-				<a href="#"><li>About</li></a>
-				<a href="#"><li>Info</li></a>
-				<a href="#"><li>Contact</li></a>
-				<a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
-				</ul>
-  			</div>
-		</div>
+		
 		<div className="header-icons">
 			<a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
 			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
