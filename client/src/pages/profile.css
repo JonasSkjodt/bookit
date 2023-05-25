@@ -1,0 +1,9 @@
+.user-profile {
+    margin:25px 0;
+}
+.user-msg {
+    text-transform: capitalize;
+}
+.user-img {
+    width:100%
+}

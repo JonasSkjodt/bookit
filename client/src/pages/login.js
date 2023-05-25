@@ -1,7 +1,9 @@
 import React from 'react';
 import './login.css';
+import useLoggedIn from '../components/Navbar/useLoggedIn';
 
 const LogIn = () => {
+  const {loggedIn, setLoggedIn} = useLoggedIn(); 
   return (
     <div className="container login">
       <h1>Login</h1>
@@ -20,22 +22,24 @@ const LogIn = () => {
             </div>
           </div>
           <div className="row center-align">
-            <button type="submit" className="waves-effect waves-light btn-large" onClick={() => onSubmitForm()}>Login</button>
+            <button type="submit" className="waves-effect waves-light btn-large" onClick={() => onSubmitForm(setLoggedIn)}>Login</button>
           </div>
         </form>
       </div>
     </div>
   );
-};
+}
+
 
 const setAuthUser = (username) => {
   localStorage.setItem('authUser', username);
 }
 
 // Event handler for form submissions
-const onSubmitForm = () => {
+const onSubmitForm = (setLoggedIn) => {
   const username = document.querySelector('#first_name').value;
   const password = document.querySelector('#password').value;
+
 
   fetch('/api/login', {
     method: 'POST',
@@ -47,7 +51,9 @@ const onSubmitForm = () => {
     if (response.ok) {
        // Set auth user
        setAuthUser(username);
-       // Redirect to profile page
+       // Set loggedin status
+       setLoggedIn(true);
+      // Redirect to profile page
       window.location.href = '/profile';
     } else {
       alert('Login failed!');

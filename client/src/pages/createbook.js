@@ -5,6 +5,7 @@ const CreateBook = () => {
   const [bookID, setBookID] = useState('');
   const [bookTitle, setBookTitle] = useState('');
   const [bookAuthor, setBookAuthor] = useState('');
+  /*should add images etc*/
 
   const handleInputChange = e => {
     if (e.target.name === 'bookID') {
@@ -34,9 +35,9 @@ const handleSubmit = e => {
 };
 
   return (
-    <div className="row">
+    <div className="col s12 m8">
       <br />
-      <div className="book-form col s12 m6">
+      <div className="book-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input

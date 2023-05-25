@@ -5,12 +5,11 @@ import useLoggedIn from './useLoggedIn';
 
 const Navbar = () => {
 	/*can be found in useLoggedin.js*/ 
-	const loggedIn = useLoggedIn();
+	const {loggedIn} = useLoggedIn();
 
 return (
 	<>
 	<div className="container head-nav">
-	
 		<div id="menuToggle">
 			<input type="checkbox" />
 			<span></span>
@@ -42,8 +41,11 @@ return (
 		<div className="header-icons">
 			<a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
 			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
+			
 			{loggedIn ? (
+					<> 
 					<a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+					</>
         		) : (
             		<a href="/login" className="waves-effect waves-light"><button className="waves-effect waves-light">Login</button></a>
           		)
@@ -55,3 +57,11 @@ return (
 };
 
 export default Navbar;
+
+/*
+Hvorfor bruger vi det her i react?
+<>
+</>
+Det er et tom react fragments som bruges til nemmere at tilføje flere nodes til det samme DOM
+(ie bedre loading)
+*/
