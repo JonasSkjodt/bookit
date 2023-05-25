@@ -14,7 +14,7 @@ const Search = () => {
 		<div className="container">
 			<h1>search page</h1>
 			<div className="search">
-				<input id="outlined-basic" className="white-text" onChange={inputHandler} variant="outlined" fullWidth label="Search"/>
+				<input id="outlined-basic" className="white-text" onChange={inputHandler} variant="outlined" label="Search"/>
 			</div>
 			<List input={inputText} />
 		</div>
