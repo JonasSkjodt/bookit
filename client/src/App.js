@@ -28,9 +28,10 @@ return (
 		<Route path='/contact' element={<Contact/>} />
 		<Route path="/signup" element={<SignUp />} />
 		<Route path="/checkout" element={<Checkout />} />
-		{loggedIn ? (
-          <Route path="/profile" element={<Profile />} />
-        ) : (
+		{loggedIn ?
+		  (
+          	<Route path="/profile" element={<Profile />} />
+          ) : (
             <Route path="/login" element={<LogIn />} />
           )
         }
