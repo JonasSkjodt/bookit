@@ -325,12 +325,15 @@ h1 {
     
     -webkit-touch-callout: none;
   }
-
+/*overrides materializes pointer-event:0*/
   #menuToggle input[type="checkbox"]+span:not(.lever):before,
   #menuToggle input[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
     border:transparent;
   }
 
+  #menuToggle input[type="checkbox"]+span:not(.lever) {
+    padding-left: 33px;
+  }
   /*
   * The hamburger
   */
