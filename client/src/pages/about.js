@@ -10,8 +10,8 @@ return (
         <h2 className="header our_goal">About Us</h2>
       </div>
     </div>
-		<div className="parallax-container">
-      <div className="parallax"><img src="/javascriptbook.jpg" /></div>
+		<div className="parallax parallax1">
+      
     </div>
     <div className="section white">
       <div className="row container">
