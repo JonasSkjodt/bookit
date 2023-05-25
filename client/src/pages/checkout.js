@@ -4,7 +4,6 @@ const Checkout = () => {
 return (
 	<div className="container checkout">
 		<h1>Checkout</h1>
-		<p>test test test</p>
 		<div className="row">
       		<form className="col s12">
        			<div className="row">
@@ -24,12 +23,13 @@ return (
           <span className="helper-text" data-error="Insert an email again" data-success="right">Insert an email to receive receipt</span>
         </div>
       </div>
+      <div className="input-field">
+      <input id="cardnumber" type="text" pattern="[0-9]" inputmode="number" className="white-text"/>
+      <label for="cardnumber">cardnumber</label>
+      </div>
     </form>
   	</div>
-	<div className="input-field">
-		<input id="cardnumber" type="text" pattern="[0-9]" inputmode="number"/>
-		<label for="cardnumber">cardnumber</label>
-	</div>
+
 	
     </div>
 );

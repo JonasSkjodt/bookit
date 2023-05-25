@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function useLoggedIn() {
   const [authUser, setAuthUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true); 
 
   useEffect(() => {
     const authUser = localStorage.getItem('authUser');
@@ -12,7 +12,7 @@ export default function useLoggedIn() {
       // this makes it reload it constantly, but
       //window.location.href = '/profile';
     } else {
-      setLoggedIn(false);
+      setLoggedIn(true); //right now it only hits the else statement, even though its logged in.
     }
   }, [authUser, setAuthUser]);
 
