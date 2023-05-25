@@ -4,46 +4,34 @@ import './about.css';
 
 const About = () => {
 return (
-	<div className="container">
-		 <div className="section white">
+	<div className="">
+		 <div className="section about_us_section">
       <div className="row container">
         <h2 className="header our_goal">About Us</h2>
       </div>
     </div>
 		<div className="parallax parallax1"></div>
-    <div className="section white">
+    <div className="section">
       <div className="row container">
         <h2 className="header our_goal">The Goal</h2>
-        <p className="grey-text text-darken-3 lighten-3">Our goal with bookit has been and always will be to allow students...</p>
+        <p className="grey-text text-darken-3 lighten-3 paragraphText">Our goal with BookIT has been and always will be to allow students to buy and sell academic literature fast and easily. We believe it's everybody should have the
+        right to study only based on their knowledge and hard work. Sadly for many a roadblock will be the price of academic books and literature. We here at BookIT do not believe that the defining factor for wether a student gets to follow their dreams should be
+        their wealth. We want to ensure that all students can get required reading material for courses as cheap as possible whilst also allowing students to recoup cost from already owned books. This helps create a 
+        circular economy where students help and thrive off each other creating more opportunities for everyone </p>
       </div>
     </div>
     <div className="parallax parallax2"></div>
-	<div className="section white">
+	<div className="section">
       <div className="row container">
         <h2 className="header our_goal">The Story</h2>
-        <p className="grey-text text-darken-3 lighten-3">Bookit started as a ...</p>
+        <p className="grey-text text-darken-3 lighten-3 paragraphText">BookIT started as a small business catered towards students who didn't want to spend too much on academic books. The founder would
+        go around on campus and post online trying to coordinate book trades between students. It eventually got so popular that he decided to launch his own website and BookIT is now one of the 
+        most widely used book trading and selling sites for students across the country.</p>
       </div>
+      <div className="parallax parallax3"></div>
     </div>
-	<h1>about</h1>
-	<div className="row">
-		<div className="col s3 about-img">
-			<img src="/javascriptbook.jpg" alt="javascriptbook" />
-			<img src="/javascriptbook.jpg" alt="javascriptbook" />
-			<img src="/javascriptbook.jpg" alt="javascriptbook" />
-		</div>
-		<div className="col s9">
-			<p>Hvad er Lorem Ipsum?
-Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte for at trykke en bog til sammenligning af forskellige skrifttyper. Lorem Ipsum har ikke alene overlevet fem århundreder, men har også vundet indpas i elektronisk typografi uden væsentlige ændringer. Sætningen blev gjordt kendt i 1960'erne med lanceringen af Letraset-ark, som indeholdt afsnit med Lorem Ipsum, og senere med layoutprogrammer som Aldus PageMaker, som også indeholdt en udgave af Lorem Ipsum.
-
-Hvorfor bruger vi det?
-Det er en kendsgerning, at man bliver distraheret af læsbart indhold på en side, når man betragter dens layout. Meningen med at bruge Lorem Ipsum er, at teksten indeholder mere eller mindre almindelig tekstopbygning i modsætning til "Tekst her - og mere tekst her", mens det samtidigt ligner almindelig tekst. Mange layoutprogrammer og webdesignere bruger Lorem Ipsum som fyldtekst. En søgning på Lorem Ipsum afslører mange websider, som stadig er på udviklingsstadiet. Der har været et utal af variationer, som er opstået enten på grund af fejl og andre gange med vilje (som blandt andet et resultat af humor).
-
-
-Hvor kommer det fra?
-I modsætning til hvad mange tror, er Lorem Ipsum ikke bare tilfældig tekst. Det stammer fra et stykke litteratur på latin fra år 45 f.kr., hvilket gør teksten over 2000 år gammel. Richard McClintock, professor i latin fra Hampden-Sydney universitet i Virginia, undersøgte et af de mindst kendte ord "consectetur" fra en del af Lorem Ipsum, og fandt frem til dets oprindelse ved at studere brugen gennem klassisk litteratur. Lorem Ipsum stammer fra afsnittene 1.10.32 og 1.10.33 fra "de Finibus Bonorum et Malorum" (Det gode og ondes ekstremer), som er skrevet af Cicero i år 45 f.kr. Bogen, som var meget populær i renæssancen, er en afhandling om etik. Den første linie af Lorem Ipsum "Lorem ipsum dolor sit amet..." kommer fra en linje i afsnit 1.10.32.</p>
-		</div>
-	</div>
-	</div>
+    </div>
+	
 	
 );
 };
