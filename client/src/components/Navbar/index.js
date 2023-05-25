@@ -27,7 +27,7 @@ return (
 		<Nav>
 			<NavMenu>
 			<NavLink to="/" activestyle="true">
-				<img src="/LogoBookIT.png" alt="Logo" />
+				<img Style="width:55px;" src="/LogoBookIT.png" alt="Logo" />
 				Home
 			</NavLink>
 			<NavLink to="/about" activestyle="true">
