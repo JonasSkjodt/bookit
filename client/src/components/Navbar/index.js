@@ -23,10 +23,11 @@ return (
 			<a href="/contact"><li>Contact</li></a>
 			</ul>
 		</div>
-
+		
 		<Nav>
 			<NavMenu>
 			<NavLink to="/" activestyle="true">
+				<img src="/LogoBookIT.png" alt="Logo" />
 				Home
 			</NavLink>
 			<NavLink to="/about" activestyle="true">
