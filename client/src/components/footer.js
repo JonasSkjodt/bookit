@@ -18,19 +18,9 @@ const Footer = () => {
                   <li><a class="waves-effect waves-light" href="#!">Contact us</a></li>
                   <li><a href="#" rel="" className="waves-effect waves-light">About us</a></li>
                 </ul>
-                <ul class="hor_list">
-                    <li>
-                        <button class="social_but">
-                            <a href="https://www.facebook.com/"><img src="/facebook-logo.png" /></a>
-                        </button>
-                        <button class="social_but">
-                            <a href="https://www.twitter.com/"><img src="/twitter-logo.png" /></a>
-                        </button>
-                        <button class="social_but">
-                            <a href="https://www.reddit.com/"><img src="/reddit-logo.png" /></a>
-                        </button>
-                    </li>
-                </ul>
+                    <a href="https://www.facebook.com/" className="social_but"><img src="/facebook.png" /></a>
+                    <a href="https://www.twitter.com/" className="social_but"><img src="/twitter.png" /></a>
+                    <a href="https://www.reddit.com/" className="social_but"><img src="/reddit-logo.png" /></a>
               </div>
                         
                     </div>
