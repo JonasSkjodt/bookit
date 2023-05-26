@@ -1,0 +1,33 @@
+.bRad {
+    border-radius:8px;
+  }
+  /*cards*/
+  .section-header__title {
+    font-size:2em;
+  }
+  .card {
+    background: var(--bg-transparent);
+    box-shadow:none;
+  }
+  .book-tag{
+    color: #0ad89b;
+  }
+  .card-panel{
+    background: var(--bg-transparent);
+    border: 2px solid var(--border-color);
+    color: var(--border-color);
+  }
+  .card .card-image.bRadT img{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .card.bRad .card-action:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .card .btn-floating.halfway-fab {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+  }
+  
