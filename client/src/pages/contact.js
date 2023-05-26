@@ -8,10 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {
 return (
 	<div className="container">
-
-
-<button onClick={() => toast('I am a toast')}>Toast!</button>
-<ToastContainer />
   
   
   
@@ -131,8 +127,8 @@ return (
       <div className="row">
         <div className="input-field col s6">
           <i className="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" className="materialize-textarea white-text"></textarea>
-          <label htmlFor="icon_prefix2">Subject</label>
+          <textarea id="icon_prefix3" className="materialize-textarea white-text"></textarea>
+          <label htmlFor="icon_prefix3">Subject</label>
         </div>
       </div>
 	  <div className="row">
@@ -142,10 +138,12 @@ return (
         </div>
       </div>
     </form>
-    {/*TODO this doesn't work because materialize is a good framework :) onClick="M.toast({html: 'Thank you for your inquiry. We will get back to you as soon as possible'})" */}
-    <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+    
+    <button onClick={() => toast('Thank you for your inquiry. We will get back to you as soon as possible')} className="btn waves-effect waves-light" type="submit" name="action">Submit
     <i className="material-icons right">send</i>
-  </button>
+    </button>
+    <ToastContainer />
+    
   </div>
 	</div>
 );

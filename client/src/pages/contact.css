@@ -6,7 +6,9 @@
 .spacer {
     min-height: 10%;
 }
-
+.collapsible-header {
+    background: transparent;
+}
 .employees {
     width: 100%;
     margin-left: 10%;
