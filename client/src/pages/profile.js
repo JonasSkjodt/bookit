@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CreateBook from './createbook.js';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
+import Books from '../components/books';
 import './profile.css';
 
 const Profile = () => {
@@ -111,6 +112,8 @@ const Profile = () => {
 					</div>
 				</div>
 				<CreateBook/>
+				
+	<Books />
 				<button onClick={() => {setLoggedIn(false); setAuthUser(null); localStorage.removeItem('authUser'); localStorage.clear()}}>Log out</button>
 				</>
 				) : (

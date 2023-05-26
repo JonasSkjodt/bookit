@@ -27,7 +27,7 @@ const CreateBook = () => {
     };
 
     axios
-      .post("/create", book)
+      .post("/api/create", book)
       .then(() => console.log("Book Created"))
       .catch((err) => {
         console.error(err);
@@ -36,7 +36,6 @@ const CreateBook = () => {
 
   return (
     <div className="col s12 m8">
-      
       <p>Want to sell your books? Fill out this form and we'll display it on BookIt.</p>
       <div className="book-form">
         <form onSubmit={handleSubmit}>
