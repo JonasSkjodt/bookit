@@ -1,14 +1,38 @@
-const express = require('express');
+const express = require("express");
 //const cors = require('cors');
 
 const app = express();
 
-app.get('/api/customers', (req, res) => {
+app.get("/api/customers", (req, res) => {
   const customers = [
-    {id: 1, bookName: 'C++', tags: 'Algorithms', image: 'c++book.png', about: 'This is text about C++'},
-    {id: 2, bookName: 'Javascript', tags: 'Programming', image: 'javascriptbook.jpg', about: 'This is text about Javascript'},
-    {id: 3, bookName: 'Java', tags: 'Programming', image: 'javabook.jpg', about: 'This is text about Java'},
-    {id: 4, bookName: 'PHP', tags: 'Programming', image: 'phpbook.png', about: 'This is text about PHP'},
+    {
+      id: 1,
+      bookName: "C++",
+      tags: "Algorithms",
+      image: "c++book.png",
+      about: "This is text about C++",
+    },
+    {
+      id: 2,
+      bookName: "Javascript",
+      tags: "Programming",
+      image: "javascriptbook.jpg",
+      about: "This is text about Javascript",
+    },
+    {
+      id: 3,
+      bookName: "Java",
+      tags: "Programming",
+      image: "javabook.jpg",
+      about: "This is text about Java",
+    },
+    {
+      id: 4,
+      bookName: "PHP",
+      tags: "Programming",
+      image: "phpbook.png",
+      about: "This is text about PHP",
+    },
   ];
 
   res.json(customers);
@@ -19,56 +43,81 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define the user credentials
 const users = [
-  {id: 'bob', password: '123'}, 
-  {id: 'jack', password: '456'},
-  {id: 'peter', password: '789'}
+  { id: "bob", password: "123" },
+  { id: "jack", password: "456" },
+  { id: "peter", password: "789" },
 ];
 
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
-app.post('/api/login', (req, res) => {
-  const { body: { username, password } } = req;
-  const user = users.find(user => user.id === username && user.password === password);
+app.post("/api/login", (req, res) => {
+  const {
+    body: { username, password },
+  } = req;
+  const user = users.find(
+    (user) => user.id === username && user.password === password
+  );
 
   // if credentials valid
   if (user) {
-    console.log('User is logged in')
+    console.log("User is logged in");
     res.json({
       message: `Welcome ${user.id}`,
       token: `${user.id}2023`,
-      loggedIn: true
-    })
+      loggedIn: true,
+    });
   } else {
-    console.log('User is not logged in')
+    console.log("User is not logged in");
     res.json({
-      message: 'Invalid Credentials',
-      loggedIn: false
-    })
+      message: "Invalid Credentials",
+      loggedIn: false,
+    });
   }
 });
 
 let books = [];
 
-app.get('/api/create', function(req, res) {
-  console.log('Inside Create book Get');
+app.get("/api/create", function (req, res) {
+  console.log("Inside Create book Get");
   res.writeHead(200, {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   });
-  console.log('Books : ', JSON.stringify(books));
+  console.log("Books : ", JSON.stringify(books));
   res.end(JSON.stringify(books));
 });
 //add the book posts
-app.post('/api/create', function (req, res) {
+app.post("/api/create", function (req, res) {
   var newBook = {
-      "BookID": req.body.bookID,
-      "Title": req.body.bookTitle,
-      "Author": req.body.bookAuthor
-  }
-  books.push(newBook)
+    BookID: req.body.bookID,
+    Title: req.body.bookTitle,
+    Author: req.body.bookAuthor,
+  };
+  books.push(newBook);
   console.log(books);
 
- res.status(201).json({"some":"response"})
-})
+  res.status(201).json({ some: "response" });
+});
+
+let orders = [];
+app.get("/api/order", function (req, res) {
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+  });
+  console.log("Orders : ", JSON.stringify(orders));
+  res.end(JSON.stringify(orders));
+});
+app.post("/api/order", function (req, res) {
+  var newOrder = {
+    FirstName: req.body.,
+    LastName: req.body.lastName,
+    Email: req.body,
+    CardNumber: req.body,
+    CardDateMM: req.body,
+    CardDateYY: req.body,
+    CardCVC: req.body,
+  };
+  
+});
 
 const port = 5000;
 
