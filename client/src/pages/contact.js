@@ -8,11 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {
 return (
 	<div className="container">
-
-
-<button onClick={() => toast('I am a toast')}>Toast!</button>
 <ToastContainer />
-  
   
   
   <div className="section">
@@ -143,7 +139,7 @@ return (
       </div>
     </form>
     {/*TODO this doesn't work because materialize is a good framework :) onClick="M.toast({html: 'Thank you for your inquiry. We will get back to you as soon as possible'})" */}
-    <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+    <button className="btn waves-effect waves-light" onClick={() => toast('Thank you for your inquiry. We will get back to you as soon as possible')} type="submit" name="action">Submit
     <i className="material-icons right">send</i>
   </button>
   </div>
