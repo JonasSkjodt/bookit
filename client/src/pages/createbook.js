@@ -27,7 +27,7 @@ const CreateBook = () => {
     };
 
     axios
-      .post("/create", book)
+      .post("/api/create", book)
       .then(() => console.log("Book Created"))
       .catch((err) => {
         console.error(err);

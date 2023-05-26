@@ -1,6 +1,9 @@
 import React from 'react';
 import './contact.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+/*npm install react-toastify*/
 
 const Contact = () => {
 return (
@@ -13,7 +16,7 @@ return (
   </div>
   <div className="section spacer">
   </div>
-  <div className="section FAQ white">
+  <div className="section FAQ ">
         <h3 className="header center">FAQ</h3>
     <div className="row container"> 
       <div className="col s12 m6">
@@ -28,8 +31,8 @@ return (
         </span></div>
     </li>
     </ul>
-    <ul className="collapsible expandable">
-      <li>
+  <ul className="collapsible expandable">
+    <li>
       <div className="collapsible-header"><i className="material-icons">attach_money</i>Payment options & pricing?</div>
       <div className="collapsible-body"><span>
         <h5>Payment options</h5>
@@ -40,8 +43,8 @@ return (
         the seller will be notified that they should lower the price. If the book is not sold within 60 days the seller will be notified again and the book will be removed from the site. If you have any questions
         regarding the pricing of a product please contact the seller as we do not have any direct control over this.
          </span></div>
-      </li>
-    </ul>
+    </li>
+  </ul>
     <ul className="collapsible expandable">
       <li>
       <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
@@ -76,7 +79,7 @@ return (
 
   <div className="row container">
     <div className="col s12 m6">
-      <div className="section white employees_section">
+      <div className="section employees_section">
         <div className="row">
           <div className="col s12 m6">
             <img className="employees employees_John" src="https://images.unsplash.com/photo-1618568949779-895d81686151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80"></img>
@@ -91,7 +94,7 @@ return (
       </div>
     </div>
     <div className="col s12 m6">
-      <div className="section white employees_section">
+      <div className="section employees_section">
       <div className="row">
           <div className="col s12 m6">
             <img className="employees employees_Seb" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"></img>
@@ -120,8 +123,8 @@ return (
       <div className="row">
         <div className="input-field col s6">
           <i className="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" className="materialize-textarea white-text"></textarea>
-          <label htmlFor="icon_prefix2">Subject</label>
+          <textarea id="icon_prefix3" className="materialize-textarea white-text"></textarea>
+          <label htmlFor="icon_prefix3">Subject</label>
         </div>
       </div>
 	  <div className="row">
@@ -131,9 +134,12 @@ return (
         </div>
       </div>
     </form>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
+    
+    <button onClick={() => toast('Thank you for your inquiry. We will get back to you as soon as possible')} className="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i className="material-icons right">send</i>
+    </button>
+    <ToastContainer />
+
   </div>
 	</div>
 );

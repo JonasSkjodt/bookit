@@ -83,11 +83,10 @@ const Profile = () => {
 									</div>
 								</div>
 							</div>
-					
 						</div>
 
 						<div className='col s12 m12'>
-							<p>Newly added book users on BookIT</p>
+							<p>Newly added books on BookIT</p>
 							<div className=''>
 								<div className='col s4 m2'>
 								<img className='small-book' src="https://source.unsplash.com/random/35×35" alt="" />
