@@ -50,6 +50,10 @@ const users = [
 
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
+
 app.post("/api/login", (req, res) => {
   const {
     body: { username, password },

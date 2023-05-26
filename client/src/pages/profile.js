@@ -6,7 +6,7 @@ import './profile.css';
 
 const Profile = () => {
 	const {loggedIn, setLoggedIn} = useLoggedIn();
-	const [setAuthUser] = useState(null);
+	const [authUser, setAuthUser] = useState(null);
 	const username = localStorage.getItem('authUser');
 
 		return (
