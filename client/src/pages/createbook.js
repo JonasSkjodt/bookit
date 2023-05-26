@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const CreateBook = () => {
-  const [bookID, setBookID] = useState('');
-  const [bookTitle, setBookTitle] = useState('');
-  const [bookAuthor, setBookAuthor] = useState('');
+  const [bookID, setBookID] = useState("");
+  const [bookTitle, setBookTitle] = useState("");
+  const [bookAuthor, setBookAuthor] = useState("");
   /*should add images etc*/
 
   const handleInputChange = (e) => {
@@ -25,6 +25,7 @@ const CreateBook = () => {
       bookTitle,
       bookAuthor,
     };
+    console.log(book);
 
     axios
       .post("/api/create", book)
@@ -36,8 +37,10 @@ const CreateBook = () => {
 
   return (
     <div className="col s12 m8">
-      
-      <p>Want to sell your books? Fill out this form and we'll display it on BookIt.</p>
+      <p>
+        Want to sell your books? Fill out this form and we'll display it on
+        BookIt.
+      </p>
       <div className="book-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
