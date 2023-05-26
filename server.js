@@ -19,7 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define the user credentials
 const users = [
-  {id: 'bob', password: '123'}
+  {id: 'bob', password: '123'}, 
+  {id: 'jack', password: '456'},
+  {id: 'peter', password: '789'}
 ];
 
 // Add the login route
@@ -33,7 +35,7 @@ app.post('/api/login', (req, res) => {
     console.log('User is logged in')
     res.json({
       message: `Welcome ${user.id}`,
-      token: `${user.id}2019`,
+      token: `${user.id}2023`,
       loggedIn: true
     })
   } else {
