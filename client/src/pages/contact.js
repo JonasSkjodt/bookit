@@ -24,7 +24,7 @@ return (
   </div>
   <div className="section spacer">
   </div>
-  <div className="section FAQ white">
+  <div className="section FAQ ">
         <h3 className="header center">FAQ</h3>
     <div className="row container"> 
       <div className="col s12 m6">
@@ -87,7 +87,7 @@ return (
 
   <div className="row container">
     <div className="col s12 m6">
-      <div className="section white employees_section">
+      <div className="section employees_section">
         <div className="row">
           <div className="col s12 m6">
             <img className="employees employees_John" src="https://images.unsplash.com/photo-1618568949779-895d81686151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80"></img>
@@ -102,7 +102,7 @@ return (
       </div>
     </div>
     <div className="col s12 m6">
-      <div className="section white employees_section">
+      <div className="section employees_section">
       <div className="row">
           <div className="col s12 m6">
             <img className="employees employees_Seb" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"></img>
@@ -142,8 +142,9 @@ return (
         </div>
       </div>
     </form>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
+    {/*TODO this doesn't work because materialize is a good framework :) onClick="M.toast({html: 'Thank you for your inquiry. We will get back to you as soon as possible'})" */}
+    <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i className="material-icons right">send</i>
   </button>
   </div>
 	</div>
