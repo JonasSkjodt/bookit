@@ -70,7 +70,7 @@ app.post('/api/create', function (req, res) {
   books.push(newBook)
   console.log(books);
 
- res.status(201).json({"some":"response"})
+ res.status(201).json({"accepted":"response"})
 })
 
 const port = 5000;

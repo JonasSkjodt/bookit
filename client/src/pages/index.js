@@ -9,6 +9,7 @@ const Home = () => {
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
+	
 
 	return (
 		<div className='App'>
