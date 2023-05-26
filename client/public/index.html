@@ -16,25 +16,19 @@
      <!-- Compiled and minified JavaScript -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script async>
+      $(document).ready(function() {
+      $('.collapsible').collapsible();
+      })
+      </script>
      <!-- The materialized icons -->
      <link href="
 https://cdn.jsdelivr.net/npm/material-icons@1.13.6/iconfont/material-icons.min.css
 " rel="stylesheet">
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elem = document.querySelector('.collapsible.expandable');
-      var instance = M.Collapsible.init(elem);
-    });
-    </script>
     <title>BookIT</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
-  <script>
-    $(document).ready(function() {
-  $('.collapsible').collapsible();
-})
-  </script>
 </html>

@@ -39,8 +39,8 @@ return (
         </span></div>
     </li>
     </ul>
-    <ul className="collapsible expandable">
-      <li>
+  <ul className="collapsible expandable">
+    <li>
       <div className="collapsible-header"><i className="material-icons">attach_money</i>Payment options & pricing?</div>
       <div className="collapsible-body"><span>
         <h5>Payment options</h5>
@@ -51,8 +51,8 @@ return (
         the seller will be notified that they should lower the price. If the book is not sold within 60 days the seller will be notified again and the book will be removed from the site. If you have any questions
         regarding the pricing of a product please contact the seller as we do not have any direct control over this.
          </span></div>
-      </li>
-    </ul>
+    </li>
+  </ul>
     <ul className="collapsible expandable">
       <li>
       <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
