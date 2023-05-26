@@ -50,6 +50,10 @@ const users = [
 
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
+
 app.post("/api/login", (req, res) => {
   const {
     body: { username, password },
@@ -74,6 +78,18 @@ app.post("/api/login", (req, res) => {
     });
   }
 });
+
+app.post("/api/signup", (req, res) => {
+  console.log("Creating new user");
+  let newUser = {
+    id: req.body.username,
+    password: req.body.password,
+  };
+  users.push(newUser);
+  console.log(users);
+
+  res.status(201).json({some: "response"})
+})
 
 //add the book posts
 //empty array for storing the books

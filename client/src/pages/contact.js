@@ -4,9 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 /*npm install react-toastify*/
-
+{/* <script async>
+      $(document).ready(function() {
+      $('.collapsible').collapsible();
+      });
+</script> */}
 const Contact = () => {
 return (
+
 	<div className="container">
   <div className="section">
     <h3 className="header center">Contact us</h3>

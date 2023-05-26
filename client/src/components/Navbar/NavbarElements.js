@@ -21,16 +21,15 @@ cursor: pointer;
 &.active {
 	color: #4d4dff;
 }
+& img {
+	width:55px;
+	margin-right:18px;
+}
 `;
 
 export const NavMenu = styled.div`
 display: flex;
 align-items: center;
-/* Second Nav */
-/* margin-right: 24px; */
-/* Third Nav */
-/* width: 100vw;
-white-space: nowrap; */
 @media screen and (max-width: 768px) {
 	display: none;
 }
