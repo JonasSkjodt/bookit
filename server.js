@@ -100,7 +100,10 @@ app.post("/api/create", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
+//add the order posts
+//empty array for storing the orders
 let orders = [];
+
 app.get("/api/order", function (req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
@@ -108,16 +111,21 @@ app.get("/api/order", function (req, res) {
   console.log("Orders : ", JSON.stringify(orders));
   res.end(JSON.stringify(orders));
 });
+
 app.post("/api/order", function (req, res) {
   var newOrder = {
-    // FirstName: req.body.
-    // LastName: req.body.lastName,
-    // Email: req.body,
-    // CardNumber: req.body,
-    // CardDateMM: req.body,
-    // CardDateYY: req.body,
-    // CardCVC: req.body,
+    FirstName: req.body.valueFirstName,
+    LastName: req.body.valueLastName,
+    Email: req.body.valueEmail,
+    CardNumber: req.body.valueNumber,
+    CardDateMM: req.body.valueDateM,
+    CardDateYY: req.body.valueDateY,
+    CardCVC: req.body.valueCVC,
   };
+  orders.push(newOrder);
+  console.log(orders);
+
+  res.status(201).json({ some: "response" });
 });
 
 const port = 5000;
