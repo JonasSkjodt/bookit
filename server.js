@@ -88,7 +88,7 @@ app.get("/api/create", function (req, res) {
   res.end(JSON.stringify(books));
 });
 
-app.post('/api/create', function (req, res) {
+app.post("/api/create", function (req, res) {
   var newBook = {
     BookID: req.body.bookID,
     Title: req.body.bookTitle,
@@ -97,8 +97,8 @@ app.post('/api/create', function (req, res) {
   books.push(newBook);
   console.log(books);
 
- res.status(201).json({"some":"response"})
-})
+  res.status(201).json({ some: "response" });
+});
 
 let orders = [];
 app.get("/api/order", function (req, res) {
@@ -110,15 +110,14 @@ app.get("/api/order", function (req, res) {
 });
 app.post("/api/order", function (req, res) {
   var newOrder = {
-    FirstName: req.body.,
-    LastName: req.body.lastName,
-    Email: req.body,
-    CardNumber: req.body,
-    CardDateMM: req.body,
-    CardDateYY: req.body,
-    CardCVC: req.body,
+    // FirstName: req.body.
+    // LastName: req.body.lastName,
+    // Email: req.body,
+    // CardNumber: req.body,
+    // CardDateMM: req.body,
+    // CardDateYY: req.body,
+    // CardCVC: req.body,
   };
-  
 });
 
 const port = 5000;
