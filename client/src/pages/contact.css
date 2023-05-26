@@ -55,4 +55,8 @@
         color: white;
         text-shadow: 2px 2px 2px black;
     }
+
+    .toast {
+        background-color: #232323;
+    }
 }
