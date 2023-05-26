@@ -8,60 +8,50 @@ const Navbar = () => {
 	const {loggedIn} = useLoggedIn();
 
 return (
-	<>
-	<div className="container head-nav">
-		<div id="menuToggle">
-			<input type="checkbox" />
-			<span></span>
-			<span></span>
-			<span></span>
-			
-			<ul id="menu">
-			<a href="/"><li>Home</li></a>
-			<a href="/about"><li>About</li></a>
-			<a href="/contact"><li>Contact</li></a>
-			</ul>
-		</div>
-		
-		<Nav>
-			<NavMenu>
-			<NavLink to="/" activestyle="true">
-				<img style={{width: 55}} src="/LogoBookIT.png" alt="Logo" />
-				Home
-			</NavLink>
-			<NavLink to="/about" activestyle="true">
-				About
-			</NavLink>
-			<NavLink to="/contact" activestyle="true">
-				Contact Us
-			</NavLink>
-			</NavMenu>
-		</Nav>
-		
-		<div className="header-icons">
-			<a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
-			<a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
-			
-			{loggedIn ? (
-					<> 
-					<a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
-					</>
-        		) : (
-            		<a href="/login" className="waves-effect waves-light"><button className="waves-effect waves-light">Login</button></a>
-          		)
-			}
-		</div>
-	</div>
-	</>
+  <>
+  <div className="container head-nav">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      <ul id="menu">
+      <a href="/"><li>Home</li></a>
+      <a href="/about"><li>About</li></a>
+      <a href="/contact"><li>Contact</li></a>
+      </ul>
+    </div>
+    
+    <Nav>
+      <NavMenu>
+      <NavLink to="/" activestyle="true">
+        <img className='logo' src="/LogoBookIT.png" alt="Logo" />
+        Home
+      </NavLink>
+      <NavLink to="/about" activestyle="true">
+        About
+      </NavLink>
+      <NavLink to="/contact" activestyle="true">
+        Contact Us
+      </NavLink>
+      </NavMenu>
+    </Nav>
+
+    <div className="header-icons">
+      <a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
+      <a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
+      
+      {loggedIn ? (
+          <a href="/profile" className="waves-effect waves-light"><i className="material-icons">account_circle</i></a>
+        ) : (
+            <a href="/login" className="waves-effect waves-light"><button className="waves-effect waves-light">Login</button></a>
+          )
+      }
+    </div>
+  </div>
+  </>
 );
 };
 
 export default Navbar;
-
-/*
-Hvorfor bruger vi det her i react?
-<>
-</>
-Det er et tom react fragments som bruges til nemmere at tilføje flere nodes til det samme DOM
-(ie bedre loading)
-*/

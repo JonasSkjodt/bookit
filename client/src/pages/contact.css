@@ -6,7 +6,9 @@
 .spacer {
     min-height: 10%;
 }
-
+.collapsible-header {
+    background: transparent;
+}
 .employees {
     width: 100%;
     margin-left: 10%;
@@ -28,4 +30,33 @@
 .employees_text {
     color: white;
     text-shadow: 2px 2px 2px black;
+}
+
+@media (max-width: 768px) {
+    .employees {
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 20%;
+        scale: 1;
+    }
+    .employees_John {
+        clip-path: inset(0 22% 0 10%);
+    }
+    
+    .employees_Seb {
+        clip-path: inset(0 15% 0 22%);
+    }
+    
+    .employees_section {
+        height: 300px;
+    }
+    
+    .employees_text {
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .toast {
+        background-color: #232323;
+    }
 }

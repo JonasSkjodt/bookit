@@ -12,7 +12,7 @@ const LogIn = () => {
           <div className="row">
             <div className="input-field col s12">
               <input id="first_name" type="text" className="validate white-text" />
-              <label for="first_name">Email</label>
+              <label for="first_name">Account name</label>
             </div>
           </div>
           <div className="row">

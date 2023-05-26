@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
-
-/*function makeNumber(str)*/
+import axios from "axios";
 
 const Checkout = () => {
-  const [value, setValue] = useState("");
+  const [valueFirstName, setValueFirstName] = useState("");
+  const [valueLastName, setValueLastName] = useState("");
+  const [valueEmail, setValueEmail] = useState("");
+  const [valueNumber, setValueNumber] = useState("");
   const [valueDateM, setValueDateM] = useState("");
   const [valueDateY, setValueDateY] = useState("");
   const [valueCVC, setValueCVC] = useState("");
@@ -12,16 +13,24 @@ const Checkout = () => {
   const handleChange = (event) => {
     const result = event.target.value.replace(/\D/g, "");
 
-    setValue(result);
+    setValueNumber(result);
   };
 
   const handleChangeDateM = (event) => {
     const result = event.target.value.replace(/\D/g, "");
     let check = parseInt(result);
-    if (check >= 1 && check <= 9) {
-      setValueDateM(result);
-    } else if (check > 12) {
+    if (check > 12) {
       setValueDateM("12");
+    } else {
+      setValueDateM(result);
+    }
+  };
+
+  const handleOnBlurDateM = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+    let check = parseInt(result);
+    if (check >= 1 && check <= 9) {
+      setValueDateM("0" + check);
     } else {
       setValueDateM(result);
     }
@@ -29,8 +38,12 @@ const Checkout = () => {
 
   const handleChangeDateY = (event) => {
     const result = event.target.value.replace(/\D/g, "");
-
-    setValueDateY(result);
+    let check = parseInt(result);
+    if (check > 29) {
+      setValueDateY("29");
+    } else {
+      setValueDateY(result);
+    }
   };
 
   const handleChangeCVC = (event) => {
@@ -39,18 +52,47 @@ const Checkout = () => {
     setValueCVC(result);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let checkDateY = parseInt(valueDateY);
+    if (checkDateY < 23) {
+      alert("Check if date is insert correctly");
+      return false;
+    }
+
+    const order = {
+      valueFirstName,
+      valueLastName,
+      valueEmail,
+      valueNumber,
+      valueDateM,
+      valueDateY,
+      valueCVC,
+    };
+    console.log(order);
+
+    axios
+      .post("/api/order", order)
+      .then(() => console.log("Order Created"))
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="container checkout">
       <h1>Checkout</h1>
       <p>test test test</p>
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
               <input
-                id="first_name"
+                id="first_name_test_Test"
                 type="text"
                 className="validate white-text"
+                value={valueFirstName}
+                onChange={(event) => setValueFirstName(event.target.value)}
               />
               <label for="first_name">First Name</label>
             </div>
@@ -59,13 +101,21 @@ const Checkout = () => {
                 id="last_name"
                 type="text"
                 className="validate white-text"
+                value={valueLastName}
+                onChange={(event) => setValueLastName(event.target.value)}
               />
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input id="email" type="email" className="validate white-text" />
+              <input
+                id="email"
+                type="email"
+                className="validate white-text"
+                value={valueEmail}
+                onChange={(event) => setValueEmail(event.target.value)}
+              />
               <label for="email">Email</label>
               <span
                 className="helper-text"
@@ -83,12 +133,21 @@ const Checkout = () => {
               type="text"
               pattern="\d*"
               max="9999999999999999"
-              value={value}
+              value={valueNumber}
               onChange={handleChange}
               inputmode="numeric"
-              maxLength="19"
+              minLength="16"
+              maxLength="16"
             />
             <label for="cardnumber">Card Number</label>
+            <span
+              className="helper-text"
+              data-error="Insert the card number again"
+              data-success="right"
+            >
+              Insert the card number
+            </span>
+
             <div className="row">
               <div className="input-field col s1">
                 <input
@@ -100,15 +159,9 @@ const Checkout = () => {
                   placeholder="MM"
                   value={valueDateM}
                   onChange={handleChangeDateM}
+                  onBlur={handleOnBlurDateM}
                   maxLength="2"
                 />
-                <span
-                  className="helper-text"
-                  data-error="Insert the card number again"
-                  data-success="right"
-                >
-                  Insert the card number
-                </span>
               </div>
               <div className="input-field col s1">
                 <p> / </p>
@@ -119,10 +172,10 @@ const Checkout = () => {
                   className="validate white-text"
                   id="carddate2"
                   type="text"
-                  pattern="[0-9]"
+                  pattern="\d*"
                   inputmode="number"
                   placeholder="YY"
-                  maxLength="4"
+                  maxLength="2"
                   value={valueDateY}
                   onChange={handleChangeDateY}
                 />
@@ -134,7 +187,7 @@ const Checkout = () => {
                   className="validate white-text"
                   id="cardcvc"
                   type="text"
-                  pattern="[0-9]"
+                  pattern="\d*"
                   inputmode="number"
                   placeholder="CVC"
                   maxLength="3"
@@ -144,6 +197,12 @@ const Checkout = () => {
               </div>
             </div>
           </div>
+          <input
+            className="validate white-text"
+            id="checkoutSubmit"
+            type="submit"
+            placeholder="Submit"
+          />
         </form>
       </div>
     </div>
