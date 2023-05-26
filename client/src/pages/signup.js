@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 
 const SignUp = () => {
   const handleSubmit = (event) => {
@@ -11,6 +12,13 @@ const SignUp = () => {
       email: event.target.email.value
     }
     console.log(user);
+    
+    axios
+      .post("/api/signup", user)
+      .then(() => console.log("New user added"))
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
 return (

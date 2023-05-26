@@ -75,6 +75,18 @@ app.post("/api/login", (req, res) => {
   }
 });
 
+app.post("/api/signup", (req, res) => {
+  console.log("Creating new user");
+  let newUser = {
+    id: req.body.first_name,
+    password: req.body.password,
+  };
+  users.push(newUser);
+  console.log(users);
+
+  res.status(201).json({some: "response"})
+})
+
 //add the book posts
 //empty array for storing the books
 let books = [];
