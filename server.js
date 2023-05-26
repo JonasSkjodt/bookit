@@ -75,6 +75,8 @@ app.post("/api/login", (req, res) => {
   }
 });
 
+//add the book posts
+//empty array for storing the books
 let books = [];
 
 app.get("/api/create", function (req, res) {
@@ -85,8 +87,8 @@ app.get("/api/create", function (req, res) {
   console.log("Books : ", JSON.stringify(books));
   res.end(JSON.stringify(books));
 });
-//add the book posts
-app.post("/api/create", function (req, res) {
+
+app.post('/api/create', function (req, res) {
   var newBook = {
     BookID: req.body.bookID,
     Title: req.body.bookTitle,
@@ -95,8 +97,8 @@ app.post("/api/create", function (req, res) {
   books.push(newBook);
   console.log(books);
 
-  res.status(201).json({ some: "response" });
-});
+ res.status(201).json({"some":"response"})
+})
 
 let orders = [];
 app.get("/api/order", function (req, res) {
