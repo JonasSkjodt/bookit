@@ -8,6 +8,7 @@ const SignUp = () => {
     const user = {
       first_name: event.target.first_name.value,
       last_name: event.target.last_name.value,
+      username: event.target.username.value,
       password: event.target.password.value,
       email: event.target.email.value
     }
@@ -35,6 +36,12 @@ return (
           <div className="input-field col s6">
             <input id="last_name" type="text" className="validate white-text" />
             <label htmlFor="last_name">Last Name</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input id="username" type="text" className="validate white-text" />
+            <label htmlFor="username">Username</label>
           </div>
         </div>
         <div className="row">

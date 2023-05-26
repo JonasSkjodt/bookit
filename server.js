@@ -78,7 +78,7 @@ app.post("/api/login", (req, res) => {
 app.post("/api/signup", (req, res) => {
   console.log("Creating new user");
   let newUser = {
-    id: req.body.first_name,
+    id: req.body.username,
     password: req.body.password,
   };
   users.push(newUser);
