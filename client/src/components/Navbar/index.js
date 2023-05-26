@@ -26,7 +26,7 @@ return (
     <Nav>
       <NavMenu>
       <NavLink to="/" activestyle="true">
-        <img Style="width:55px;" src="/LogoBookIT.png" alt="Logo" />
+        <img className='logo' src="/LogoBookIT.png" alt="Logo" />
         Home
       </NavLink>
       <NavLink to="/about" activestyle="true">
@@ -37,7 +37,7 @@ return (
       </NavLink>
       </NavMenu>
     </Nav>
-    
+
     <div className="header-icons">
       <a href="/checkout" className="waves-effect waves-light"><i className="material-icons">shopping_cart</i></a>
       <a href="/search" className="waves-effect waves-light"><i className="material-icons">search</i></a>
