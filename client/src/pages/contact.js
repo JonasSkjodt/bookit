@@ -131,6 +131,7 @@ return (
         </div>
       </div>
     </form>
+    {/*TODO this doesn't work because materialize is a good framework :) onClick="M.toast({html: 'Thank you for your inquiry. We will get back to you as soon as possible'})" */}
     <button className="btn waves-effect waves-light" type="submit" name="action">Submit
     <i className="material-icons right">send</i>
   </button>
