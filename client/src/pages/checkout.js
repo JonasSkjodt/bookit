@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-
-/*function makeNumber(str)*/
-
 const Checkout = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [valueDateM, setValueDateM] = useState("");
   const [valueDateY, setValueDateY] = useState("");
@@ -18,9 +18,7 @@ const Checkout = () => {
   const handleChangeDateM = (event) => {
     const result = event.target.value.replace(/\D/g, "");
     let check = parseInt(result);
-    if (check >= 1 && check <= 9) {
-      setValueDateM(result);
-    } else if (check > 12) {
+    if (check > 12) {
       setValueDateM("12");
     } else {
       setValueDateM(result);
@@ -29,8 +27,12 @@ const Checkout = () => {
 
   const handleChangeDateY = (event) => {
     const result = event.target.value.replace(/\D/g, "");
-
-    setValueDateY(result);
+    let check = parseInt(result);
+    if (check > 29) {
+      setValueDateY("29");
+    } else {
+      setValueDateY(result);
+    }
   };
 
   const handleChangeCVC = (event) => {
@@ -39,18 +41,26 @@ const Checkout = () => {
     setValueCVC(result);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (valueDateY) {
+    }
+  };
+
   return (
     <div className="container checkout">
       <h1>Checkout</h1>
       <p>test test test</p>
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
               <input
-                id="first_name"
+                id="first_name_test_Test"
                 type="text"
                 className="validate white-text"
+                value={firstName}
+                onChange={(event) => setFirstName(event.target.value)}
               />
               <label for="first_name">First Name</label>
             </div>
@@ -59,13 +69,21 @@ const Checkout = () => {
                 id="last_name"
                 type="text"
                 className="validate white-text"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
               />
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input id="email" type="email" className="validate white-text" />
+              <input
+                id="email"
+                type="email"
+                className="validate white-text"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
               <label for="email">Email</label>
               <span
                 className="helper-text"
@@ -86,7 +104,7 @@ const Checkout = () => {
               value={value}
               onChange={handleChange}
               inputmode="numeric"
-              maxLength="19"
+              maxLength="16"
             />
             <label for="cardnumber">Card Number</label>
             <div className="row">
@@ -122,7 +140,7 @@ const Checkout = () => {
                   pattern="[0-9]"
                   inputmode="number"
                   placeholder="YY"
-                  maxLength="4"
+                  maxLength="2"
                   value={valueDateY}
                   onChange={handleChangeDateY}
                 />
@@ -144,6 +162,12 @@ const Checkout = () => {
               </div>
             </div>
           </div>
+          <input
+            className="validate white-text"
+            id="checkoutSubmit"
+            type="submit"
+            placeholder="Submit"
+          />
         </form>
       </div>
     </div>
