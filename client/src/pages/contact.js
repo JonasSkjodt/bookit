@@ -8,15 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {
 return (
 	<div className="container">
-  
-  
-  
   <div className="section">
     <h3 className="header center">Contact us</h3>
     <p>Below you will find a small FAQ that may answer some of your questions. If you still need help after checking this out you can either contact one of our support staff directly
       or you can fill out the form below and we will get back to you as soon as possible.
     </p>
-    
   </div>
   <div className="section spacer">
   </div>
@@ -143,7 +139,7 @@ return (
     <i className="material-icons right">send</i>
     </button>
     <ToastContainer />
-    
+
   </div>
 	</div>
 );

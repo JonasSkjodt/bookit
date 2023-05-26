@@ -47,6 +47,29 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+let books = [];
+
+app.get('/api/create', function(req, res) {
+  console.log('Inside Create book Get');
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+  });
+  console.log('Books : ', JSON.stringify(books));
+  res.end(JSON.stringify(books));
+});
+//add the book posts
+app.post('/api/create', function (req, res) {
+  var newBook = {
+      "BookID": req.body.bookID,
+      "Title": req.body.bookTitle,
+      "Author": req.body.bookAuthor
+  }
+  books.push(newBook)
+  console.log(books);
+
+ res.status(201).json({"some":"response"})
+})
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
