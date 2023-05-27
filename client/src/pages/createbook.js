@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import randomNumberInRange from "./utilities.js";
+import {randomNumberInRange} from "./utilities.js";
 
 const CreateBook = () => {
   const [id, setBookID] = useState("");
@@ -40,7 +40,7 @@ const CreateBook = () => {
       username,
       price,
       isbn,
-      condition
+      condition,
     };
     console.log(book);
 
