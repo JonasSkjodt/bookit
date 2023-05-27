@@ -60,11 +60,18 @@ return (
           </div>
     </li>
     <li data-md-content="600">
-			<label name="tab" for="tab3" tabindex="-1" class="tab_lab" role="tab">Third</label>
+			<label name="tab" for="tab3" tabindex="-1" class="tab_lab" role="tab">How does it work?</label>
 			<input type="checkbox" class="tab" id="tab3" tabindex="0" />
 			<span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
           <div class="content">
-          Lorem ipsum dolor sit amet.
+          <h5>Buy or loan</h5>
+        When you find a product you like you can either buy it or loan it. If you loan it you will have to return it within the selected time frame on the product page or you will be charged the full price of the product. 
+        Any loaned product will be shipped by by the seller and you will be charged a small fee for this. If you buy a product you will have to pay the full price of the product and shipping will be handled by the seller. 
+        Loaning products is a great way to save money if you only need the product for a short period of time or want to try it out before buying it. If you experience any issues with a product you have bought or loaned please contact our support team and they will be more than happy to help you.
+        <h5>How to sell</h5>
+        Selling a product is easy. All you have to do is create an account and then you can start selling. You will have to provide a description and the condition of the product. You can set the price yourself but we will notify you if we believe the price is too high or too low.
+        After a book is sold you will have to ship it to the buyer and notify us that it has been shipped. Once the buyer has received the product and confirmed it we will transfer the money to your account within 3-5 business days. 
+        
 			    </div>
     </li>
     </ul>
