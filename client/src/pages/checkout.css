@@ -86,6 +86,8 @@
 .checkout .col-qty {
 	text-align: center;
 	width: 17%;
+		display: flex;
+		align-items: center;
 }
   
 .checkout .col-numeric p {
