@@ -143,7 +143,22 @@ app.post("/api/order", function (req, res) {
   };
   orders.push(newOrder);
   console.log(orders);
-
+  require("fs").readFile(
+    "bookData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newOrder); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+          console.log("saving Order");
+        }); // write it back
+      }
+    }
+  );
   res.status(201).json({ some: "response" });
 });
 
