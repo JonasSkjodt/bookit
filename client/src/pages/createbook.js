@@ -6,7 +6,7 @@ const CreateBook = () => {
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   const [price, setPrice] = useState("");
-  const [bookImage, setimage] = useState(""); //image
+  //const [bookImage, setimage] = useState(""); //image
   const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
@@ -18,9 +18,10 @@ const CreateBook = () => {
       setBookAuthor(e.target.value);
     } else if (e.target.name === "price") {
        setPrice(e.target.value); 
-    }else {
-      setimage(e.target.files[0]); // get the value of the image when the input changes
     }
+    /*else {
+      setimage(e.target.files[0]); // get the value of the image when the input changes
+    }*/
   };
 
   const handleSubmit = (e) => {
@@ -30,21 +31,21 @@ const CreateBook = () => {
       id,
       bookName,
       bookAuthor,
-      bookImage, // add the image state here
+      //bookImage,
       username,
       price,
     };
     console.log(book);
 
-    // create a formData object
+    /*// create a formData object
     const formData = new FormData();
     // append the book object to the formData
     formData.append("book", book);
     // append the uploaded file to the formData
-    formData.append("bookImage", bookImage);
+    formData.append("bookImage", bookImage);*/
 
     axios
-      .post("/api/customers", formData)
+      .post("/api/customers", book /*, formData*/)
       .then(() => console.log("Book Created"))
       .catch((err) => {
         console.error(err);
@@ -103,14 +104,14 @@ const CreateBook = () => {
             />
           </div>
           <br />
-          <div className="form-group">
+          {/*<div className="form-group">
             <input
               type="file"
               className="form-control white-text"
               name="bookImage"
               onChange={handleInputChange}
             />
-          </div>
+  </div>*/}
           <br />
           <div>
             <button className="btn btn-success" type="submit">

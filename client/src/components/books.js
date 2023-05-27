@@ -11,8 +11,6 @@ function Books() {
 			.then(customers => setCustomers(customers));
 	})
 
-  
-
   return (
       <div>
           <h2 className='profile-user-books'>Your book listings</h2>
