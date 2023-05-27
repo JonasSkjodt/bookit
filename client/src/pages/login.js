@@ -31,7 +31,7 @@ const LogIn = () => {
           </div>
           <div id="buttons" className="row">
             <button id="login" type="submit" className="waves-effect waves-light btn-large col s4 left" onClick={() => onSubmitForm(setLoggedIn)}>Login</button>
-            <button id="signup" className="btn-flat col s3 right" onClick={gotoSignUp}>Sign up</button>
+            <button id="signup" className="btn feat-details-btn waves-effect waves-light col s3 right" onClick={gotoSignUp}>Sign up</button>
           </div>
         </form>
       </div>

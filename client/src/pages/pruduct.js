@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './pruduct.css';
 import './useViewport.js';
 import useViewport from "./useViewport.js";
+import axios from "axios";
 
 const Product = () => {
     const location = useLocation();
@@ -12,6 +13,18 @@ const Product = () => {
     const { width } = useViewport();
     const breakpoint = 768;
     let count = 0;
+    
+    const addToCart = (event) => {
+        event.preventDefault();
+        console.log("Add " + book.id);
+
+        axios
+        .post("/api/cart", { id: book.id })
+        .then(() => alert("Added to cart"))
+        .catch((err) => {
+            console.log(err);
+        });
+    } 
 
 	useEffect(() => {
 		fetch("/api/customers")
@@ -74,7 +87,7 @@ const Product = () => {
                             <li>Price from new: //TODO add prices to books</li>
                             <li>Price new: //TODO add prices</li>
                         </ul>
-                        <button id="add_to_cart_button" className="btn waves-effect waves-light">Buy</button>
+                        <button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button>
                     </div>
                 </div>
                 <div className="row">
@@ -112,7 +125,7 @@ const Product = () => {
                             <li>Price from new: //TODO add prices to books</li>
                             <li>Price new: //TODO add prices</li>
                         </ul>
-                        <button id="add_to_cart_button" className="btn waves-effect waves-light">Buy</button>
+                        <button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button>
                     </div>
                 </div>
                 <div className="row">
