@@ -99,7 +99,7 @@ const Product = () => {
                 </div>
                 <div className="row">
                     <div id="about_seller">
-                        <h5>Book condition</h5>
+                        <h4>Book condition</h4>
                         {customers.map((customer) => {
                             if (customer.id === book.id) {
                             return <h5>Condition: {customer.condition}</h5>
