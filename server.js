@@ -127,7 +127,6 @@ app.get("/api/order", function (req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
   });
-  console.log("Orders : ", JSON.stringify(orders));
   res.end(JSON.stringify(orders));
 });
 
@@ -143,6 +142,7 @@ app.post("/api/order", function (req, res) {
   };
   orders.push(newOrder);
   console.log(orders);
+  
   require("fs").readFile(
     "bookData.json",
     "utf8",
