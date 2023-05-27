@@ -158,6 +158,7 @@ app.post("/api/order", function (req, res) {
     CardDateMM: req.body.valueDateM,
     CardDateYY: req.body.valueDateY,
     CardCVC: req.body.valueCVC,
+    itemIDs: req.body.ids,
   };
 
   orders.push(newOrder);
@@ -173,9 +174,14 @@ app.post("/api/order", function (req, res) {
         obj = JSON.parse(data); //now it an object
         obj.table.push(newOrder); //add some data
         json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("./orderData.json", json, "utf8", (callback) => {
-          console.log("saving Order");
-        }); // write it back
+        require("fs").writeFile(
+          "./orderData.json",
+          json,
+          "utf8",
+          (callback) => {
+            console.log("saving Order");
+          }
+        ); // write it back
       }
     }
   );
