@@ -111,9 +111,10 @@ const Profile = () => {
 						</div>
 					</div>
 				</div>
-				<CreateBook/>
 				
-	<Books />
+				<CreateBook/>
+				<Books />
+
 				<button onClick={() => {setLoggedIn(false); setAuthUser(null); localStorage.removeItem('authUser'); localStorage.clear()}}>Log out</button>
 				</>
 				) : (
