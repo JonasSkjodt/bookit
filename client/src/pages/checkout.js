@@ -104,7 +104,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container checkout">
       <h1>Checkout</h1>
       <p>Please enter your information below to order your items</p>
       <div className="row">
