@@ -30,15 +30,15 @@ return (
 
 
 
-    <ul class="m-d expand-list">
+    <ul className="m-d expand-list">
 	  <li data-md-content="500">
-		<label name="tab" for="tab1" tabindex="-1" class="tab_lab" role="tab">How does shipping work?</label>
-		<input type="checkbox" class="tab" id="tab1" tabindex="0" />
-		<span class="open-close-icon">
-			<i class="fas fa-plus"></i>
-			<i class="fas fa-minus"></i>
+		<label name="tab" htmlFor="tab1" tabIndex="-1" className="tab_lab" role="tab">How does shipping work?</label>
+		<input type="checkbox" className="tab" id="tab1" tabIndex="0" />
+		<span className="open-close-icon">
+			<i className="fas fa-plus"></i>
+			<i className="fas fa-minus"></i>
 		</span>
-		    <div class="content">
+		    <div className="content">
         <h5>Shipping</h5>
         Shipping is handled by the user after a sale. We don't charge you until we have received confirmation from the seller that the product is shipped
         and on its way. Shipping is calculated based on your location and the currier the user decides to use so the price will vary and we can therefore not guarantee anything in this regard.
@@ -46,10 +46,10 @@ return (
         </div>
     </li>
     <li data-md-content="600">
-			<label name="tab" for="tab2" tabindex="-1" class="tab_lab" role="tab">Payment options & pricing?</label>
-			<input type="checkbox" class="tab" id="tab2" tabindex="0" />
-			<span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
-			    <div class="content">
+			<label name="tab" htmlFor="tab2" tabIndex="-1" className="tab_lab" role="tab">Payment options & pricing?</label>
+			<input type="checkbox" className="tab" id="tab2" tabIndex="0" />
+			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
+			    <div className="content">
           <h5>Payment options</h5>
             We offer a wide array of payment options that including most of the standards like VISA, MasterCard, mobilePay and so on. The transaction will be held but not charged until the seller
             has notified us that the product is shipped with proof.
@@ -60,10 +60,10 @@ return (
           </div>
     </li>
     <li data-md-content="600">
-			<label name="tab" for="tab3" tabindex="-1" class="tab_lab" role="tab">How does it work?</label>
-			<input type="checkbox" class="tab" id="tab3" tabindex="0" />
-			<span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
-          <div class="content">
+			<label name="tab" htmlFor="tab3" tabIndex="-1" className="tab_lab" role="tab">How does it work?</label>
+			<input type="checkbox" className="tab" id="tab3" tabIndex="0" />
+			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
+          <div className="content">
           <h5>Buy or loan</h5>
         When you find a product you like you can either buy it or loan it. If you loan it you will have to return it within the selected time frame on the product page or you will be charged the full price of the product. 
         Any loaned product will be shipped by by the seller and you will be charged a small fee for this. If you buy a product you will have to pay the full price of the product and shipping will be handled by the seller. 

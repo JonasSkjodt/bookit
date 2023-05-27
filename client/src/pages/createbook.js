@@ -10,7 +10,7 @@ const CreateBook = () => {
   const [isbn, setISBN] = useState("");
   const [condition, setCondition] = useState("");
   //const [bookImage, setimage] = useState(""); //image
-  const username = localStorage.getItem("authUser");
+  //const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
     
