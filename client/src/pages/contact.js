@@ -9,7 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
       $('.collapsible').collapsible();
       });
 </script> */}
+
+
 const Contact = () => {
+
 return (
 
 	<div className="container">

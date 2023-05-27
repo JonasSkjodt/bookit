@@ -43,6 +43,10 @@ const Product = () => {
                     <div className="col s8">
                         <h1>{book.bookName}</h1>
                         <p>{book.about}</p>
+                        <p>Author: {book.author}</p>
+                        <p>ISBN: {book.isbn}</p>
+
+
                     </div>
                 </div>
                 <div id="other_books" className="row">
@@ -84,15 +88,21 @@ const Product = () => {
                 <div className="row">
                     <div id="add_to_cart_area">
                         <ul>
-                            <li>Price from new: //TODO add prices to books</li>
-                            <li>Price new: //TODO add prices</li>
+                            {customers.map((customer) => {
+                                if (customer.id === book.id) {
+                                return <li>Price: {customer.price} </li>
+                                }
+                            })}
+                            
+                            <li>Price new: </li>
                         </ul>
                         <button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button>
                     </div>
                 </div>
                 <div className="row">
                     <div id="about_seller">
-                        <h5>About seller</h5>
+                        <h5>Book condition</h5>
+                        
                         <p>//Add info about seller??</p>
                         <p>Ads perhaps</p>
                     </div>
