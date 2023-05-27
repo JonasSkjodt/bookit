@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {randomNumberInRange} from "./utilities.js";
 
 const CreateBook = () => {
   const [id, setBookID] = useState("");
@@ -12,9 +13,9 @@ const CreateBook = () => {
   const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
-    if (e.target.name === "id") {
-      setBookID(e.target.value);
-    } else if (e.target.name === "bookName") {
+    
+      setBookID(randomNumberInRange());
+    if (e.target.name === "bookName") {
       setBookTitle(e.target.value);
     } else if (e.target.name === "bookAuthor") {
       setBookAuthor(e.target.value);
@@ -30,7 +31,9 @@ const CreateBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = localStorage.getItem("authUser");
+
     const book = {
+      id,
       bookName,
       bookAuthor,
       //bookImage,

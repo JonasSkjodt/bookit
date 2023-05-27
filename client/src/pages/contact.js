@@ -15,7 +15,7 @@ const Contact = () => {
 
 return (
 
-	<div className="container">
+	<div className="container contact-page">
   <div className="section">
     <h3 className="header center">Contact us</h3>
     <p>Below you will find a small FAQ that may answer some of your questions. If you still need help after checking this out you can either contact one of our support staff directly
@@ -26,61 +26,58 @@ return (
   </div>
   <div className="section FAQ ">
         <h3 className="header center">FAQ</h3>
-    <div className="row container"> 
-      <div className="col s12 m6">
-        <ul className="collapsible expandable">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">local_shipping</i>How does shipping work?</div>
-      <div className="collapsible-body"><span>
-      <h5>Shipping</h5>
+    <div className="row container">
+
+
+
+    <ul class="m-d expand-list">
+	  <li data-md-content="500">
+		<label name="tab" for="tab1" tabindex="-1" class="tab_lab" role="tab">How does shipping work?</label>
+		<input type="checkbox" class="tab" id="tab1" tabindex="0" />
+		<span class="open-close-icon">
+			<i class="fas fa-plus"></i>
+			<i class="fas fa-minus"></i>
+		</span>
+		    <div class="content">
+        <h5>Shipping</h5>
         Shipping is handled by the user after a sale. We don't charge you until we have received confirmation from the seller that the product is shipped
         and on its way. Shipping is calculated based on your location and the currier the user decides to use so the price will vary and we can therefore not guarantee anything in this regard.
         If you do not receive a package or believe it got lost in transit then please contact our support team and they will be more than happy to help you.
-        </span></div>
+        </div>
+    </li>
+    <li data-md-content="600">
+			<label name="tab" for="tab2" tabindex="-1" class="tab_lab" role="tab">Payment options & pricing?</label>
+			<input type="checkbox" class="tab" id="tab2" tabindex="0" />
+			<span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
+			    <div class="content">
+          <h5>Payment options</h5>
+            We offer a wide array of payment options that including most of the standards like VISA, MasterCard, mobilePay and so on. The transaction will be held but not charged until the seller
+            has notified us that the product is shipped with proof.
+            <h5>Pricing</h5>
+            We do not set the price of the products, the seller does. The price is calculated based on the condition of the product which can be seen in the product description. If a book is not sold within 30 days
+            the seller will be notified that they should lower the price. If the book is not sold within 60 days the seller will be notified again and the book will be removed from the site. If you have any questions
+            regarding the pricing of a product please contact the seller as we do not have any direct control over this.
+          </div>
+    </li>
+    <li data-md-content="600">
+			<label name="tab" for="tab3" tabindex="-1" class="tab_lab" role="tab">How does it work?</label>
+			<input type="checkbox" class="tab" id="tab3" tabindex="0" />
+			<span class="open-close-icon"><i class="fas fa-plus"></i><i class="fas fa-minus"></i></span>
+          <div class="content">
+          <h5>Buy or loan</h5>
+        When you find a product you like you can either buy it or loan it. If you loan it you will have to return it within the selected time frame on the product page or you will be charged the full price of the product. 
+        Any loaned product will be shipped by by the seller and you will be charged a small fee for this. If you buy a product you will have to pay the full price of the product and shipping will be handled by the seller. 
+        Loaning products is a great way to save money if you only need the product for a short period of time or want to try it out before buying it. If you experience any issues with a product you have bought or loaned please contact our support team and they will be more than happy to help you.
+        <h5>How to sell</h5>
+        Selling a product is easy. All you have to do is create an account and then you can start selling. You will have to provide a description and the condition of the product. You can set the price yourself but we will notify you if we believe the price is too high or too low.
+        After a book is sold you will have to ship it to the buyer and notify us that it has been shipped. Once the buyer has received the product and confirmed it we will transfer the money to your account within 3-5 business days. 
+        
+			    </div>
     </li>
     </ul>
-  <ul className="collapsible expandable">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">attach_money</i>Payment options & pricing?</div>
-      <div className="collapsible-body"><span>
-        <h5>Payment options</h5>
-        We offer a wide array of payment options that including most of the standards like VISA, MasterCard, mobilePay and so on. The transaction will be held but not charged until the seller
-        has notified us that the product is shipped with proof.
-        <h5>Pricing</h5>
-        We do not set the price of the products, the seller does. The price is calculated based on the condition of the product which can be seen in the product description. If a book is not sold within 30 days
-        the seller will be notified that they should lower the price. If the book is not sold within 60 days the seller will be notified again and the book will be removed from the site. If you have any questions
-        regarding the pricing of a product please contact the seller as we do not have any direct control over this.
-         </span></div>
-    </li>
-  </ul>
-    <ul className="collapsible expandable">
-      <li>
-      <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-      </li>
-    </ul>
-      </div>
-      <div className="col s12 m6">
-      <ul className="collapsible expandable">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    </ul>
-    <ul className="collapsible expandable">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">place</i>Second</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    </ul>
-    <ul className="collapsible expandable">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    </ul>
-      </div>
     </div>
+
+
   </div>
   <div className="section spacer">
   </div>

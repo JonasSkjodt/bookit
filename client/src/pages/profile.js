@@ -103,13 +103,23 @@ const Profile = () => {
 
 						<div className='col s12 m12'>
 							<p>Current Orders</p>
+							{/*
+							id (should make a random id)
+							bookName
+							bookAuthor
+							price
+							isbn
+							condition
+							username
+							*/}
 						{orders.map(order => {
 							if(order.username === username) {
 								const itemIDs = order.itemIDs;
+								const books = [];
 								for(const element of itemIDs) {
 									const customer = customers.find(customer => customer.id === element);
-							return (
-								<div key={customer.id} className="col s6 m3">
+									books.push(
+									<div key={customer.id} className="col s6 m3">
 								<div className="card bRad">
 									<div className="card-image waves-effect waves-block waves-light bRadT">
 									<img className="activator" src={customer.image} />
@@ -124,21 +134,21 @@ const Profile = () => {
 									</div>
 									<div className="card-reveal">
 									<span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
-									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
+									<p className="black-text">{customer.bookName} <span>{customer.condition}</span></p>
 									<Link
 										to = "/product"
 										state={{
 											book: customer
 										}}
-									>
+										>
 										Product page
 									</Link>
 									</div>
 								</div>
 							</div>
-								
-							)
-									}
+						);
+							}
+							return books;
 									} else {
 										return null;
 									}
