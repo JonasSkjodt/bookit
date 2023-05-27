@@ -87,6 +87,10 @@ const Checkout = () => {
       });
   };
 
+  const handleDelete = (id) => {
+
+  };
+
   return (
     <div className="container checkout">
       <h1>Checkout</h1>
@@ -216,7 +220,7 @@ const Checkout = () => {
         </div>
         <div className="col s12 m6">
           {customers.map((customer) => {
-            return <p>testest {customer.bookName}</p>;
+            return <p>{customer.bookName}: {customer.price} kr. <button> remove </button></p>;
           })}
         </div>
       </div>
