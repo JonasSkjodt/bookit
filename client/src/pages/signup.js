@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -17,6 +20,7 @@ const SignUp = () => {
     axios
       .post("/api/signup", user)
       .then(() => console.log("New user added"))
+      .then(() => navigate("/login", { replace: true }))
       .catch((err) => {
         console.log(err);
       });
@@ -58,7 +62,7 @@ return (
           </div>
         </div>
         <div className="row">
-          <div className="Sign up col s12 center">
+          <div className="Sign-up col s12 center">
             <button className="primary-btn feat-details-btn waves-effect waves-light" type="submit">Sign up</button>
           </div>
         </div>

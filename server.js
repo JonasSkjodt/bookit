@@ -14,50 +14,31 @@ const fileUpload = require('express-fileupload');
 
 
 app.get("/api/customers", (req, res) => {
-  const customers = [
-    {
-      id: 1,
-      bookName: "C++",
-      tags: "Algorithms",
-      image: "c++book.png",
-      about: "This is text about C++",
-    },
-    {
-      id: 2,
-      bookName: "Javascript",
-      tags: "Programming",
-      image: "javascriptbook.jpg",
-      about: "This is text about Javascript",
-    },
-    {
-      id: 3,
-      bookName: "Java",
-      tags: "Programming",
-      image: "javabook.jpg",
-      about: "This is text about Java",
-    },
-    {
-      id: 4,
-      bookName: "PHP",
-      tags: "Programming",
-      image: "phpbook.png",
-      about: "This is text about PHP",
-    },
-  ];
+  const { readFileSync } = require('fs');
+  const data = readFileSync('./bookData.json');
+  const customersTab = JSON.parse(data);
+  const customers = [];
+  for(let i = 0; i < customersTab.table.length; i++) {
+    customers.push(customersTab.table[i]);
+  }
 
-  res.json(customers);
+
+    res.json(customers);
 });
 
 app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const { readFileSync } = require('fs');
+const data = readFileSync('./userData.json');
+const usersTab = JSON.parse(data);
+
 // Define the user credentials
-const users = [
-  { id: "bob", password: "123" },
-  { id: "jack", password: "456" },
-  { id: "peter", password: "789" },
-];
+const users = [];
+for(let i = 0; i < usersTab.table.length; i++) {
+  users.push(usersTab.table[i]);
+}
 
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
@@ -93,11 +74,14 @@ app.post("/api/login", (req, res) => {
 app.post("/api/signup", (req, res) => {
   console.log("Creating new user");
   let newUser = {
+    firstName: req.body.first_name,
+    lastName: req.body.last_name,
     id: req.body.username,
     password: req.body.password,
+    email: req.body.email
   };
   users.push(newUser);
-  console.log(users);
+  console.log(newUser);
 
   res.status(201).json({ some: "response" })
 })
@@ -142,6 +126,19 @@ app.post("/api/create", function (req, res) {
   };
   books.push(newBook);
   console.log(books);
+
+  var obj = {
+    table: []
+  };
+  require('fs').readFile('bookData.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push(newBook); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    require('fs').writeFile('bookData.json', json, 'utf8', callback => {console.log("saving boo")}); // write it back 
+}});
 
   res.status(201).json({ some: "response" });
 });
