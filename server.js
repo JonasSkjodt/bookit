@@ -206,6 +206,22 @@ app.post("/api/customers", function (req, res) {
 });*/
 
 
+// Handeling the cart. Will reset when the server restarts
+let cart = []
+app.post("/api/cart", (req, res) => {
+  const cartItem = {
+    id: req.body.id
+  };
+  cart.push(cartItem);
+  console.log("Added " + cartItem + "to the cart");
+
+  res.status(200).json({ message: cartItem + " has been added to the cart" })
+});
+
+app.get("/api/cart", (req, res) => {
+  res.json(cart);
+})
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
