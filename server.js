@@ -81,7 +81,17 @@ app.post("/api/signup", (req, res) => {
     email: req.body.email
   };
   users.push(newUser);
-  console.log(newUser);
+  console.log(users);
+
+  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push(newUser); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
+}});
 
   var obj = {
     table: []
@@ -149,7 +159,7 @@ app.post("/api/create", function (req, res) {
     obj = JSON.parse(data); //now it an object
     obj.table.push(newBook); //add some data
     json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('bookData.json', json, 'utf8', callback => {console.log("saving boo")}); // write it back 
+    require('fs').writeFile('bookData.json', json, 'utf8', callback => {console.log("saving book")}); // write it back 
 }});
 
   res.status(201).json({ some: "response" });
