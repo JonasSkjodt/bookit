@@ -39,10 +39,10 @@ for (let i = 0; i < usersTab.table.length; i++) {
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
 app.get("/api/users", (req, res) => {
   const { readFileSync } = require("fs");
-  const data = readFileSync("./orderData.json");
+  const data = readFileSync("./userData.json");
   const usersTab = JSON.parse(data);
   const users = [];
-  for (let i = 0; i < customersTab.table.length; i++) {
+  for (let i = 0; i < usersTab.table.length; i++) {
     users.push(usersTab.table[i]);
   }
   
@@ -135,6 +135,14 @@ app.get("/api/order", function (req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
   });
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./orderData.json");
+  const ordersTab = JSON.parse(data);
+  const orders = [];
+  for (let i = 0; i < ordersTab.table.length; i++) {
+    orders.push(ordersTab.table[i]);
+  }
+
   res.end(JSON.stringify(orders));
 });
 
@@ -161,7 +169,7 @@ app.post("/api/order", function (req, res) {
         obj = JSON.parse(data); //now it an object
         obj.table.push(newOrder); //add some data
         json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("orderData.json", json, "utf8", (callback) => {
+        require("fs").writeFile("./orderData.json", json, "utf8", (callback) => {
           console.log("saving Order");
         }); // write it back
       }
