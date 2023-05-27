@@ -1,8 +1,10 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import './login.css';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
 
+
 const LogIn = () => {
+
   const {loggedIn, setLoggedIn} = useLoggedIn(); 
   return (
     <div className="container login">
@@ -34,9 +36,15 @@ const LogIn = () => {
 const setAuthUser = (username) => {
   localStorage.setItem('authUser', username);
 }
+const setAuthID = (id) => {
+  localStorage.setItem('authID', id);
+}
 
 // Event handler for form submissions
 const onSubmitForm = (setLoggedIn) => {
+
+
+  
   const username = document.querySelector('#first_name').value;
   const password = document.querySelector('#password').value;
 
