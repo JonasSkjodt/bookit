@@ -86,14 +86,26 @@ const Product = () => {
             </div>
             <div className="col s3">
                 <div className="row">
-                    <div id="add_to_cart_area">
+                    <div className="add_to_cart_area" id="add_to_cart_area">
                         <ul>
+                            <li><h4>Buy Book</h4></li>
                             {customers.map((customer) => {
                                 if (customer.id === book.id) {
                                 return <li id="price_text">Price: {customer.price} kr. </li>
                                 }
                             })}
                             <li><button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button></li>
+                        </ul>
+                    </div>
+                    <div className="add_to_cart_area" id="add_to_cart_area2">
+                        <ul>
+                            <li><h4>Loan Book</h4></li>
+                            {customers.map((customer) => {
+                                if (customer.id === book.id) {
+                                return <li id="price_text">Monthly Price: {customer.price} kr. </li>
+                                }
+                            })}
+                            <li><button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Loan</button></li>
                         </ul>
                     </div>
                 </div>
