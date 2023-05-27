@@ -45,7 +45,7 @@ app.post("/api/login", (req, res) => {
   const {
     body: { username, password },
   } = req;
-  const user = users.find(
+  const user = users.map(
     (user) => user.username === username && user.password === password
   );
 
@@ -56,6 +56,7 @@ app.post("/api/login", (req, res) => {
       message: `Welcome ${user.username}`,
       token: `${user.username}2023`,
       loggedIn: true,
+      
     });
   } else {
     console.log("User is not logged in");
