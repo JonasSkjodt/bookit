@@ -14,12 +14,12 @@ const Checkout = () => {
   const [valueDateM, setValueDateM] = useState("");
   const [valueDateY, setValueDateY] = useState("");
   const [valueCVC, setValueCVC] = useState("");
-  const [customers, setCustomers] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("/api/customers")
+    fetch("/api/cart")
       .then((res) => res.json())
-      .then((customers) => setCustomers(customers));
+      .then((cart) => setCart(cart));
   });
 
   const handleChangeZip = (event) => {
@@ -281,32 +281,17 @@ const Checkout = () => {
             <div className="layout-inline row th">
               <div className="col col-pro">Product</div>
               <div className="col col-price align-center ">Price</div>
-              <div className="col col-qty align-center">QTY</div>
-              <div className="col">Total</div>
             </div>
-            {customers.map((customer) => {
+            {cart.map((item) => {
               return (
                 <div className="layout-inline row">
                   <div className="col col-pro layout-inline">
                     <img src="/alg4book.png" alt="Fun" />
-                    <p>{customer.bookName}</p>
+                    <p>{item.bookName}</p>
                   </div>
 
                   <div className="col col-price col-numeric align-center ">
-                    <p>10 kr.</p>
-                  </div>
-
-                  <div className="col col-qty layout-inline">
-                    <a href="#" className="qty qty-minus">
-                      -
-                    </a>
-                    <input className="coolinput" type="numeric" value="3" />
-                    <a href="#" className="qty qty-plus">
-                      +
-                    </a>
-                  </div>
-                  <div className="col col-total col-numeric">
-                    <p> 30 kr</p>
+                    <p>{item.price}kr.</p>
                   </div>
                 </div>
               );
@@ -327,7 +312,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
-<style scoped>
-
-</style>

@@ -1,26 +1,12 @@
-.shopper {
-	text-transform: lowercase;
-	font: 2em 'Shopper', sans-serif;
-	line-height: 0.5em;
-	display: inline-block;
-}
-  
 /*change color*/
-p {
-	font-size: 1.5em;
-	color: #8a8a8a;
-}
-  
-.img {
+img {
 	max-width: 4em;
 	width: 100%;
 	overflow: hidden; 
 	margin-right: 1em;
 }
   
-a {
-	text-decoration: none;
-}
+
   
 .container {
 	max-width: 75em;
