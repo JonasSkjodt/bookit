@@ -53,6 +53,10 @@ for(let i = 0; i < usersTab.table.length; i++) {
 
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
+app.get("/api/users", (req, res) => {
+  res.json(users);
+});
+
 app.post("/api/login", (req, res) => {
   const {
     body: { username, password },
@@ -77,6 +81,18 @@ app.post("/api/login", (req, res) => {
     });
   }
 });
+
+app.post("/api/signup", (req, res) => {
+  console.log("Creating new user");
+  let newUser = {
+    id: req.body.username,
+    password: req.body.password,
+  };
+  users.push(newUser);
+  console.log(users);
+
+  res.status(201).json({some: "response"})
+})
 
 //add the book posts
 //empty array for storing the books
@@ -116,7 +132,10 @@ app.post("/api/create", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
+//add the order posts
+//empty array for storing the orders
 let orders = [];
+
 app.get("/api/order", function (req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
@@ -124,16 +143,21 @@ app.get("/api/order", function (req, res) {
   console.log("Orders : ", JSON.stringify(orders));
   res.end(JSON.stringify(orders));
 });
+
 app.post("/api/order", function (req, res) {
   var newOrder = {
-    // FirstName: req.body.
-    // LastName: req.body.lastName,
-    // Email: req.body,
-    // CardNumber: req.body,
-    // CardDateMM: req.body,
-    // CardDateYY: req.body,
-    // CardCVC: req.body,
+    FirstName: req.body.valueFirstName,
+    LastName: req.body.valueLastName,
+    Email: req.body.valueEmail,
+    CardNumber: req.body.valueNumber,
+    CardDateMM: req.body.valueDateM,
+    CardDateYY: req.body.valueDateY,
+    CardCVC: req.body.valueCVC,
   };
+  orders.push(newOrder);
+  console.log(orders);
+
+  res.status(201).json({ some: "response" });
 });
 
 const port = 5000;

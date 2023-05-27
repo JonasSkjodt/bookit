@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./checkout.css";
 
 const Checkout = () => {
   const [valueFirstName, setValueFirstName] = useState("");
@@ -72,7 +73,7 @@ const Checkout = () => {
     console.log(order);
 
     axios
-      .post("/api/order", order)
+      .post("/api/", order)
       .then(() => console.log("Order Created"))
       .catch((err) => {
         console.error(err);
@@ -82,8 +83,11 @@ const Checkout = () => {
   return (
     <div className="container checkout">
       <h1>Checkout</h1>
-      <p>test test test</p>
+      <p>Please enter your information below to order your items</p>
       <div className="row">
+        <div className="col s12">
+          <img Style="width:55px;" src="/LogoBookIT.png" alt="Logo" />
+        </div>
         <form className="col s12" onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
@@ -149,7 +153,7 @@ const Checkout = () => {
             </span>
 
             <div className="row">
-              <div className="input-field col s1">
+              <div className="input-field col s2">
                 <input
                   className="validate white-text"
                   id="carddate1"
@@ -167,7 +171,7 @@ const Checkout = () => {
                 <p> / </p>
               </div>
 
-              <div className="input-field col s1">
+              <div className="input-field col s2">
                 <input
                   className="validate white-text"
                   id="carddate2"
@@ -198,10 +202,16 @@ const Checkout = () => {
             </div>
           </div>
           <input
-            className="validate white-text"
+            className="validate white-text waves-effect waves-light btn-large"
             id="checkoutSubmit"
             type="submit"
-            placeholder="Submit"
+            value="Submit"
+          />
+          <input
+            className="validate white-text waves-effect waves-light btn-large"
+            id="checkoutSubmit"
+            type="button"
+            value="Cancel"
           />
         </form>
       </div>

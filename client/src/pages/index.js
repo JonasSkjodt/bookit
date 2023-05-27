@@ -35,7 +35,7 @@ const Home = () => {
 								<div className="feat-btns">
 
 								<a href="#bookbrowsing" className="primary-btn waves-effect waves-light">Buy a book</a>
-                				<a href="#" className="primary-btn feat-details-btn waves-effect waves-light">Become a seller</a>
+                				<a href="/signup" className="primary-btn feat-details-btn waves-effect waves-light">Become a seller</a>
                 				
 								</div>
 							</div>
