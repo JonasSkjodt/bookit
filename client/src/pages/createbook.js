@@ -19,14 +19,13 @@ const CreateBook = () => {
     } else if (e.target.name === "bookAuthor") {
       setBookAuthor(e.target.value);
     } else if (e.target.name === "price") {
-       setPrice(e.target.value); 
+      setPrice(e.target.value);
     } else if (e.target.name === "isbn") {
       setISBN(e.target.value);
-    }
-    /*else {
-      setimage(e.target.files[0]); // get the value of the image when the input changes
-    }*/
-  };
+    } else if (e.target.name === "condition") {
+      setCondition(e.target.value);
+    } 
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +57,7 @@ const CreateBook = () => {
   };
 
   return (
-    <div className="col s12 m8">
+    <div className="col s12 m12">
       <p>
         Want to sell your books? Fill out this form and we'll display it on
         BookIt.
@@ -109,16 +108,18 @@ const CreateBook = () => {
             />
           </div>
           <br />
-          <div className="form-group" label="Condition">
+          <div className="form-group">
             <label>Condition</label>
-            
-            <select className="book_condition" id="condition">
-              <option value="New">New</option>
-              <option value="lightlyUsed">Lightly Used</option>
-              <option value="Used">Used</option>
-              <option value="battleScarred">Battle scarred</option>
-            </select>
-            
+                <select className="book_condition" id="condition"
+                name="condition"
+                onChange={handleInputChange}
+                value={condition}
+                >
+                  <option value="New">New</option>
+                  <option value="lightlyUsed">Lightly Used</option>
+                  <option value="Used">Used</option>
+                  <option value="battleScarred">Battle scarred</option>
+                </select>
           </div>
           <br />
           {/*<div className="form-group">

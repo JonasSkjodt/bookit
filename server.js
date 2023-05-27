@@ -38,6 +38,14 @@ for (let i = 0; i < usersTab.table.length; i++) {
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
 app.get("/api/users", (req, res) => {
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./orderData.json");
+  const usersTab = JSON.parse(data);
+  const users = [];
+  for (let i = 0; i < customersTab.table.length; i++) {
+    users.push(usersTab.table[i]);
+  }
+  
   res.json(users);
 });
 
@@ -126,7 +134,6 @@ app.get("/api/order", function (req, res) {
   res.writeHead(200, {
     "Content-Type": "application/json",
   });
-  console.log("Orders : ", JSON.stringify(orders));
   res.end(JSON.stringify(orders));
 });
 
@@ -158,7 +165,7 @@ app.post("/api/order", function (req, res) {
         obj = JSON.parse(data); //now it an object
         obj.table.push(newOrder); //add some data
         json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+        require("fs").writeFile("orderData.json", json, "utf8", (callback) => {
           console.log("saving Order");
         }); // write it back
       }
@@ -178,6 +185,8 @@ app.post("/api/customers", function (req, res) {
     bookName: req.body.bookName,
     bookAuthor: req.body.bookAuthor,
     price: req.body.price,
+    isbn: req.body.isbn,
+    condition: req.body.condition,
     //image: req.files.bookImg.name,
     username: req.body.username,
   };
