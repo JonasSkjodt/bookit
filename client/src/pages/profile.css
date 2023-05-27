@@ -90,3 +90,7 @@
     border-radius: 12px;
     padding: 25px;
 }
+/*user books*/
+.profile-user-books {
+    font-size: 1.6rem; 
+}

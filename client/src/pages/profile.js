@@ -112,8 +112,8 @@ const Profile = () => {
 					</div>
 				</div>
 				<CreateBook/>
-				
-	<Books />
+				<Books />
+
 				<button className='right waves-effect waves-teal btn-small' onClick={() => {setLoggedIn(false); setAuthUser(null); localStorage.removeItem('authUser'); localStorage.clear()}}>Log out</button>
 				</>
 				) : (

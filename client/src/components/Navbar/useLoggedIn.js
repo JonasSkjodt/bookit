@@ -10,7 +10,7 @@ export default function useLoggedIn() {
       setLoggedIn(true);
       setAuthUser(authUser);
     } else {
-      setLoggedIn(true);
+      setLoggedIn(false);
     }
   }, [authUser, setAuthUser]);
 

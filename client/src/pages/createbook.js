@@ -5,30 +5,46 @@ const CreateBook = () => {
   const [id, setBookID] = useState("");
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
-  /*should add images etc*/
+  const [price, setPrice] = useState("");
+  const [bookImage, setimage] = useState(""); //image
+  const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
     if (e.target.name === "id") {
       setBookID(e.target.value);
     } else if (e.target.name === "bookName") {
       setBookTitle(e.target.value);
-    } else {
+    } else if (e.target.name === "bookAuthor") {
       setBookAuthor(e.target.value);
+    } else if (e.target.name === "price") {
+       setPrice(e.target.value); 
+    }else {
+      setimage(e.target.files[0]); // get the value of the image when the input changes
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const username = localStorage.getItem("authUser");
     const book = {
       id,
       bookName,
       bookAuthor,
+      bookImage, // add the image state here
+      username,
+      price,
     };
     console.log(book);
 
+    // create a formData object
+    const formData = new FormData();
+    // append the book object to the formData
+    formData.append("book", book);
+    // append the uploaded file to the formData
+    formData.append("bookImage", bookImage);
+
     axios
-      .post("/api/create", book)
+      .post("/api/customers", formData)
       .then(() => console.log("Book Created"))
       .catch((err) => {
         console.error(err);
@@ -76,6 +92,26 @@ const CreateBook = () => {
             />
           </div>
           <br />
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control white-text"
+              name="price"
+              placeholder="Price"
+              value={price}
+              onChange={handleInputChange}
+            />
+          </div>
+          <br />
+          <div className="form-group">
+            <input
+              type="file"
+              className="form-control white-text"
+              name="bookImage"
+              onChange={handleInputChange}
+            />
+          </div>
+          <br />
           <div>
             <button className="btn btn-success" type="submit">
               Create
@@ -88,5 +124,4 @@ const CreateBook = () => {
 };
 
 export default CreateBook;
-
 /*npm install axios */

@@ -1,6 +1,7 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import './login.css';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
+
 
 const LogIn = () => {
   const {loggedIn, setLoggedIn} = useLoggedIn(); 
@@ -34,12 +35,20 @@ const LogIn = () => {
 const setAuthUser = (username) => {
   localStorage.setItem('authUser', username);
 }
+const setAuthID = (id) => {
+  localStorage.setItem('authID', id);
+}
 
 // Event handler for form submissions
 const onSubmitForm = (setLoggedIn) => {
+
+
+  
   const username = document.querySelector('#first_name').value;
   const password = document.querySelector('#password').value;
 
+  console.log(username);
+  console.log(password);
 
   fetch('/api/login', {
     method: 'POST',
@@ -53,12 +62,14 @@ const onSubmitForm = (setLoggedIn) => {
        setAuthUser(username);
        // Set loggedin status
        setLoggedIn(true);
-      // Redirect to profile page
-      window.location.href = '/profile';
-    } else {
-      alert('Login failed!');
-    }
-  });
-}
+       // Redirect to profile page
+       window.location.href = '/profile';
+
+      } else {
+        alert('Login failed!');
+      }
+    });
+    window.location.reload(false);
+  }
 
 export default LogIn;
