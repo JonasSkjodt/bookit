@@ -26,16 +26,16 @@ app.get("/api/customers", (req, res) => {
     
 //   }
 //   });
-const { readFileSync } = require('fs');
-const data = readFileSync('./bookData.json');
-const customersTab = JSON.parse(data);
-const customers = [];
-for(let i = 0; i < customersTab.table.length; i++) {
-  customers.push(customersTab.table[i]);
-}
+  const { readFileSync } = require('fs');
+  const data = readFileSync('./bookData.json');
+  const customersTab = JSON.parse(data);
+  const customers = [];
+  for(let i = 0; i < customersTab.table.length; i++) {
+    customers.push(customersTab.table[i]);
+  }
 
 
-  res.json(customers);
+    res.json(customers);
 });
 
 app.use(express.json());
@@ -94,6 +94,18 @@ app.post("/api/signup", (req, res) => {
   users.push(newUser);
   console.log(newUser);
 
+  var obj = {
+    table: []
+  };
+  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push(newUser); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
+  }});
   res.status(201).json({some: "response"})
 })
 
