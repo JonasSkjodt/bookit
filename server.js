@@ -45,7 +45,7 @@ app.get("/api/users", (req, res) => {
   for (let i = 0; i < usersTab.table.length; i++) {
     users.push(usersTab.table[i]);
   }
-  
+
   res.json(users);
 });
 
@@ -245,6 +245,8 @@ let cart = [];
 app.post("/api/cart", (req, res) => {
   const cartItem = {
     id: req.body.id,
+    bookName: req.body.bookName,
+    price: req.body.price,
   };
   cart.push(cartItem);
   console.log("Added " + cartItem + "to the cart");

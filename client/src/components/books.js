@@ -17,8 +17,11 @@ function Books() {
             
             {/*{customers.filter((customer) => customer.username === localStorage.getItem('authUser').value)
           .map((customer) => (*/}
-          {customers.map((customer) => (
-                
+          {customers.filter((customer) => customer.username === localStorage.getItem('authUser').value)
+          .map((customer) => (
+            //const books = [];
+                //if(customer.username === localStorage.getItem('authUser').value) {
+                  //books.push(
                 <div key={customer.id} className="col s6 m3">
                 <div className="card bRad">
                     <div className="card-image waves-effect waves-block waves-light bRadT">
@@ -46,8 +49,10 @@ function Books() {
                     </div>
                 </div>
             </div>
-            
-            ))}
+                 // );
+          
+                  //return books;
+                ))}
               
         
       </div>
