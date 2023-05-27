@@ -5,6 +5,7 @@ const CreateBook = () => {
   const [id, setBookID] = useState("");
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
+  const [price, setPrice] = useState("");
   const [bookImage, setimage] = useState(""); //image
   const username = localStorage.getItem("authUser");
 
@@ -15,7 +16,9 @@ const CreateBook = () => {
       setBookTitle(e.target.value);
     } else if (e.target.name === "bookAuthor") {
       setBookAuthor(e.target.value);
-    } else {
+    } else if (e.target.name === "price") {
+       setPrice(e.target.value); 
+    }else {
       setimage(e.target.files[0]); // get the value of the image when the input changes
     }
   };
@@ -29,6 +32,7 @@ const CreateBook = () => {
       bookAuthor,
       bookImage, // add the image state here
       username,
+      price,
     };
     console.log(book);
 
@@ -84,6 +88,17 @@ const CreateBook = () => {
               name="bookAuthor"
               placeholder="Book Author"
               value={bookAuthor}
+              onChange={handleInputChange}
+            />
+          </div>
+          <br />
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control white-text"
+              name="price"
+              placeholder="Price"
+              value={price}
               onChange={handleInputChange}
             />
           </div>

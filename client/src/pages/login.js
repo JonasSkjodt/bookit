@@ -4,7 +4,6 @@ import useLoggedIn from '../components/Navbar/useLoggedIn';
 
 
 const LogIn = () => {
-
   const {loggedIn, setLoggedIn} = useLoggedIn(); 
   return (
     <div className="container login">
@@ -48,6 +47,8 @@ const onSubmitForm = (setLoggedIn) => {
   const username = document.querySelector('#first_name').value;
   const password = document.querySelector('#password').value;
 
+  console.log(username);
+  console.log(password);
 
   fetch('/api/login', {
     method: 'POST',
@@ -61,13 +62,14 @@ const onSubmitForm = (setLoggedIn) => {
        setAuthUser(username);
        // Set loggedin status
        setLoggedIn(true);
-      // Redirect to profile page
-      window.location.reload(false);
-      window.location.href = '/profile';
-    } else {
-      alert('Login failed!');
-    }
-  });
-}
+       // Redirect to profile page
+       window.location.href = '/profile';
+
+      } else {
+        alert('Login failed!');
+      }
+    });
+    window.location.reload(false);
+  }
 
 export default LogIn;

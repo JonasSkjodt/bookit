@@ -148,6 +148,7 @@ app.post("/api/customers", function (req, res) {
     bookAuthor: req.body.bookAuthor,
     image: req.files.bookImg.name,
     username: req.body.username,
+    price: req.body.bookPrice,
   };
   books.push(newBook);
   console.log(books);
