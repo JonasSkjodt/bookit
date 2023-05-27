@@ -31,7 +31,7 @@ return (
 
 
     <ul className="m-d expand-list">
-	  <li data-md-content="500">
+	  <li data-md-content="400">
 		<label name="tab" htmlFor="tab1" tabIndex="-1" className="tab_lab" role="tab">How does shipping work?</label>
 		<input type="checkbox" className="tab" id="tab1" tabIndex="0" />
 		<span className="open-close-icon">
@@ -74,6 +74,27 @@ return (
         
 			    </div>
     </li>
+    <li data-md-content="600">
+			<label name="tab" htmlFor="tab3" tabIndex="-1" className="tab_lab" role="tab">Refunds?</label>
+			<input type="checkbox" className="tab" id="tab3" tabIndex="0" />
+			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
+          <div className="content">
+          <h5>Refunds</h5>
+        If you are not satisfied with a product you have bought you can return it within 14 days of receiving it. You will have to pay for the shipping yourself and the product has to be in the same condition as when you received it. (this does not apply to loaned products).
+        If you have any questions regarding refunds please contact our support team and they will be more than happy to help you.
+			    </div>
+    </li>
+    <li data-md-content="600">
+			<label name="tab" htmlFor="tab3" tabIndex="-1" className="tab_lab" role="tab">Bad Sellers</label>
+			<input type="checkbox" className="tab" id="tab3" tabIndex="0" />
+			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
+          <div className="content">
+          <h5>Bad Sellers</h5>
+        If you have a bad experience with a seller please contact our support team and they will be more than happy to help you. We take this very seriously and will do everything we can to help you. As a seller you are responsible for the products you sell and if you sell a product that is not as described or is broken you will be held responsible for this.
+        Repeated offenses will result in your account being suspended or removed from the site. We will also withhold any money you have made from the sale of the products. 
+			    </div>
+    </li>
+    
     </ul>
     </div>
 

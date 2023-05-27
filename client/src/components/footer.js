@@ -8,8 +8,10 @@ const Footer = () => {
             <div className='container'>
                 <div className="flex-it flex-align-center flex-justify">
                     <div className="">
-                        <img src="/LogoBookIT.png" alt=""/>
-                        <h2>BookIT</h2>
+                        <a href="/">
+                        <img id="logo" src="/LogoBookIT.png" alt="Logo"/>
+                        <h2 id="logoName">BookIT</h2>
+                        </a>
                     </div>
                     <div className="">
                     <div className="col l4 offset-l2 s12">

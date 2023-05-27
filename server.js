@@ -159,6 +159,7 @@ app.post("/api/order", function (req, res) {
     CardDateYY: req.body.valueDateY,
     CardCVC: req.body.valueCVC,
     itemIDs: req.body.ids,
+    username: req.body.username,
   };
 
   orders.push(newOrder);
