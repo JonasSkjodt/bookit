@@ -84,6 +84,7 @@ const Checkout = () => {
       ids.push(item.id);
     });
 
+    let username = localStorage.getItem("authUser");
     const order = {
       valueFirstName,
       valueLastName,
@@ -97,6 +98,7 @@ const Checkout = () => {
       valueDateY,
       valueCVC,
       ids,
+      username,
     };
 
     console.log(order);
