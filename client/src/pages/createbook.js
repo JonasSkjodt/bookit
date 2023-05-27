@@ -6,6 +6,7 @@ const CreateBook = () => {
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   const [bookImage, setimage] = useState(""); //image
+  const username = localStorage.getItem('authUser');
 
   const handleInputChange = (e) => {
     if (e.target.name === "id") {
@@ -21,12 +22,13 @@ const CreateBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const username = localStorage.getItem('authUser');
     const book = {
       id,
       bookName,
       bookAuthor,
       bookImage, // add the image state here
+      username,
     };
     console.log(book);
 

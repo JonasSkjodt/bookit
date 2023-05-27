@@ -46,20 +46,22 @@ app.get("/api/users", (req, res) => {
   res.json(users);
 });
 
+
+
 app.post("/api/login", (req, res) => {
   const {
     body: { username, password },
   } = req;
   const user = users.find(
-    (user) => user.id === username && user.password === password
+    (user) => user.username === username && user.password === password
   );
 
   // if credentials valid
   if (user) {
     console.log("User is logged in");
     res.json({
-      message: `Welcome ${user.id}`,
-      token: `${user.id}2023`,
+      message: `Welcome ${user.username}`,
+      token: `${user.username}2023`,
       loggedIn: true,
     });
   } else {
@@ -76,7 +78,8 @@ app.post("/api/signup", (req, res) => {
   let newUser = {
     firstName: req.body.first_name,
     lastName: req.body.last_name,
-    id: req.body.username,
+    username: req.body.username,
+    id: req.body.id,
     password: req.body.password,
     email: req.body.email
   };
@@ -140,11 +143,13 @@ app.get("/api/create", function (req, res) {
 });
 
 app.post("/api/create", function (req, res) {
+
   var newBook = {
     id: req.body.bookID,
     bookName: req.body.bookTitle,
     bookAuthor: req.body.bookAuthor,
-    image: req.files.bookImg.name
+    image:  req.files.bookImg.name,
+    username: req.body.username,
   };
   books.push(newBook);
   console.log(books);

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import {randomNumberInRange} from './utilities.js'
 import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
@@ -12,6 +13,7 @@ const SignUp = () => {
       first_name: event.target.first_name.value,
       last_name: event.target.last_name.value,
       username: event.target.username.value,
+      id: randomNumberInRange(),
       password: event.target.password.value,
       email: event.target.email.value
     }
