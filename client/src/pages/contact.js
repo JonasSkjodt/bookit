@@ -31,7 +31,7 @@ return (
 
 
     <ul className="m-d expand-list">
-	  <li data-md-content="500">
+	  <li data-md-content="400">
 		<label name="tab" htmlFor="tab1" tabIndex="-1" className="tab_lab" role="tab">How does shipping work?</label>
 		<input type="checkbox" className="tab" id="tab1" tabIndex="0" />
 		<span className="open-close-icon">

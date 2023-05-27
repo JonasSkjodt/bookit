@@ -112,8 +112,9 @@ const Profile = () => {
 							condition
 							username
 							*/}
-						{orders.map(order => {
+						{orders.length ? orders.map(order => {
 							if(order.username === username) {
+								if (order.itemIDs && order.itemIDs.length > 0) {
 								const itemIDs = order.itemIDs;
 								const books = [];
 								for(const element of itemIDs) {
@@ -152,7 +153,7 @@ const Profile = () => {
 									} else {
 										return null;
 									}
-						})}
+								}}) : <p>No orders yet. Start <Link to="/products" rel="">shopping now!</Link></p>}
 
 						</div>
 						<div className='col s12 m12'>
