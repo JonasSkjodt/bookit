@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./checkout.css";
 
@@ -10,6 +10,13 @@ const Checkout = () => {
   const [valueDateM, setValueDateM] = useState("");
   const [valueDateY, setValueDateY] = useState("");
   const [valueCVC, setValueCVC] = useState("");
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/customers")
+      .then((res) => res.json())
+      .then((customers) => setCustomers(customers));
+  });
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/\D/g, "");
@@ -73,7 +80,7 @@ const Checkout = () => {
     console.log(order);
 
     axios
-      .post("/api/", order)
+      .post("/api/order", order)
       .then(() => console.log("Order Created"))
       .catch((err) => {
         console.error(err);
@@ -85,135 +92,160 @@ const Checkout = () => {
       <h1>Checkout</h1>
       <p>Please enter your information below to order your items</p>
       <div className="row">
-        <div className="col s12">
-          <img Style="width:55px;" src="/LogoBookIT.png" alt="Logo" />
-        </div>
-        <form className="col s12" onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="input-field col s6">
-              <input
-                id="first_name_test_Test"
-                type="text"
-                className="validate white-text"
-                value={valueFirstName}
-                onChange={(event) => setValueFirstName(event.target.value)}
-              />
-              <label for="first_name">First Name</label>
+        <div className="col s12 m6">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="input-field col s6">
+                <input
+                  id="first_name_test_Test"
+                  type="text"
+                  className="validate white-text"
+                  value={valueFirstName}
+                  onChange={(event) => setValueFirstName(event.target.value)}
+                />
+                <label for="first_name">First Name</label>
+              </div>
+              <div className="input-field col s6">
+                <input
+                  id="last_name"
+                  type="text"
+                  className="validate white-text"
+                  value={valueLastName}
+                  onChange={(event) => setValueLastName(event.target.value)}
+                />
+                <label for="last_name">Last Name</label>
+              </div>
             </div>
-            <div className="input-field col s6">
-              <input
-                id="last_name"
-                type="text"
-                className="validate white-text"
-                value={valueLastName}
-                onChange={(event) => setValueLastName(event.target.value)}
-              />
-              <label for="last_name">Last Name</label>
+            <div className="row">
+              <div className="input-field col s12">
+                <input
+                  id="email"
+                  type="email"
+                  className="validate white-text"
+                  value={valueEmail}
+                  onChange={(event) => setValueEmail(event.target.value)}
+                />
+                <label for="email">Email</label>
+                <span
+                  className="helper-text"
+                  data-error="Insert an email again"
+                  data-success="right"
+                >
+                  Insert an email
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field">
               <input
-                id="email"
-                type="email"
                 className="validate white-text"
-                value={valueEmail}
-                onChange={(event) => setValueEmail(event.target.value)}
+                id="cardnumber"
+                type="text"
+                pattern="\d*"
+                max="9999999999999999"
+                value={valueNumber}
+                onChange={handleChange}
+                inputmode="numeric"
+                minLength="16"
+                maxLength="16"
               />
-              <label for="email">Email</label>
+              <label for="cardnumber">Card Number</label>
               <span
                 className="helper-text"
-                data-error="Insert an email again"
+                data-error="Insert the card number again"
                 data-success="right"
               >
-                Insert an email
+                Insert the card number
               </span>
+
+              <div className="row">
+                <div className="input-field col s2">
+                  <input
+                    className="validate white-text"
+                    id="carddate1"
+                    type="text"
+                    pattern="\d*"
+                    inputmode="numeric"
+                    placeholder="MM"
+                    value={valueDateM}
+                    onChange={handleChangeDateM}
+                    onBlur={handleOnBlurDateM}
+                    maxLength="2"
+                  />
+                </div>
+                <div className="input-field col s1">
+                  <p> / </p>
+                </div>
+
+                <div className="input-field col s2">
+                  <input
+                    className="validate white-text"
+                    id="carddate2"
+                    type="text"
+                    pattern="\d*"
+                    inputmode="number"
+                    placeholder="YY"
+                    maxLength="2"
+                    value={valueDateY}
+                    onChange={handleChangeDateY}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s2">
+                  <input
+                    className="validate white-text"
+                    id="cardcvc"
+                    type="text"
+                    pattern="\d*"
+                    inputmode="number"
+                    placeholder="CVC"
+                    maxLength="3"
+                    value={valueCVC}
+                    onChange={handleChangeCVC}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="input-field">
             <input
-              className="validate white-text"
-              id="cardnumber"
-              type="text"
-              pattern="\d*"
-              max="9999999999999999"
-              value={valueNumber}
-              onChange={handleChange}
-              inputmode="numeric"
-              minLength="16"
-              maxLength="16"
+              className="validate white-text waves-effect waves-light btn-large"
+              id="checkoutSubmit"
+              type="submit"
+              value="Submit"
             />
-            <label for="cardnumber">Card Number</label>
-            <span
-              className="helper-text"
-              data-error="Insert the card number again"
-              data-success="right"
-            >
-              Insert the card number
-            </span>
+          </form>
+        </div>
+        <div className="col s12 m6">
+          <div className="containercheckout"></div>
+          <section id="cart">
+            {customers.map((customer) => {
+              return (
+                <article className="product">
+                  <header>
+                    <a className="remove">
+                      <img src="/LogoBookIT.png" alt="" />
+                      <h3>Remove product</h3>
+                    </a>
+                  </header>
 
-            <div className="row">
-              <div className="input-field col s2">
-                <input
-                  className="validate white-text"
-                  id="carddate1"
-                  type="text"
-                  pattern="\d*"
-                  inputmode="numeric"
-                  placeholder="MM"
-                  value={valueDateM}
-                  onChange={handleChangeDateM}
-                  onBlur={handleOnBlurDateM}
-                  maxLength="2"
-                />
-              </div>
-              <div className="input-field col s1">
-                <p> / </p>
-              </div>
+                  <div className="content">
+                    <h1>{customer.bookName}</h1>
+                    {customer.about}
+                  </div>
 
-              <div className="input-field col s2">
-                <input
-                  className="validate white-text"
-                  id="carddate2"
-                  type="text"
-                  pattern="\d*"
-                  inputmode="number"
-                  placeholder="YY"
-                  maxLength="2"
-                  value={valueDateY}
-                  onChange={handleChangeDateY}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s2">
-                <input
-                  className="validate white-text"
-                  id="cardcvc"
-                  type="text"
-                  pattern="\d*"
-                  inputmode="number"
-                  placeholder="CVC"
-                  maxLength="3"
-                  value={valueCVC}
-                  onChange={handleChangeCVC}
-                />
-              </div>
-            </div>
-          </div>
-          <input
-            className="validate white-text waves-effect waves-light btn-large"
-            id="checkoutSubmit"
-            type="submit"
-            value="Submit"
-          />
-          <input
-            className="validate white-text waves-effect waves-light btn-large"
-            id="checkoutSubmit"
-            type="button"
-            value="Cancel"
-          />
-        </form>
+                  <footer>
+                    <span className="qt-minus">-</span>
+                    <span className="qt">2</span>
+                    <span className="qt-plus">+</span>
+
+                    <h2 className="full-price">29.98€</h2>
+
+                    <h2 className="price">14.99€</h2>
+                  </footer>
+                </article>
+              );
+            })}
+          </section>
+        </div>
       </div>
     </div>
   );
