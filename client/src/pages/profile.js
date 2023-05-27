@@ -114,7 +114,7 @@ const Profile = () => {
 				<CreateBook/>
 				
 	<Books />
-				<button onClick={() => {setLoggedIn(false); setAuthUser(null); localStorage.removeItem('authUser'); localStorage.clear()}}>Log out</button>
+				<button className='right waves-effect waves-teal btn-small' onClick={() => {setLoggedIn(false); setAuthUser(null); localStorage.removeItem('authUser'); localStorage.clear()}}>Log out</button>
 				</>
 				) : (
 					<p>Please <a href="/login" rel="">log in</a> to view the full benefits of BookIT.</p>

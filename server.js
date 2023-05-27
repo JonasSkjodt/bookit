@@ -107,7 +107,7 @@ app.post("/api/signup", (req, res) => {
     email: req.body.email
   };
   users.push(newUser);
-  console.log(users);
+  console.log(newUser);
 
   res.status(201).json({some: "response"})
 })
