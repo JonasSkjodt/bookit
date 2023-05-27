@@ -18,7 +18,7 @@ const Product = () => {
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
-    if (width > breakpoint) {
+    if (width > breakpoint) { // for desktop
     return (
         <div className="container">
         <div className="row">
@@ -88,7 +88,7 @@ const Product = () => {
         </div>
         </div>
     );
-    } else {
+    } else { // for mobile
         return (
         <div className="container">
         <div className="row">
