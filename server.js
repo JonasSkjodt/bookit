@@ -9,33 +9,31 @@ const express = require("express");
 
 const app = express();
 // enable files upload
-const fileUpload = require('express-fileupload');
-
+const fileUpload = require("express-fileupload");
 
 app.get("/api/customers", (req, res) => {
-  const { readFileSync } = require('fs');
-  const data = readFileSync('./bookData.json');
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./bookData.json");
   const customersTab = JSON.parse(data);
   const customers = [];
-  for(let i = 0; i < customersTab.table.length; i++) {
+  for (let i = 0; i < customersTab.table.length; i++) {
     customers.push(customersTab.table[i]);
   }
 
-
-    res.json(customers);
+  res.json(customers);
 });
 
 app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const { readFileSync } = require('fs');
-const data = readFileSync('./userData.json');
+const { readFileSync } = require("fs");
+const data = readFileSync("./userData.json");
 const usersTab = JSON.parse(data);
 
 // Define the user credentials
 const users = [];
-for(let i = 0; i < usersTab.table.length; i++) {
+for (let i = 0; i < usersTab.table.length; i++) {
   users.push(usersTab.table[i]);
 }
 
@@ -50,15 +48,15 @@ app.post("/api/login", (req, res) => {
     body: { username, password },
   } = req;
   const user = users.find(
-    (user) => user.id === username && user.password === password
+    (user) => user.username === username && user.password === password
   );
 
   // if credentials valid
   if (user) {
     console.log("User is logged in");
     res.json({
-      message: `Welcome ${user.id}`,
-      token: `${user.id}2023`,
+      message: `Welcome ${user.username}`,
+      token: `${user.username}2023`,
       loggedIn: true,
     });
   } else {
@@ -75,38 +73,52 @@ app.post("/api/signup", (req, res) => {
   let newUser = {
     firstName: req.body.first_name,
     lastName: req.body.last_name,
-    id: req.body.username,
+    username: req.body.username,
+    id: req.body.id,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
   };
   users.push(newUser);
   console.log(users);
 
-  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "userData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newUser); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
-}});
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newUser); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("userData.json", json, "utf8", (callback) => {
+          console.log("saving user");
+        }); // write it back
+      }
+    }
+  );
 
   var obj = {
-    table: []
+    table: [],
   };
-  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "userData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newUser); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
-  }});
-  res.status(201).json({some: "response"})
-})
-
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newUser); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("userData.json", json, "utf8", (callback) => {
+          console.log("saving user");
+        }); // write it back
+      }
+    }
+  );
+  res.status(201).json({ some: "response" });
+});
 
 const uploadPath = 'upload';
 const path = require('path');
@@ -134,23 +146,31 @@ app.post("/api/customers", function (req, res) {
     id: req.body.bookID,
     bookName: req.body.bookTitle,
     bookAuthor: req.body.bookAuthor,
-    image: req.files.bookImg.name
+    image: req.files.bookImg.name,
+    username: req.body.username,
   };
   books.push(newBook);
   console.log(books);
 
   var obj = {
-    table: []
+    table: [],
   };
-  require('fs').readFile('bookData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "bookData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newBook); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('bookData.json', json, 'utf8', callback => {console.log("saving book")}); // write it back 
-}});
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newBook); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+          console.log("saving book");
+        }); // write it back
+      }
+    }
+  );
 
   res.status(201).json({ some: "response" });
 });
