@@ -7,7 +7,6 @@
 const express = require("express");
 //const cors = require('cors');
 
-
 const app = express();
 // enable files upload
 const fileUpload = require('express-fileupload');
@@ -108,38 +107,29 @@ app.post("/api/signup", (req, res) => {
   res.status(201).json({some: "response"})
 })
 
+
 const uploadPath = 'upload';
 const path = require('path');
 //add the book posts
 //empty array for storing the books
 let books = [];
 
-//specify the folder where you want to upload 
+//specify the folder where you want to upload (should it be upload..probably not) 
 app.post('/upload', (req, res) => {
-  if(req.files){
+  if (req.files) {
     //specify the file name to be stored 
     let bookImg = req.files.bookImg;
     //specify the path in the directory
-    bookImg.mv(path.resolve(__dirname, './', uploadPath, bookImg.name), (err) => {
-        if(err)
-            return res.status(500).send(err);
-
+    bookImg.mv(
+      path.resolve(__dirname, './', uploadPath, bookImg.name),
+      (err) => {
+        if (err) return res.status(500).send(err);
         console.log('Image uploaded and stored');
-    });
+      });
   }
 });
 
-
-app.get("/api/create", function (req, res) {
-  console.log("Inside Create book Get");
-  res.writeHead(200, {
-    "Content-Type": "application/json",
-  });
-  console.log("Books : ", JSON.stringify(books));
-  res.end(JSON.stringify(books));
-});
-
-app.post("/api/create", function (req, res) {
+app.post("/api/customers", function (req, res) {
   var newBook = {
     id: req.body.bookID,
     bookName: req.body.bookTitle,

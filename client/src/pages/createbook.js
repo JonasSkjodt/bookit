@@ -33,13 +33,12 @@ const CreateBook = () => {
     // create a formData object 
     const formData = new FormData();
     // append the book object to the formData
-    formData.append('name', 'book');
     formData.append('book', book);
     // append the uploaded file to the formData
     formData.append('bookImage', bookImage);
 
     axios
-      .post("/api/create", formData)
+      .post("/api/customers", formData)
       .then(() => console.log("Book Created"))
       .catch((err) => {
         console.error(err);
