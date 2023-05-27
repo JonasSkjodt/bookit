@@ -83,7 +83,19 @@ app.post("/api/signup", (req, res) => {
   users.push(newUser);
   console.log(newUser);
 
-  res.status(201).json({ some: "response" })
+  var obj = {
+    table: []
+  };
+  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push(newUser); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
+  }});
+  res.status(201).json({some: "response"})
 })
 
 const uploadPath = 'upload';
@@ -119,9 +131,9 @@ app.get("/api/create", function (req, res) {
 
 app.post("/api/create", function (req, res) {
   var newBook = {
-    BookID: req.body.bookID,
-    Title: req.body.bookTitle,
-    Author: req.body.bookAuthor,
+    id: req.body.bookID,
+    bookName: req.body.bookTitle,
+    bookAuthor: req.body.bookAuthor,
     image: req.files.bookImg.name
   };
   books.push(newBook);
