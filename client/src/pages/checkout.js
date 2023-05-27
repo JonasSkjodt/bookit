@@ -87,8 +87,10 @@ const Checkout = () => {
       });
   };
 
+  const handleDelete = (id) => {};
+
   return (
-    <div className="container checkout">
+    <div className="container">
       <h1>Checkout</h1>
       <p>Please enter your information below to order your items</p>
       <div className="row">
@@ -215,9 +217,52 @@ const Checkout = () => {
           </form>
         </div>
         <div className="col s12 m6">
-          {customers.map((customer) => {
-            return <p>testest {customer.bookName}</p>;
-          })}
+          <div className="table">
+            <div className="layout-inline row th">
+              <div className="col col-pro">Product</div>
+              <div className="col col-price align-center ">Price</div>
+              <div className="col col-qty align-center">QTY</div>
+              <div claclassNamess="col">Total</div>
+            </div>
+            {customers.map((customer) => {
+              return (
+                <div className="layout-inline row">
+                  <div className="col col-pro layout-inline">
+                    <img
+                      src="http://static.ddmcdn.com/gif/10-kitten-cuteness-1.jpg"
+                      alt="kitten"
+                    />
+                    <p>{customer.bookName}</p>
+                  </div>
+
+                  <div className="col col-price col-numeric align-center ">
+                    <p>10 kr.</p>
+                  </div>
+
+                  <div className="col col-qty layout-inline">
+                    <a href="#" class="qty qty-minus">
+                      -
+                    </a>
+                    <input className="coolinput" type="numeric" value="3" />
+                    <a href="#" class="qty qty-plus">
+                      +
+                    </a>
+                  </div>
+                  <div className="col col-total col-numeric">
+                    <p> 30 kr</p>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="tf">
+              <div className="row layout-inline">
+                <div className="col">
+                  <p>Total</p>
+                </div>
+                <div className="col"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

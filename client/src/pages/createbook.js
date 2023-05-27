@@ -6,6 +6,8 @@ const CreateBook = () => {
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   const [price, setPrice] = useState("");
+  const [isbn, setISBN] = useState("");
+  const [condition, setCondition] = useState("");
   //const [bookImage, setimage] = useState(""); //image
   const username = localStorage.getItem("authUser");
 
@@ -18,6 +20,8 @@ const CreateBook = () => {
       setBookAuthor(e.target.value);
     } else if (e.target.name === "price") {
        setPrice(e.target.value); 
+    } else if (e.target.name === "isbn") {
+      setISBN(e.target.value);
     }
     /*else {
       setimage(e.target.files[0]); // get the value of the image when the input changes
@@ -28,12 +32,13 @@ const CreateBook = () => {
     e.preventDefault();
     const username = localStorage.getItem("authUser");
     const book = {
-      id,
       bookName,
       bookAuthor,
       //bookImage,
       username,
       price,
+      isbn,
+      condition,
     };
     console.log(book);
 
@@ -64,9 +69,9 @@ const CreateBook = () => {
             <input
               type="text"
               className="form-control white-text"
-              name="id"
-              placeholder="Book ID"
-              value={id}
+              name="isbn"
+              placeholder="ISBN"
+              value={isbn}
               onChange={handleInputChange}
             />
           </div>
@@ -102,6 +107,18 @@ const CreateBook = () => {
               value={price}
               onChange={handleInputChange}
             />
+          </div>
+          <br />
+          <div className="form-group" label="Condition">
+            <label>Condition</label>
+            
+            <select className="book_condition" id="condition">
+              <option value="New">New</option>
+              <option value="lightlyUsed">Lightly Used</option>
+              <option value="Used">Used</option>
+              <option value="battleScarred">Battle scarred</option>
+            </select>
+            
           </div>
           <br />
           {/*<div className="form-group">
