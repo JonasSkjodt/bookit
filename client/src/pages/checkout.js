@@ -79,6 +79,11 @@ const Checkout = () => {
       return false;
     }
 
+    let ids = [];
+    cart.map((item) => {
+      ids.push(item.id);
+    });
+
     const order = {
       valueFirstName,
       valueLastName,
@@ -91,6 +96,7 @@ const Checkout = () => {
       valueDateM,
       valueDateY,
       valueCVC,
+      ids,
     };
 
     console.log(order);
