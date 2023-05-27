@@ -43,9 +43,27 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define the user credentials
 const users = [
-  { id: "bob", password: "123" },
-  { id: "jack", password: "456" },
-  { id: "peter", password: "789" },
+  {
+    firstName: "Bob",
+    lastName: "Bobsen",
+    id: "bob",
+    password: "123",
+    eamil: "bob@gmail.com"
+  },
+  {
+    firstName: "Jack",
+    lastName: "Jacksen",
+    id: "jack", 
+    password: "456",
+    email: "jack@gmail.com"
+  },
+  { 
+    firstName: "Peter",
+    lastName: "Petersen",
+    id: "peter", 
+    password: "789" ,
+    email: "peter@gmail.com"
+  },
 ];
 
 // Add the login route
@@ -82,8 +100,11 @@ app.post("/api/login", (req, res) => {
 app.post("/api/signup", (req, res) => {
   console.log("Creating new user");
   let newUser = {
+    firstName: req.body.first_name,
+    lastName: req.body.last_name,
     id: req.body.username,
     password: req.body.password,
+    email: req.body.email
   };
   users.push(newUser);
   console.log(users);
