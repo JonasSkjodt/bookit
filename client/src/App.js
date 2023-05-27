@@ -12,6 +12,7 @@ import Checkout from './pages/checkout';
 import LogIn from './pages/login';
 import Search from './pages/search';
 import Profile from './pages/profile';
+import Product from './pages/pruduct';
 
 
 function App() {
@@ -29,6 +30,7 @@ return (
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<LogIn />} />
 		<Route path='/search' element={<Search/>} />
+		<Route path='/product' element={<Product/>} />
 	</Routes>
 	<Footer />
 	</Router>

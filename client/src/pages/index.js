@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'; 
 import './index.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
 	const [customers, setCustomers] = useState([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch("/api/customers")
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
-	
 
 	return (
 		<div className='App'>
@@ -68,6 +69,14 @@ const Home = () => {
 									<div className="card-reveal">
 									<span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
 									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
+									<Link
+										to = "/product"
+										state={{
+											book: customer
+										}}
+									>
+										Product page
+									</Link>
 									</div>
 								</div>
 							</div>)
