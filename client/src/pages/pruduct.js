@@ -90,19 +90,21 @@ const Product = () => {
                         <ul>
                             {customers.map((customer) => {
                                 if (customer.id === book.id) {
-                                return <li>Price: {customer.price} </li>
+                                return <li id="price_text">Price: {customer.price} kr. </li>
                                 }
                             })}
-                            
-                            <li>Price new: </li>
+                            <li><button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button></li>
                         </ul>
-                        <button id="add_to_cart_button" className="btn waves-effect waves-light" onClick={addToCart}>Buy</button>
                     </div>
                 </div>
                 <div className="row">
                     <div id="about_seller">
                         <h5>Book condition</h5>
-                        
+                        {customers.map((customer) => {
+                            if (customer.id === book.id) {
+                            return <h5>Condition: {customer.condition}</h5>
+                            }
+                        })}
                         <p>//Add info about seller??</p>
                         <p>Ads perhaps</p>
                     </div>
