@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./checkout.css";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const [valueFirstName, setValueFirstName] = useState("");
@@ -15,6 +16,7 @@ const Checkout = () => {
   const [valueDateY, setValueDateY] = useState("");
   const [valueCVC, setValueCVC] = useState("");
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/api/cart")
@@ -107,6 +109,7 @@ const Checkout = () => {
       .catch((err) => {
         console.error(err);
       });
+    navigate("/");
   };
 
   return (
