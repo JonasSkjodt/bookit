@@ -327,7 +327,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
-<style scoped>
-
-</style>
