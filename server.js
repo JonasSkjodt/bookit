@@ -56,7 +56,6 @@ app.post("/api/login", (req, res) => {
       message: `Welcome ${user.username}`,
       token: `${user.username}2023`,
       loggedIn: true,
-      
     });
   } else {
     console.log("User is not logged in");
@@ -135,14 +134,20 @@ app.post("/api/order", function (req, res) {
   var newOrder = {
     FirstName: req.body.valueFirstName,
     LastName: req.body.valueLastName,
+    Address: req.body.valueAddress,
+    ZipCode: req.body.valueZip,
+    City: req.body.valueCity,
+    Country: req.body.valueCountry,
     Email: req.body.valueEmail,
     CardNumber: req.body.valueNumber,
     CardDateMM: req.body.valueDateM,
     CardDateYY: req.body.valueDateY,
     CardCVC: req.body.valueCVC,
   };
+
   orders.push(newOrder);
   console.log(orders);
+
   require("fs").readFile(
     "bookData.json",
     "utf8",
@@ -162,9 +167,7 @@ app.post("/api/order", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
-
-
-const path = require('path');
+const path = require("path");
 //add the book posts
 //empty array for storing the books
 let books = [];
@@ -204,7 +207,6 @@ app.post("/api/customers", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
- 
 /*app.post('/upload', (req, res) => {
   if (req.files) {
     //specify the file name to be stored 
@@ -221,22 +223,21 @@ app.post("/api/customers", function (req, res) {
   }
 });*/
 
-
 // Handeling the cart. Will reset when the server restarts
-let cart = []
+let cart = [];
 app.post("/api/cart", (req, res) => {
   const cartItem = {
-    id: req.body.id
+    id: req.body.id,
   };
   cart.push(cartItem);
   console.log("Added " + cartItem + "to the cart");
 
-  res.status(200).json({ message: cartItem + " has been added to the cart" })
+  res.status(200).json({ message: cartItem + " has been added to the cart" });
 });
 
 app.get("/api/cart", (req, res) => {
   res.json(cart);
-})
+});
 
 const port = 5000;
 

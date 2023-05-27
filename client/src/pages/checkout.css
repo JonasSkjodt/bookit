@@ -4,10 +4,6 @@
 	line-height: 0.5em;
 	display: inline-block;
 }
-
-.row .col.m6 {
-	width: 100%;
-}
   
 /*change color*/
 p {
@@ -15,8 +11,8 @@ p {
 	color: #8a8a8a;
 }
   
-img {
-	max-width: 9em;
+.img {
+	max-width: 4em;
 	width: 100%;
 	overflow: hidden; 
 	margin-right: 1em;
