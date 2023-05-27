@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
 	const [customers, setCustomers] = useState([]);
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch("/api/customers")

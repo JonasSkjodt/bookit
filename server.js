@@ -34,7 +34,7 @@ app.get("/api/customers", (req, res) => {
     customers.push(customersTab.table[i]);
   }
 
-
+  
     res.json(customers);
 });
 
