@@ -215,36 +215,9 @@ const Checkout = () => {
           </form>
         </div>
         <div className="col s12 m6">
-          <div className="containercheckout"></div>
-          <section id="cart">
-            {customers.map((customer) => {
-              return (
-                <article className="product">
-                  <header>
-                    <a className="remove">
-                      <img src="/LogoBookIT.png" alt="" />
-                      <h3>Remove product</h3>
-                    </a>
-                  </header>
-
-                  <div className="content">
-                    <h1>{customer.bookName}</h1>
-                    {customer.about}
-                  </div>
-
-                  <footer>
-                    <span className="qt-minus">-</span>
-                    <span className="qt">2</span>
-                    <span className="qt-plus">+</span>
-
-                    <h2 className="full-price">29.98€</h2>
-
-                    <h2 className="price">14.99€</h2>
-                  </footer>
-                </article>
-              );
-            })}
-          </section>
+          {customers.map((customer) => {
+            return <p>testest {customer.bookName}</p>;
+          })}
         </div>
       </div>
     </div>

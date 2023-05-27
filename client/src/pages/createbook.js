@@ -6,7 +6,7 @@ const CreateBook = () => {
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   const [bookImage, setimage] = useState(""); //image
-  const username = localStorage.getItem('authUser');
+  const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
     if (e.target.name === "id") {
@@ -22,7 +22,7 @@ const CreateBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const username = localStorage.getItem('authUser');
+    const username = localStorage.getItem("authUser");
     const book = {
       id,
       bookName,
@@ -32,12 +32,12 @@ const CreateBook = () => {
     };
     console.log(book);
 
-    // create a formData object 
+    // create a formData object
     const formData = new FormData();
     // append the book object to the formData
-    formData.append('book', book);
+    formData.append("book", book);
     // append the uploaded file to the formData
-    formData.append('bookImage', bookImage);
+    formData.append("bookImage", bookImage);
 
     axios
       .post("/api/create", formData)

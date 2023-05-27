@@ -7,36 +7,33 @@
 const express = require("express");
 //const cors = require('cors');
 
-
 const app = express();
 // enable files upload
-const fileUpload = require('express-fileupload');
-
+const fileUpload = require("express-fileupload");
 
 app.get("/api/customers", (req, res) => {
-  const { readFileSync } = require('fs');
-  const data = readFileSync('./bookData.json');
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./bookData.json");
   const customersTab = JSON.parse(data);
   const customers = [];
-  for(let i = 0; i < customersTab.table.length; i++) {
+  for (let i = 0; i < customersTab.table.length; i++) {
     customers.push(customersTab.table[i]);
   }
 
-
-    res.json(customers);
+  res.json(customers);
 });
 
 app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const { readFileSync } = require('fs');
-const data = readFileSync('./userData.json');
+const { readFileSync } = require("fs");
+const data = readFileSync("./userData.json");
 const usersTab = JSON.parse(data);
 
 // Define the user credentials
 const users = [];
-for(let i = 0; i < usersTab.table.length; i++) {
+for (let i = 0; i < usersTab.table.length; i++) {
   users.push(usersTab.table[i]);
 }
 
@@ -45,8 +42,6 @@ for(let i = 0; i < usersTab.table.length; i++) {
 app.get("/api/users", (req, res) => {
   res.json(users);
 });
-
-
 
 app.post("/api/login", (req, res) => {
   const {
@@ -81,57 +76,72 @@ app.post("/api/signup", (req, res) => {
     username: req.body.username,
     id: req.body.id,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
   };
   users.push(newUser);
   console.log(users);
 
-  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "userData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newUser); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
-}});
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newUser); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("userData.json", json, "utf8", (callback) => {
+          console.log("saving user");
+        }); // write it back
+      }
+    }
+  );
 
   var obj = {
-    table: []
+    table: [],
   };
-  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "userData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newUser); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
-  }});
-  res.status(201).json({some: "response"})
-})
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newUser); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("userData.json", json, "utf8", (callback) => {
+          console.log("saving user");
+        }); // write it back
+      }
+    }
+  );
+  res.status(201).json({ some: "response" });
+});
 
-const uploadPath = 'upload';
-const path = require('path');
+const uploadPath = "upload";
+const path = require("path");
 //add the book posts
 //empty array for storing the books
 let books = [];
 
-//specify the folder where you want to upload 
-app.post('/upload', (req, res) => {
-  if(req.files){
-    //specify the file name to be stored 
+//specify the folder where you want to upload
+app.post("/upload", (req, res) => {
+  if (req.files) {
+    //specify the file name to be stored
     let bookImg = req.files.bookImg;
     //specify the path in the directory
-    bookImg.mv(path.resolve(__dirname, './', uploadPath, bookImg.name), (err) => {
-        if(err)
-            return res.status(500).send(err);
+    bookImg.mv(
+      path.resolve(__dirname, "./", uploadPath, bookImg.name),
+      (err) => {
+        if (err) return res.status(500).send(err);
 
-        console.log('Image uploaded and stored');
-    });
+        console.log("Image uploaded and stored");
+      }
+    );
   }
 });
-
 
 app.get("/api/create", function (req, res) {
   console.log("Inside Create book Get");
@@ -143,29 +153,35 @@ app.get("/api/create", function (req, res) {
 });
 
 app.post("/api/create", function (req, res) {
-
   var newBook = {
     id: req.body.bookID,
     bookName: req.body.bookTitle,
     bookAuthor: req.body.bookAuthor,
-    image:  req.files.bookImg.name,
+    image: req.files.bookImg.name,
     username: req.body.username,
   };
   books.push(newBook);
   console.log(books);
 
   var obj = {
-    table: []
+    table: [],
   };
-  require('fs').readFile('bookData.json', 'utf8', function readFileCallback(err, data){
-    if (err){
+  require("fs").readFile(
+    "bookData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
-    } else {
-    obj = JSON.parse(data); //now it an object
-    obj.table.push(newBook); //add some data
-    json = JSON.stringify(obj); //convert it back to json
-    require('fs').writeFile('bookData.json', json, 'utf8', callback => {console.log("saving book")}); // write it back 
-}});
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newBook); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+          console.log("saving book");
+        }); // write it back
+      }
+    }
+  );
 
   res.status(201).json({ some: "response" });
 });
