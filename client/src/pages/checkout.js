@@ -87,6 +87,8 @@ const Checkout = () => {
       });
   };
 
+  const handleDelete = (id) => {};
+
   return (
     <div className="container">
       <h1>Checkout</h1>
