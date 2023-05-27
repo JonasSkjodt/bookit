@@ -175,6 +175,8 @@ app.post("/api/customers", function (req, res) {
     bookName: req.body.bookName,
     bookAuthor: req.body.bookAuthor,
     price: req.body.price,
+    isbn: req.body.isbn,
+    condition: req.body.condition,
     //image: req.files.bookImg.name,
     username: req.body.username,
   };

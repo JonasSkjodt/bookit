@@ -1,3 +1,8 @@
+/*materialized rework start*/
+select {
+    display:block;
+}
+/*materialized end*/
 .user-profile {
     margin:35px 0;
 }
