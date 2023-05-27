@@ -2,11 +2,15 @@ import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from 'react'; 
 import { Link } from 'react-router-dom';
 import './pruduct.css';
+import './useViewport.js';
+import useViewport from "./useViewport.js";
 
 const Product = () => {
     const location = useLocation();
     const book = location.state.book;
     const [customers, setCustomers] = useState([]);
+    const { width } = useViewport();
+    const breakpoint = 768;
     let count = 0;
 
 	useEffect(() => {
@@ -14,7 +18,7 @@ const Product = () => {
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
-
+    if (width > breakpoint) {
     return (
         <div className="container">
         <div className="row">
@@ -84,6 +88,45 @@ const Product = () => {
         </div>
         </div>
     );
+    } else {
+        return (
+        <div className="container">
+        <div className="row">
+            <div className="col s12">
+                <div className="row">
+                    <div className="col s5">
+                        <img id="book_img" src={book.image} style={{ borderradius: 20 }}></img>
+                    </div>
+                    <div className="col s7">
+                        <h4 id="title">{book.bookName}</h4>
+                        <p>{book.about}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col s12">
+                <div className="row">
+                    <div id="add_to_cart_area">
+                        <ul>
+                            <li>Price from new: //TODO add prices to books</li>
+                            <li>Price new: //TODO add prices</li>
+                        </ul>
+                        <button id="add_to_cart_button" className="btn waves-effect waves-light">Buy</button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div id="about_seller">
+                        <h5>About seller</h5>
+                        <p>//Add info about seller??</p>
+                        <p>Ads perhaps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        );
+    };
 }
 
 
