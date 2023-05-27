@@ -5,7 +5,7 @@ const CreateBook = () => {
   const [id, setBookID] = useState("");
   const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
-  const [bookImage, setimage] = useState(""); //image
+  const [bookImage, setimage] = useState(null); //image
 
   const handleInputChange = (e) => {
     if (e.target.name === "id") {
@@ -15,7 +15,7 @@ const CreateBook = () => {
     } else if (e.target.name === "bookAuthor") {
       setBookAuthor(e.target.value);
     } else {
-      setimage(e.target.value); // get the value of the image when the input changes
+      setimage(e.target.files[0]); // get the value of the image when the input changes
     }
   };
 
@@ -33,6 +33,7 @@ const CreateBook = () => {
     // create a formData object 
     const formData = new FormData();
     // append the book object to the formData
+    formData.append('name', 'book');
     formData.append('book', book);
     // append the uploaded file to the formData
     formData.append('bookImage', bookImage);
