@@ -1,43 +1,32 @@
+/*dependencies
+1: npm i express concurrently
+2: npm i nodemon --save-dev
+3: npm install express-fileupload
+
+*/
 const express = require("express");
 //const cors = require('cors');
 
+
 const app = express();
+// enable files upload
+const fileUpload = require('express-fileupload');
+
 
 app.get("/api/customers", (req, res) => {
-
-//   process.on('exit', function() {
-//     var obj = {
-//       table: []
-//     };
-//     customers.map((customer) => {
-//       obj.table.push(customer);
-//     });
-//     var json = JSON.stringify(obj);
-//     var fs = require('fs');
-//     fs.writeFile('myjsonfile.json', json, (err) => err && console.error(err));
-// });
+  const { readFileSync } = require('fs');
+  const data = readFileSync('./bookData.json');
+  const customersTab = JSON.parse(data);
+  const customers = [];
+  for(let i = 0; i < customersTab.table.length; i++) {
+    customers.push(customersTab.table[i]);
+  }
 
 
-// require('fs').readFile('myjsonfile.json', 'utf8', function readFileCallback(err, data){
-//       if (err){
-//           console.log(err);
-//       } else {
-//       customers = JSON.parse(data); //now it an object
-    
-//   }
-//   });
-const { readFileSync } = require('fs');
-const data = readFileSync('./bookData.json');
-const customersTab = JSON.parse(data);
-const customers = [];
-for(let i = 0; i < customersTab.table.length; i++) {
-  customers.push(customersTab.table[i]);
-}
-
-
-  res.json(customers);
+    res.json(customers);
 });
 
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -85,8 +74,11 @@ app.post("/api/login", (req, res) => {
 app.post("/api/signup", (req, res) => {
   console.log("Creating new user");
   let newUser = {
+    firstName: req.body.first_name,
+    lastName: req.body.last_name,
     id: req.body.username,
     password: req.body.password,
+    email: req.body.email
   };
   users.push(newUser);
   console.log(users);
@@ -101,12 +93,42 @@ app.post("/api/signup", (req, res) => {
     require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
 }});
 
+  var obj = {
+    table: []
+  };
+  require('fs').readFile('userData.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push(newUser); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    require('fs').writeFile('userData.json', json, 'utf8', callback => {console.log("saving user")}); // write it back 
+  }});
   res.status(201).json({some: "response"})
 })
 
+const uploadPath = 'upload';
+const path = require('path');
 //add the book posts
 //empty array for storing the books
 let books = [];
+
+//specify the folder where you want to upload 
+app.post('/upload', (req, res) => {
+  if(req.files){
+    //specify the file name to be stored 
+    let bookImg = req.files.bookImg;
+    //specify the path in the directory
+    bookImg.mv(path.resolve(__dirname, './', uploadPath, bookImg.name), (err) => {
+        if(err)
+            return res.status(500).send(err);
+
+        console.log('Image uploaded and stored');
+    });
+  }
+});
+
 
 app.get("/api/create", function (req, res) {
   console.log("Inside Create book Get");
@@ -122,6 +144,7 @@ app.post("/api/create", function (req, res) {
     id: req.body.bookID,
     bookName: req.body.bookTitle,
     bookAuthor: req.body.bookAuthor,
+    image: req.files.bookImg.name
   };
   books.push(newBook);
   console.log(books);

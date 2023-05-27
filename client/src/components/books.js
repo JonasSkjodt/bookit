@@ -12,10 +12,10 @@ function Books() {
 
   return (
       <div>
-          <h2>Books</h2>
+          <h2 className='profile-user-books'>Your recently made books</h2>
           <ul>
               {books.map((book) => {
-                  return <li key={book.id}><h4>{book.title}</h4> <p>Author: {book.author}</p></li>
+                  return <li key={book.BookID}><h4>{book.Title}</h4> <p>Author: {book.Author}</p></li>
               })}
           </ul>
       </div>
