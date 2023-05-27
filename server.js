@@ -2,14 +2,16 @@
 1: npm i express concurrently
 2: npm i nodemon --save-dev
 3: npm install express-fileupload
-
 */
+
 const express = require("express");
 //const cors = require('cors');
-
 const app = express();
 // enable files upload
 const fileUpload = require("express-fileupload");
+app.use(fileUpload());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/customers", (req, res) => {
   const { readFileSync } = require("fs");
@@ -22,10 +24,6 @@ app.get("/api/customers", (req, res) => {
 
   res.json(customers);
 });
-
-app.use(fileUpload());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 const { readFileSync } = require("fs");
 const data = readFileSync("./userData.json");
@@ -121,62 +119,6 @@ app.post("/api/signup", (req, res) => {
   res.status(201).json({ some: "response" });
 });
 
-const uploadPath = 'upload';
-const path = require('path');
-//add the book posts
-//empty array for storing the books
-let books = [];
-
-//specify the folder where you want to upload (should it be upload..probably not) 
-app.post('/upload', (req, res) => {
-  if (req.files) {
-    //specify the file name to be stored 
-    let bookImg = req.files.bookImg;
-    //specify the path in the directory
-    bookImg.mv(
-      path.resolve(__dirname, './', uploadPath, bookImg.name),
-      (err) => {
-        if (err) return res.status(500).send(err);
-        console.log('Image uploaded and stored');
-      });
-  }
-});
-
-app.post("/api/customers", function (req, res) {
-  var newBook = {
-    id: req.body.bookID,
-    bookName: req.body.bookTitle,
-    bookAuthor: req.body.bookAuthor,
-    image: req.files.bookImg.name,
-    username: req.body.username,
-    price: req.body.bookPrice,
-  };
-  books.push(newBook);
-  console.log(books);
-
-  var obj = {
-    table: [],
-  };
-  require("fs").readFile(
-    "bookData.json",
-    "utf8",
-    function readFileCallback(err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        obj = JSON.parse(data); //now it an object
-        obj.table.push(newBook); //add some data
-        json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
-          console.log("saving book");
-        }); // write it back
-      }
-    }
-  );
-
-  res.status(201).json({ some: "response" });
-});
-
 //add the order posts
 //empty array for storing the orders
 let orders = [];
@@ -204,6 +146,82 @@ app.post("/api/order", function (req, res) {
 
   res.status(201).json({ some: "response" });
 });
+
+
+
+const path = require('path');
+//add the book posts
+//empty array for storing the books
+let books = [];
+
+app.post("/api/customers", function (req, res) {
+  var newBook = {
+    id: req.body.id,
+    bookName: req.body.bookName,
+    bookAuthor: req.body.bookAuthor,
+    price: req.body.price,
+    //image: req.files.bookImg.name,
+    username: req.body.username,
+  };
+  books.push(newBook);
+  console.log(books);
+
+  var obj = {
+    table: [],
+  };
+  require("fs").readFile(
+    "bookData.json",
+    "utf8",
+    function readFileCallback(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        obj = JSON.parse(data); //now it an object
+        obj.table.push(newBook); //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+          console.log("saving book");
+        }); // write it back
+      }
+    }
+  );
+
+  res.status(201).json({ some: "response" });
+});
+
+ 
+/*app.post('/upload', (req, res) => {
+  if (req.files) {
+    //specify the file name to be stored 
+    if (req.files && req.files.bookImg) {
+      let bookImg = req.files.bookImg;
+    
+      bookImg.mv(
+        path.resolve(__dirname, './client/public/images', bookImg.name),
+        (err) => {
+          if (err) return res.status(500).send(err);
+          console.log('Image uploaded and stored');
+     });
+    }
+  }
+});*/
+
+
+// Handeling the cart. Will reset when the server restarts
+let cart = []
+app.post("/api/cart", (req, res) => {
+  const cartItem = {
+    id: req.body.id
+  };
+  cart.push(cartItem);
+  console.log("Added " + cartItem + "to the cart");
+
+  res.status(200).json({ message: cartItem + " has been added to the cart" })
+});
+
+app.get("/api/cart", (req, res) => {
+  res.json(cart);
+})
 
 const port = 5000;
 

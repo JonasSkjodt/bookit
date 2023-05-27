@@ -1,10 +1,17 @@
 import {React, useState, useEffect} from 'react';
 import './login.css';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
+import { useNavigate } from 'react-router-dom';
 
 
 const LogIn = () => {
   const {loggedIn, setLoggedIn} = useLoggedIn(); 
+  const navigate = useNavigate();
+
+  const gotoSignUp = () => {
+    navigate("/signup", { replace: true });
+  }
+
   return (
     <div className="container login">
       <h1>Login</h1>
@@ -22,8 +29,9 @@ const LogIn = () => {
               <label htmlFor="password">Password</label>
             </div>
           </div>
-          <div className="row center-align">
-            <button type="submit" className="waves-effect waves-light btn-large" onClick={() => onSubmitForm(setLoggedIn)}>Login</button>
+          <div id="buttons" className="row">
+            <button id="login" type="submit" className="waves-effect waves-light btn-large col s4 left" onClick={() => onSubmitForm(setLoggedIn)}>Login</button>
+            <button id="signup" className="btn feat-details-btn waves-effect waves-light col s3 right" onClick={gotoSignUp}>Sign up</button>
           </div>
         </form>
       </div>

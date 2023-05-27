@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import './index.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
 	const [customers, setCustomers] = useState([]);
@@ -67,6 +68,14 @@ const Home = () => {
 									<div className="card-reveal">
 									<span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
 									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
+									<Link
+										to = "/product"
+										state={{
+											book: customer
+										}}
+									>
+										Product page
+									</Link>
 									</div>
 								</div>
 							</div>)
