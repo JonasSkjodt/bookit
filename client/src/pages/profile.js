@@ -103,6 +103,15 @@ const Profile = () => {
 
 						<div className='col s12 m12'>
 							<p>Current Orders</p>
+							{/*
+							id (should make a random id)
+							bookName
+							bookAuthor
+							price
+							isbn
+							condition
+							username
+							*/}
 						{orders.map(order => {
 							if(order.username === username) {
 								const itemIDs = order.itemIDs;
@@ -125,7 +134,7 @@ const Profile = () => {
 									</div>
 									<div className="card-reveal">
 									<span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
-									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
+									<p className="black-text">{customer.bookName} <span>{customer.condition}</span></p>
 									<Link
 										to = "/product"
 										state={{

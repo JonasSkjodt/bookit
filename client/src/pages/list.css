@@ -29,5 +29,9 @@
     position: absolute;
     right: 6px;
     top: 7px;
+    min-width: 60px;
+    border-radius:6px;
+    background: #0ad89b;
+    text-align:center;
   }
   

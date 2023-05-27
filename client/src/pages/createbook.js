@@ -37,7 +37,7 @@ const CreateBook = () => {
       username,
       price,
       isbn,
-      condition,
+      condition
     };
     console.log(book);
 
