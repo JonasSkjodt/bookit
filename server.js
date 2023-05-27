@@ -38,6 +38,14 @@ for (let i = 0; i < usersTab.table.length; i++) {
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
 app.get("/api/users", (req, res) => {
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./orderData.json");
+  const usersTab = JSON.parse(data);
+  const users = [];
+  for (let i = 0; i < customersTab.table.length; i++) {
+    users.push(usersTab.table[i]);
+  }
+  
   res.json(users);
 });
 
@@ -56,7 +64,6 @@ app.post("/api/login", (req, res) => {
       message: `Welcome ${user.username}`,
       token: `${user.username}2023`,
       loggedIn: true,
-      
     });
   } else {
     console.log("User is not logged in");
@@ -134,15 +141,20 @@ app.post("/api/order", function (req, res) {
   var newOrder = {
     FirstName: req.body.valueFirstName,
     LastName: req.body.valueLastName,
+    Address: req.body.valueAddress,
+    ZipCode: req.body.valueZip,
+    City: req.body.valueCity,
+    Country: req.body.valueCountry,
     Email: req.body.valueEmail,
     CardNumber: req.body.valueNumber,
     CardDateMM: req.body.valueDateM,
     CardDateYY: req.body.valueDateY,
     CardCVC: req.body.valueCVC,
   };
+
   orders.push(newOrder);
   console.log(orders);
-  
+
   require("fs").readFile(
     "bookData.json",
     "utf8",
@@ -153,7 +165,7 @@ app.post("/api/order", function (req, res) {
         obj = JSON.parse(data); //now it an object
         obj.table.push(newOrder); //add some data
         json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+        require("fs").writeFile("orderData.json", json, "utf8", (callback) => {
           console.log("saving Order");
         }); // write it back
       }
@@ -162,9 +174,7 @@ app.post("/api/order", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
-
-
-const path = require('path');
+const path = require("path");
 //add the book posts
 //empty array for storing the books
 let books = [];
@@ -206,7 +216,6 @@ app.post("/api/customers", function (req, res) {
   res.status(201).json({ some: "response" });
 });
 
- 
 /*app.post('/upload', (req, res) => {
   if (req.files) {
     //specify the file name to be stored 
@@ -223,22 +232,21 @@ app.post("/api/customers", function (req, res) {
   }
 });*/
 
-
 // Handeling the cart. Will reset when the server restarts
-let cart = []
+let cart = [];
 app.post("/api/cart", (req, res) => {
   const cartItem = {
-    id: req.body.id
+    id: req.body.id,
   };
   cart.push(cartItem);
   console.log("Added " + cartItem + "to the cart");
 
-  res.status(200).json({ message: cartItem + " has been added to the cart" })
+  res.status(200).json({ message: cartItem + " has been added to the cart" });
 });
 
 app.get("/api/cart", (req, res) => {
   res.json(cart);
-})
+});
 
 const port = 5000;
 

@@ -5,6 +5,10 @@ import "./checkout.css";
 const Checkout = () => {
   const [valueFirstName, setValueFirstName] = useState("");
   const [valueLastName, setValueLastName] = useState("");
+  const [valueAddress, setValueAddress] = useState("");
+  const [valueZip, setValueZip] = useState("");
+  const [valueCity, setValueCity] = useState("");
+  const [valueCountry, setValueCountry] = useState("");
   const [valueEmail, setValueEmail] = useState("");
   const [valueNumber, setValueNumber] = useState("");
   const [valueDateM, setValueDateM] = useState("");
@@ -18,7 +22,13 @@ const Checkout = () => {
       .then((customers) => setCustomers(customers));
   });
 
-  const handleChange = (event) => {
+  const handleChangeZip = (event) => {
+    const result = event.target.value.replace(/\D/g, "");
+
+    setValueZip(result);
+  };
+
+  const handleChangeNumber = (event) => {
     const result = event.target.value.replace(/\D/g, "");
 
     setValueNumber(result);
@@ -62,21 +72,27 @@ const Checkout = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     let checkDateY = parseInt(valueDateY);
     if (checkDateY < 23) {
-      alert("Check if date is insert correctly");
+      alert("Check if year is insert correctly");
       return false;
     }
 
     const order = {
       valueFirstName,
       valueLastName,
+      valueAddress,
+      valueZip,
+      valueCity,
+      valueCountry,
       valueEmail,
       valueNumber,
       valueDateM,
       valueDateY,
       valueCVC,
     };
+
     console.log(order);
 
     axios
@@ -86,8 +102,6 @@ const Checkout = () => {
         console.error(err);
       });
   };
-
-  const handleDelete = (id) => {};
 
   return (
     <div className="container">
@@ -105,7 +119,7 @@ const Checkout = () => {
                   value={valueFirstName}
                   onChange={(event) => setValueFirstName(event.target.value)}
                 />
-                <label for="first_name">First Name</label>
+                <label htmlFor="first_name">First Name</label>
               </div>
               <div className="input-field col s6">
                 <input
@@ -115,7 +129,53 @@ const Checkout = () => {
                   value={valueLastName}
                   onChange={(event) => setValueLastName(event.target.value)}
                 />
-                <label for="last_name">Last Name</label>
+                <label htmlFor="last_name">Last Name</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s10">
+                <input
+                  id="address"
+                  type="text"
+                  className="validate white-text"
+                  value={valueAddress}
+                  onChange={(event) => setValueAddress(event.target.value)}
+                />
+                <label htmlFor="address">Address</label>
+              </div>
+              <div className="input-field col s2">
+                <input
+                  id="zip_code"
+                  type="text"
+                  className="validate white-text"
+                  value={valueZip}
+                  onChange={handleChangeZip}
+                  minLength="4"
+                  maxLength="4"
+                />
+                <label htmlFor="zip_code">Zip Code</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s4">
+                <input
+                  id="city"
+                  type="text"
+                  className="validate white-text"
+                  value={valueCity}
+                  onChange={(event) => setValueCity(event.target.value)}
+                />
+                <label htmlFor="city">City</label>
+              </div>
+              <div className="input-field col s4">
+                <input
+                  id="country"
+                  type="text"
+                  className="validate white-text"
+                  value={valueCountry}
+                  onChange={(event) => setValueCountry(event.target.value)}
+                />
+                <label htmlFor="country">Country</label>
               </div>
             </div>
             <div className="row">
@@ -127,7 +187,7 @@ const Checkout = () => {
                   value={valueEmail}
                   onChange={(event) => setValueEmail(event.target.value)}
                 />
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <span
                   className="helper-text"
                   data-error="Insert an email again"
@@ -145,12 +205,12 @@ const Checkout = () => {
                 pattern="\d*"
                 max="9999999999999999"
                 value={valueNumber}
-                onChange={handleChange}
-                inputmode="numeric"
+                onChange={handleChangeNumber}
+                inputMode="numeric"
                 minLength="16"
                 maxLength="16"
               />
-              <label for="cardnumber">Card Number</label>
+              <label htmlFor="cardnumber">Card Number</label>
               <span
                 className="helper-text"
                 data-error="Insert the card number again"
@@ -166,7 +226,7 @@ const Checkout = () => {
                     id="carddate1"
                     type="text"
                     pattern="\d*"
-                    inputmode="numeric"
+                    inputMode="numeric"
                     placeholder="MM"
                     value={valueDateM}
                     onChange={handleChangeDateM}
@@ -184,7 +244,7 @@ const Checkout = () => {
                     id="carddate2"
                     type="text"
                     pattern="\d*"
-                    inputmode="number"
+                    inputMode="number"
                     placeholder="YY"
                     maxLength="2"
                     value={valueDateY}
@@ -199,7 +259,7 @@ const Checkout = () => {
                     id="cardcvc"
                     type="text"
                     pattern="\d*"
-                    inputmode="number"
+                    inputMode="number"
                     placeholder="CVC"
                     maxLength="3"
                     value={valueCVC}
@@ -216,22 +276,19 @@ const Checkout = () => {
             />
           </form>
         </div>
-        <div className="col s12 m6">
+        <div className="col s12 m12">
           <div className="table">
             <div className="layout-inline row th">
               <div className="col col-pro">Product</div>
               <div className="col col-price align-center ">Price</div>
               <div className="col col-qty align-center">QTY</div>
-              <div claclassNamess="col">Total</div>
+              <div className="col">Total</div>
             </div>
             {customers.map((customer) => {
               return (
                 <div className="layout-inline row">
                   <div className="col col-pro layout-inline">
-                    <img
-                      src="http://static.ddmcdn.com/gif/10-kitten-cuteness-1.jpg"
-                      alt="kitten"
-                    />
+                    <img src="/alg4book.png" alt="Fun" />
                     <p>{customer.bookName}</p>
                   </div>
 
@@ -240,11 +297,11 @@ const Checkout = () => {
                   </div>
 
                   <div className="col col-qty layout-inline">
-                    <a href="#" class="qty qty-minus">
+                    <a href="#" className="qty qty-minus">
                       -
                     </a>
                     <input className="coolinput" type="numeric" value="3" />
-                    <a href="#" class="qty qty-plus">
+                    <a href="#" className="qty qty-plus">
                       +
                     </a>
                   </div>
