@@ -105,8 +105,13 @@ const Product = () => {
                             return <h5>Condition: {customer.condition}</h5>
                             }
                         })}
-                        <p>//Add info about seller??</p>
-                        <p>Ads perhaps</p>
+                        {customers.map((customer) => {
+                            if (customer.id === book.id) {
+                            return  <p>Seller: {customer.username}</p>
+                            }
+                            
+                        })}
+                        
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@ const CreateBook = () => {
               type="text"
               className="form-control white-text"
               name="isbn"
-              placeholder="isbn"
+              placeholder="ISBN"
               value={isbn}
               onChange={handleInputChange}
             />
