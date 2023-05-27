@@ -1,7 +1,17 @@
+/*dependencies
+1: npm i express concurrently
+2: npm i nodemon --save-dev
+3: npm install express-fileupload
+
+*/
 const express = require("express");
 //const cors = require('cors');
 
+
 const app = express();
+// enable files upload
+const fileUpload = require('express-fileupload');
+
 
 app.get("/api/customers", (req, res) => {
   const customers = [
@@ -38,6 +48,7 @@ app.get("/api/customers", (req, res) => {
   res.json(customers);
 });
 
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -88,12 +99,30 @@ app.post("/api/signup", (req, res) => {
   users.push(newUser);
   console.log(users);
 
-  res.status(201).json({some: "response"})
+  res.status(201).json({ some: "response" })
 })
 
+const uploadPath = 'upload';
+const path = require('path');
 //add the book posts
 //empty array for storing the books
 let books = [];
+
+//specify the folder where you want to upload 
+app.post('/upload', (req, res) => {
+  if(req.files){
+    //specify the file name to be stored 
+    let bookImg = req.files.bookImg;
+    //specify the path in the directory
+    bookImg.mv(path.resolve(__dirname, './', uploadPath, bookImg.name), (err) => {
+        if(err)
+            return res.status(500).send(err);
+
+        console.log('Image uploaded and stored');
+    });
+  }
+});
+
 
 app.get("/api/create", function (req, res) {
   console.log("Inside Create book Get");
@@ -109,6 +138,7 @@ app.post("/api/create", function (req, res) {
     BookID: req.body.bookID,
     Title: req.body.bookTitle,
     Author: req.body.bookAuthor,
+    image: req.files.bookImg.name
   };
   books.push(newBook);
   console.log(books);
