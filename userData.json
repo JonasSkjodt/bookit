@@ -1,1 +1,1 @@
-{"table":[{ "id": "bob", "password": 123 },{ "id": "jack", "password": 456 }, { "id": "peter", "password": 789 }]}
+{"table":[{"id":"bob","password":123},{"id":"jack","password":456},{"id":"peter","password":789}]}
