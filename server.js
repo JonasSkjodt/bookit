@@ -38,6 +38,14 @@ for (let i = 0; i < usersTab.table.length; i++) {
 // Add the login route
 //(use post because these are "sensitive data" which shouldnt be shown, change it to app.get to see how it otherwise looks)
 app.get("/api/users", (req, res) => {
+  const { readFileSync } = require("fs");
+  const data = readFileSync("./orderData.json");
+  const usersTab = JSON.parse(data);
+  const users = [];
+  for (let i = 0; i < customersTab.table.length; i++) {
+    users.push(usersTab.table[i]);
+  }
+  
   res.json(users);
 });
 
@@ -142,7 +150,7 @@ app.post("/api/order", function (req, res) {
   };
   orders.push(newOrder);
   console.log(orders);
-  
+
   require("fs").readFile(
     "bookData.json",
     "utf8",
@@ -153,7 +161,7 @@ app.post("/api/order", function (req, res) {
         obj = JSON.parse(data); //now it an object
         obj.table.push(newOrder); //add some data
         json = JSON.stringify(obj); //convert it back to json
-        require("fs").writeFile("bookData.json", json, "utf8", (callback) => {
+        require("fs").writeFile("orderData.json", json, "utf8", (callback) => {
           console.log("saving Order");
         }); // write it back
       }
