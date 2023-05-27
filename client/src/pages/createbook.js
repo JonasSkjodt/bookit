@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const CreateBook = () => {
-  const [bookID, setBookID] = useState("");
-  const [bookTitle, setBookTitle] = useState("");
+  const [id, setBookID] = useState("");
+  const [bookName, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   /*should add images etc*/
 
   const handleInputChange = (e) => {
-    if (e.target.name === "bookID") {
+    if (e.target.name === "id") {
       setBookID(e.target.value);
-    } else if (e.target.name === "bookTitle") {
+    } else if (e.target.name === "bookName") {
       setBookTitle(e.target.value);
     } else {
       setBookAuthor(e.target.value);
@@ -21,8 +21,8 @@ const CreateBook = () => {
     e.preventDefault();
 
     const book = {
-      bookID,
-      bookTitle,
+      id,
+      bookName,
       bookAuthor,
     };
     console.log(book);
@@ -47,9 +47,9 @@ const CreateBook = () => {
             <input
               type="text"
               className="form-control white-text"
-              name="bookID"
+              name="id"
               placeholder="Book ID"
-              value={bookID}
+              value={id}
               onChange={handleInputChange}
             />
           </div>
@@ -58,9 +58,9 @@ const CreateBook = () => {
             <input
               type="text"
               className="form-control white-text"
-              name="bookTitle"
+              name="bookName"
               placeholder="Book Title"
-              value={bookTitle}
+              value={bookName}
               onChange={handleInputChange}
             />
           </div>
