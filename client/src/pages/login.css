@@ -9,3 +9,13 @@
     background: #191e2b;
     border-radius: 20px;
 }
+#buttons {
+    display: flex;
+    align-items: center;
+}
+#login {
+    margin-left: 10px;
+}
+#signup {
+    color: white;
+}
