@@ -55,22 +55,39 @@ return (
   </ul>
     <ul className="collapsible expandable">
       <li>
-      <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">How does it work?</i>Third</div>
+      <div className="collapsible-body"><span>
+        <h5>Buy or loan</h5>
+        When you find a product you like you can either buy it or loan it. If you loan it you will have to return it within the selected time frame on the product page or you will be charged the full price of the product. 
+        Any loaned product will be shipped by by the seller and you will be charged a small fee for this. If you buy a product you will have to pay the full price of the product and shipping will be handled by the seller. 
+        Loaning products is a great way to save money if you only need the product for a short period of time or want to try it out before buying it. If you experience any issues with a product you have bought or loaned please contact our support team and they will be more than happy to help you.
+        <h5>How to sell</h5>
+        Selling a product is easy. All you have to do is create an account and then you can start selling. You will have to provide a description and the condition of the product. You can set the price yourself but we will notify you if we believe the price is too high or too low.
+        After a book is sold you will have to ship it to the buyer and notify us that it has been shipped. Once the buyer has received the product and confirmed it we will transfer the money to your account within 3-5 business days. 
+        
+        </span></div>
       </li>
     </ul>
       </div>
       <div className="col s12 m6">
       <ul className="collapsible expandable">
     <li>
-      <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">Refunds?</i>First</div>
+      <div className="collapsible-body"><span>
+        <h5>Refunds</h5>
+        If you are not satisfied with a product you have bought you can return it within 14 days of receiving it. You will have to pay for the shipping yourself and the product has to be in the same condition as when you received it. (this does not apply to loaned products).
+        If you have any questions regarding refunds please contact our support team and they will be more than happy to help you. 
+        </span></div>
     </li>
     </ul>
     <ul className="collapsible expandable">
     <li>
-      <div className="collapsible-header"><i className="material-icons">place</i>Second</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">Bad Sellers</i>Second</div>
+      <div className="collapsible-body"><span>
+        <h5>Bad Sellers</h5>
+        If you have a bad experience with a seller please contact our support team and they will be more than happy to help you. We take this very seriously and will do everything we can to help you. As a seller you are responsible for the products you sell and if you sell a product that is not as described or is broken you will be held responsible for this.
+        Repeated offenses will result in your account being suspended or removed from the site. We will also withhold any money you have made from the sale of the products. 
+        </span></div>
     </li>
     </ul>
     <ul className="collapsible expandable">
