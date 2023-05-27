@@ -13,13 +13,13 @@ const LogIn = () => {
           <div className="row">
             <div className="input-field col s12">
               <input id="first_name" type="text" className="validate white-text" />
-              <label for="first_name">Account name</label>
+              <label htmlFor="first_name">Account name</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input id="password" type="password" className="validate white-text" />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
           </div>
           <div className="row center-align">
@@ -42,13 +42,9 @@ const setAuthID = (id) => {
 // Event handler for form submissions
 const onSubmitForm = (setLoggedIn) => {
 
-
-  
   const username = document.querySelector('#first_name').value;
   const password = document.querySelector('#password').value;
 
-  console.log(username);
-  console.log(password);
 
   fetch('/api/login', {
     method: 'POST',
@@ -64,12 +60,11 @@ const onSubmitForm = (setLoggedIn) => {
        setLoggedIn(true);
        // Redirect to profile page
        window.location.href = '/profile';
-
       } else {
         alert('Login failed!');
       }
     });
-    window.location.reload(false);
+    window.location.reload(false); 
   }
 
 export default LogIn;
