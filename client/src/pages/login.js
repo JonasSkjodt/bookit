@@ -62,6 +62,7 @@ const onSubmitForm = (setLoggedIn) => {
        // Set loggedin status
        setLoggedIn(true);
       // Redirect to profile page
+      window.location.reload(false);
       window.location.href = '/profile';
     } else {
       alert('Login failed!');

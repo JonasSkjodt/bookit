@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function useLoggedIn() {
   const [authUser, setAuthUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const authUser = localStorage.getItem("authUser");
@@ -10,7 +10,7 @@ export default function useLoggedIn() {
       setLoggedIn(true);
       setAuthUser(authUser);
     } else {
-      setLoggedIn(true);
+      setLoggedIn(false);
     }
   }, [authUser, setAuthUser]);
 
