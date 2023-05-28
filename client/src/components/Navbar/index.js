@@ -18,6 +18,7 @@ return (
       
       <ul id="menu">
       <a href="/"><li>Home</li></a>
+      <a href="/profile"><li>Sell book</li></a>
       <a href="/about"><li>About</li></a>
       <a href="/contact"><li>Contact</li></a>
       </ul>
