@@ -75,8 +75,8 @@ return (
 			    </div>
     </li>
     <li data-md-content="600">
-			<label name="tab" htmlFor="tab3" tabIndex="-1" className="tab_lab" role="tab">Refunds?</label>
-			<input type="checkbox" className="tab" id="tab3" tabIndex="0" />
+			<label name="tab" htmlFor="tab4" tabIndex="-1" className="tab_lab" role="tab">Refunds?</label>
+			<input type="checkbox" className="tab" id="tab4" tabIndex="0" />
 			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
           <div className="content">
           <h5>Refunds</h5>
@@ -85,8 +85,8 @@ return (
 			    </div>
     </li>
     <li data-md-content="600">
-			<label name="tab" htmlFor="tab3" tabIndex="-1" className="tab_lab" role="tab">Bad Sellers</label>
-			<input type="checkbox" className="tab" id="tab3" tabIndex="0" />
+			<label name="tab" htmlFor="tab5" tabIndex="-1" className="tab_lab" role="tab">Bad Sellers</label>
+			<input type="checkbox" className="tab" id="tab5" tabIndex="0" />
 			<span className="open-close-icon"><i className="fas fa-plus"></i><i className="fas fa-minus"></i></span>
           <div className="content">
           <h5>Bad Sellers</h5>
