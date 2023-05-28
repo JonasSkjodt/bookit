@@ -13,6 +13,26 @@ const Product = () => {
   const { width } = useViewport();
   const breakpoint = 768;
   let count = 0;
+  const [loanTime, setLoanTime] = useState("");
+  const [loanPrice, setLoanPrice] = useState("");
+  //const [bookImage, setimage] = useState(""); //image
+  //const username = localStorage.getItem("authUser");
+
+  const handleInputChange = (e) => {
+      setLoanTime(e.target.value);
+
+      if(e.target.value === "7d"){
+        setLoanPrice(book.price * 0.1);
+      } else if(e.target.value === "14d"){
+        setLoanPrice(book.price * 0.2);
+      } else if(e.target.value === "30d"){
+        setLoanPrice(book.price * 0.3);
+      } else if(e.target.value === "3m"){
+        setLoanPrice(book.price * 0.6);
+      }
+
+  }
+
 
   const addToCart = (event) => {
     event.preventDefault();
@@ -25,6 +45,24 @@ const Product = () => {
         id: book.id,
         bookName: book.bookName,
         price: book.price,
+      })
+      .then(() => alert("Added to cart"))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const addToCartLoan = (event) => {
+    event.preventDefault();
+    console.log("Add " + book.id);
+    console.log("Add " + book.bookName);
+    console.log("Add " + loanPrice);
+
+    axios
+      .post("/api/cart", {
+        id: book.id,
+        bookName: book.bookName,
+        price: loanPrice,
       })
       .then(() => alert("Added to cart"))
       .catch((err) => {
@@ -103,8 +141,9 @@ const Product = () => {
           </div>
           <div className="col s3">
             <div className="row">
-              <div id="add_to_cart_area">
+              <div className="add_to_cart_area">
                 <ul>
+                <li><h4>Price to buy</h4></li>
                   {customers.map((customer) => {
                     if (customer.id === book.id) {
                       return (
@@ -121,9 +160,46 @@ const Product = () => {
                       Buy
                     </button>
                   </li>
+                  
                 </ul>
               </div>
             </div>
+            <div className="add_to_cart_area">
+                <ul>
+                  <li><h4>Price to loan</h4></li>
+                  {customers.map((customer) => {
+                    if (customer.id === book.id) {
+                      
+                      return (
+                        <li id="price_text">Price: {loanPrice} kr. </li>
+                      );
+                    }
+                  })}
+                  <li>
+                    <form>
+                    <select className="book_condition" id="condition"
+                name="condition"
+                onChange={handleInputChange}
+                value={loanTime}
+                >
+                  <option value="7d">7 days</option>
+                  <option value="14d">14 days</option>
+                  <option value="30d">30 days</option>
+                  <option value="3m">3 months</option>
+                </select>
+                    <button
+                      id="add_to_cart_button"
+                      className="btn waves-effect waves-light"
+                      onClick={addToCartLoan}
+                      >
+                      Loan
+                    </button>
+                      </form>
+                  </li>
+                  
+                </ul>
+              </div>
+            
             <div className="row">
               <div id="about_seller">
                 <h4>Book condition</h4>
