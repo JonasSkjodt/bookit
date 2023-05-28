@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import CreateBook from './createbook.js';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
 import Books from '../components/books';
-import { Link, useNavigate } from 'react-router-dom';
+//import { Link, useNavigate } from 'react-router-dom';
 import './profile.css';
 
 const Profile = () => {
 	const {loggedIn, setLoggedIn} = useLoggedIn();
-	const [authUser, setAuthUser] = useState(null);
-	const [customers, setCustomers] = useState([]);
+	const [setAuthUser] = useState(null);
+	const [setCustomers] = useState([]);
 
 	useEffect(() => {
 		fetch("/api/customers")
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
-	const [orders, setOrders] = useState([]);
+	const [setOrders] = useState([]);
 	const username = localStorage.getItem('authUser');
 
 	useEffect(() => {
@@ -104,7 +104,7 @@ const Profile = () => {
 						<div className='col s12 m12'>
 							<p>Current Orders</p>
 							{/*
-							id (should make a random id) // isnt there anymore
+							id
 							bookName
 							bookAuthor
 							price

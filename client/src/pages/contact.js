@@ -3,13 +3,6 @@ import './contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-/*npm install react-toastify*/
-{/* <script async>
-      $(document).ready(function() {
-      $('.collapsible').collapsible();
-      });
-</script> */}
-
 
 const Contact = () => {
 
@@ -108,7 +101,7 @@ return (
       <div className="section employees_section">
         <div className="row">
           <div className="col s12 m6">
-            <img className="employees employees_John" src="https://images.unsplash.com/photo-1618568949779-895d81686151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80"></img>
+            <img alt="employee" className="employees employees_John" src="https://images.unsplash.com/photo-1618568949779-895d81686151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80"></img>
           </div>
           <div className="col s12 m6 employees_text">
             <h4>John Doe</h4>
@@ -123,7 +116,7 @@ return (
       <div className="section employees_section">
       <div className="row">
           <div className="col s12 m6">
-            <img className="employees employees_Seb" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"></img>
+            <img alt="employee" className="employees employees_Seb" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"></img>
           </div>
           <div className="col s12 m6 employees_text">
             <h4>Sebastian Holst</h4>
