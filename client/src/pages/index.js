@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import './index.css';
-import Books from '../components/books';
-//import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 	const [customers, setCustomers] = useState([]);
@@ -51,7 +50,40 @@ const Home = () => {
 					<h2 className="section-header__title">Browse our books</h2>
 					<div className="row">
 						
-					<Books />
+					{customers.map((customer) => {
+							return (
+								<div key={customer.id} className="col s6 m4 l3">
+                    <div className="card bRad book-shadow">
+                            <div className="card-image waves-effect waves-block waves-light bRadT">
+                            <img className="activator" src="https://source.unsplash.com/random/300×330/?bird" alt="book" />
+                            </div>
+                            <div className="card-content">
+                            <span className="card-title activator white-text text-darken-4 text-overflow">
+                            {customer.bookName}<i className="material-icons right">more_vert</i>
+                              </span>
+                              <p>
+                              <Link
+                              className="book-tag"
+                              to = "/product"
+                              ><i className="material-icons">shopping_cart</i> Buy Now</Link>
+                              </p>
+                              <span className="btn-floating halfway-fab waves-effect waves-light">
+                              {customer.price} Kr.</span>
+                            </div>
+                            <div className="card-reveal">
+                            <span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
+                            <p className="black-text">ISBN: {customer.isbn}</p>
+                            <p className="black-text">Condition: {customer.condition}</p>
+                            <Link
+                              to = "/product"
+                            
+                              >
+                              See product page
+                            </Link>
+                            </div>
+                          </div>
+                          </div>
+						)})}
 						
 					</div>
 				</div>
