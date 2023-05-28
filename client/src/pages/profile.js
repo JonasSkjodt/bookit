@@ -191,7 +191,7 @@ const Profile = () => {
 					</div>
 				</div>
 				
-				<div className='row'>
+				<div className='row user-stat'>
 				<CreateBook/>
 				</div>
 				

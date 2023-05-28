@@ -89,11 +89,9 @@ select {
     margin:0 auto;
 }
 /*book form*/
-.book-form{
-    background: #191e2e;
-    color: #e1e1ff;
-    border-radius: 12px;
-    padding: 25px;
+.button-form  {
+    padding: 20px;
+    text-align: right;
 }
 /*user books*/
 .profile-user-books {
