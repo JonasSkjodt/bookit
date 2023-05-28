@@ -92,9 +92,18 @@ const Product = () => {
               </div>
               <div className="col s8">
                 <h1 className="product-title">{book.bookName}</h1>
-                <p>{book.about}</p>
-                <p>Author: {book.author}</p>
                 <p>ISBN: {book.isbn}</p>
+                {customers.map((customer) => {
+                  if (customer.id === book.id) {
+                    return (
+                      <>
+                    <p>Author: {customer.bookAuthor}</p>
+                    <p>book condition: {customer.condition}</p>
+                    <p>Seller: {customer.username}</p>
+                    </>
+                    )
+                  }
+                })}
               </div>
             </div>
             <div id="other_books" className="row">
@@ -197,21 +206,7 @@ const Product = () => {
                 </ul>
               </div>
             
-            <div className="row">
-              <div id="about_seller">
-                <h4>Book condition</h4>
-                {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <h5>Condition: {customer.condition}</h5>;
-                  }
-                })}
-                {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <p>Seller: {customer.username}</p>;
-                  }
-                })}
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
