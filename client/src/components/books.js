@@ -38,8 +38,8 @@ function Books() {
                               }}
                               ><i className="material-icons">shopping_cart</i> Buy Now</Link>
                               </p>
-                              <a className="btn-floating halfway-fab waves-effect waves-light">
-                              {customer.price} Kr.</a>
+                              <span className="btn-floating halfway-fab waves-effect waves-light">
+                              {customer.price} Kr.</span>
                             </div>
                             <div className="card-reveal">
                             <span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
