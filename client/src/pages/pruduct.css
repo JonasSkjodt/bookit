@@ -1,40 +1,28 @@
+h1.product-title {
+    font-size: 2.1rem;
+}
 #other_books {
     width: 100%;
 }
 
-#book_img {
+.book_img {
     width: 100%;
+    border-radius: 12px;
 }
 
 .add_to_cart_area {
-    display: flex;
-    align-items: center;
-    background-color: #404454;
-    padding-left: 7px;
-    padding-right: 7px;
-    border-radius: 15px;
-}
-
-#price_text {
-    color: white;
-    font-size: 20pt;
-    margin-left: 10px;
-    margin-right: 10px;
+    background: #191e2e;
+    color: #e1e1ff;
+    border-radius: 12px;
+    margin: 4px 0 15px 0;
+    padding:15px;
 }
 
 #add_to_cart_button {
-    width: 120px;
+    width: 100%;
     font-size: 17pt;
-}
-
-#add_to_cart_area2{
-    margin-top: 20px;
 }
 
 #about_seller {
     margin-left: 10px;
-}
-
-#title {
-    margin-top: 0px;
 }

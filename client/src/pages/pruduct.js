@@ -20,6 +20,7 @@ const Product = () => {
 
   const handleInputChange = (e) => {
       setLoanTime(e.target.value);
+      document.getElementById("LoanTimeDropDown").firstChild.disabled = true;
 
       if(e.target.value === "7d"){
         setLoanPrice(book.price * 0.1);
@@ -75,79 +76,43 @@ const Product = () => {
       .then((res) => res.json())
       .then((customers) => setCustomers(customers));
   });
-  if (width > breakpoint) {
-    // for desktop
     return (
-      <div className="container">
+      <div className="container m-t">
         <div className="row">
-          <div className="col s9">
+          <div className="col s12 m9">
             <div className="row">
               <div className="col s4">
                 <img
-                  id="book_img"
-                  src={book.image}
-                  style={{ borderradius: 20 }}
+                  className="book_img"
+                  src="https://source.unsplash.com/random/300×330/?bird"
                 ></img>
               </div>
               <div className="col s8">
-                <h1>{book.bookName}</h1>
-                <p>{book.about}</p>
-                <p>Author: {book.author}</p>
+                <h1 className="product-title">{book.bookName}</h1>
                 <p>ISBN: {book.isbn}</p>
-              </div>
-            </div>
-            <div id="other_books" className="row">
-              <h4 className="center">Other books</h4>
-              <div className="row">
                 {customers.map((customer) => {
-                  if (customer.id != book.id && count < 4) {
-                    count++;
+                  if (customer.id === book.id) {
                     return (
-                      <div key={customer.id} className="col s6 m3">
-                        <Link
-                          to="/product"
-                          state={{
-                            book: customer,
-                          }}
-                        >
-                          <div className="card bRad">
-                            <div className="card-image waves-effect waves-block waves-light bRadT">
-                              <img src={customer.image} />
-                            </div>
-                            <div className="card-content">
-                              <span className="card-title white-text text-darken-4">
-                                {customer.bookName}
-                                <i className="material-icons right">
-                                  more_vert
-                                </i>
-                              </span>
-                              <p>
-                                <a className="book-tag" href="#">
-                                  {customer.tags}
-                                </a>
-                              </p>
-                              <a className="btn-floating halfway-fab waves-effect waves-light red">
-                                <i className="material-icons">favorite</i>
-                              </a>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    );
+                      <>
+                    <p>Author: {customer.bookAuthor}</p>
+                    <p>book condition: {customer.condition}</p>
+                    <p>Seller: {customer.username}</p>
+                    </>
+                    )
                   }
                 })}
               </div>
             </div>
           </div>
-          <div className="col s3">
+          <div className="col s12 m3">
             <div className="row">
               <div className="add_to_cart_area">
+                <h5>Buy this book</h5>
                 <ul>
-                <li><h4>Price to buy</h4></li>
                   {customers.map((customer) => {
                     if (customer.id === book.id) {
                       return (
-                        <li id="price_text">Price: {customer.price} kr. </li>
+                        <li id="price_text" className="white-text m-b">Price: {customer.price} kr. </li>
                       );
                     }
                   })}
@@ -157,31 +122,31 @@ const Product = () => {
                       className="btn waves-effect waves-light"
                       onClick={addToCart}
                     >
-                      Buy
+                      Buy Book
                     </button>
                   </li>
                   
                 </ul>
               </div>
-            </div>
-            <div className="add_to_cart_area">
+              <div className="add_to_cart_area">
+            <h5>Loan this book</h5>
                 <ul>
-                  <li><h4>Price to loan</h4></li>
                   {customers.map((customer) => {
                     if (customer.id === book.id) {
                       
                       return (
-                        <li id="price_text">Price: {loanPrice} kr. </li>
+                        <li id="price_loan_text" className="white-text m-b">Price: {loanPrice} kr. </li>
                       );
                     }
                   })}
                   <li>
                     <form>
-                    <select className="book_condition" id="condition"
-                name="condition"
+                    <select id="LoanTimeDropDown" 
+                name="loanTime"
                 onChange={handleInputChange}
                 value={loanTime}
                 >
+                  <option disabled={false} defaultValue value>Please select loan time</option>
                   <option value="7d">7 days</option>
                   <option value="14d">14 days</option>
                   <option value="30d">30 days</option>
@@ -189,86 +154,60 @@ const Product = () => {
                 </select>
                     <button
                       id="add_to_cart_button"
-                      className="btn waves-effect waves-light"
+                      className="btn waves-effect waves-light m-t"
                       onClick={addToCartLoan}
                       >
-                      Loan
+                      Loan Book
                     </button>
                       </form>
                   </li>
-                  
                 </ul>
               </div>
-            
-            <div className="row">
-              <div id="about_seller">
-                <h4>Book condition</h4>
+            </div>
+          </div>
+        </div>
+        <div id="other_books" className="row">
+          <div className="col s12 m12">
+              <h4 className="center">Other books</h4>
+              <div className="row">
                 {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <h5>Condition: {customer.condition}</h5>;
+                  if (customer.id != book.id && count < 4) {
+                    count++;
+                    return (
+                      <div key={customer.id} className="col s6 m3 l4">
+                        <Link
+                          to="/product"
+                          state={{
+                            book: customer,
+                          }}
+                        >
+                          <div className="card bRad">
+                            <div className="card-image waves-effect waves-block waves-light bRadT">
+                              <img src="https://source.unsplash.com/random/300×300" />
+                            </div>
+                            <div className="card-content">
+                              <span className="card-title white-text text-darken-4 text-overflow">
+                                {customer.bookName}
+                                <i className="material-icons right">
+                                  more_vert
+                                </i>
+                              </span>
+                          
+                            </div>
+                            <span className="btn-floating halfway-fab waves-effect waves-light">
+                              {customer.price} Kr.</span>
+                          </div>
+                        </Link>
+                      </div>
+                    );
                   }
                 })}
-                {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <p>Seller: {customer.username}</p>;
-                  }
-                })}
               </div>
             </div>
-          </div>
-        </div>
+            </div>
       </div>
     );
-  } else {
-    // for mobile
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col s12">
-            <div className="row">
-              <div className="col s5">
-                <img
-                  id="book_img"
-                  src={book.image}
-                  style={{ borderradius: 20 }}
-                ></img>
-              </div>
-              <div className="col s7">
-                <h4 id="title">{book.bookName}</h4>
-                <p>{book.about}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col s12">
-            <div className="row">
-              <div id="add_to_cart_area">
-                <ul>
-                  <li>Price from new: //TODO add prices to books</li>
-                  <li>Price new: //TODO add prices</li>
-                </ul>
-                <button
-                  id="add_to_cart_button"
-                  className="btn waves-effect waves-light"
-                  onClick={addToCart}
-                >
-                  Buy
-                </button>
-              </div>
-            </div>
-            <div className="row">
-              <div id="about_seller">
-                <h5>About seller</h5>
-                <p>//Add info about seller??</p>
-                <p>Ads perhaps</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  
 };
 
 export default Product;
