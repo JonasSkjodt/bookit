@@ -65,6 +65,10 @@ const Home = () => {
                               <Link
                               className="book-tag"
                               to = "/product"
+							  state={{
+                                book: customer
+                              }}
+
                               ><i className="material-icons">shopping_cart</i> Buy Now</Link>
                               </p>
                               <span className="btn-floating halfway-fab waves-effect waves-light">
@@ -76,7 +80,10 @@ const Home = () => {
                             <p className="black-text">Condition: {customer.condition}</p>
                             <Link
                               to = "/product"
-                            
+							  state={{
+                                book: customer
+                              }}
+
                               >
                               See product page
                             </Link>

@@ -77,17 +77,17 @@ const Product = () => {
       .then((customers) => setCustomers(customers));
   });
     return (
-      <div className="container m-t">
+      <div className="container marg-top">
         <div className="row">
           <div className="col s12 m9">
             <div className="row">
-              <div className="col s4">
+              <div className="col s12 m4">
                 <img
                   className="book_img"
                   src="https://source.unsplash.com/random/300×330/?bird"
                 ></img>
               </div>
-              <div className="col s8">
+              <div className="col s12 m8">
                 <h1 className="product-title">{book.bookName}</h1>
                 <p>ISBN: {book.isbn}</p>
                 {customers.map((customer) => {
