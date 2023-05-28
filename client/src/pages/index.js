@@ -23,14 +23,12 @@ const Home = () => {
 							  <div className="product-details">
 								<div className="product-tag">Featured</div>
 									<h2 className="featured-product__title">
-									Find your new UniBook now</h2>
+									Find your new book now</h2>
 								<div className="product-description">
-  									<p>At vero eos et accusamus et iusto odio dignissimos
-										ducimus qui blanditiis praesentium voluptatum deleniti
-										atque corrupti quos dolores et quas molestias excepturi
-										sint occaecati cupiditate non provident, similique sunt
-										in culpa qui officia deserunt mollitia animi, id est laborum
-										et dolorum fuga.</p>
+  									<p>BookIT provides a wide variety of new and used university books.
+										Whether you need to buy or borrow a textbook, BookIT has the right resource for you.
+										With a wide selection of textbooks and helpful staff,
+										this shop is the ultimate destination for university books.</p>
 								</div>
 								<div className="feat-btns">
 
