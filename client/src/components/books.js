@@ -13,7 +13,6 @@ function Books() {
 
   return (
       <div className='row'>
-          <h2 className='profile-user-books'>Your book listings</h2>
             
             {/*{customers.filter((customer) => customer.username === localStorage.getItem('authUser').value)
           .map((customer) => (*/}
@@ -22,7 +21,7 @@ function Books() {
                 //if(customer.username === localStorage.getItem('authUser').value) {
                   //books.push(
                     <div key={customer.id} className="col s6 m4 l3">
-                    <div className="card bRad">
+                    <div className="card bRad book-shadow">
                             <div className="card-image waves-effect waves-block waves-light bRadT">
                             <img className="activator" src="https://source.unsplash.com/random/300×330/?bird" alt="book" />
                             </div>
@@ -37,7 +36,7 @@ function Books() {
                               state={{
                                 book: customer
                               }}
-                              >Buy Now</Link>
+                              ><i className="material-icons">shopping_cart</i> Buy Now</Link>
                               </p>
                               <a className="btn-floating halfway-fab waves-effect waves-light">
                               {customer.price} Kr.</a>
