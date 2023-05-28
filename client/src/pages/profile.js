@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import CreateBook from './createbook.js';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
 import Books from '../components/books';
-import { Link, useNavigate } from 'react-router-dom';
+//import { Link, useNavigate } from 'react-router-dom';
 import './profile.css';
 
 const Profile = () => {
 	const {loggedIn, setLoggedIn} = useLoggedIn();
-	const [authUser, setAuthUser] = useState(null);
-	const [customers, setCustomers] = useState([]);
+	const [setAuthUser] = useState(null);
+	const [setCustomers] = useState([]);
 
 	useEffect(() => {
 		fetch("/api/customers")
 			.then(res => res.json())
 			.then(customers => setCustomers(customers));
 	})
-	const [orders, setOrders] = useState([]);
+	const [setOrders] = useState([]);
 	const username = localStorage.getItem('authUser');
 
 	useEffect(() => {
@@ -104,14 +104,14 @@ const Profile = () => {
 						<div className='col s12 m12'>
 							<p>Current Orders</p>
 							{/*
-							id (should make a random id)
+							id
 							bookName
 							bookAuthor
 							price
 							isbn
 							condition
 							username
-							*/}
+							
 						{orders.length ? orders.map(order => {
 							if(order.username === username) {
 								if (order.itemIDs && order.itemIDs.length > 0) {
@@ -119,17 +119,17 @@ const Profile = () => {
 								const books = [];
 								for(const element of itemIDs) {
 									const customer = customers.find(customer => customer.id === element);
-									books.push(
-									<div key={customer.id} className="col s6 m3">
+								books.push(
+								<div key={customer.id} className="col s6 m3">
 								<div className="card bRad">
 									<div className="card-image waves-effect waves-block waves-light bRadT">
-									<img className="activator" src={customer.image} />
+									<img className="activator" src="https://source.unsplash.com/random/298×378/?fruit" alt="book" />
 									</div>
 									<div className="card-content">
 									<span className="card-title activator white-text text-darken-4">
 									{customer.bookName}<i className="material-icons right">more_vert</i>
 										</span>
-										<p><a className="book-tag" href="#">{customer.tags}</a></p>
+										<p><a className="book-tag" href="#">placeholdertext</a></p>
 										<a className="btn-floating halfway-fab waves-effect waves-light red">
 										<i className="material-icons">favorite</i></a>
 									</div>
@@ -137,6 +137,7 @@ const Profile = () => {
 									<span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
 									<p className="black-text">{customer.bookName} <span>{customer.condition}</span></p>
 									<Link
+									className="book-tag"
 										to = "/product"
 										state={{
 											book: customer
@@ -146,7 +147,7 @@ const Profile = () => {
 									</Link>
 									</div>
 								</div>
-							</div>
+								</div>
 						);
 							}
 							return books;
@@ -154,6 +155,7 @@ const Profile = () => {
 										return null;
 									}
 								}}) : <p>No orders yet. Start <Link to="/products" rel="">shopping now!</Link></p>}
+								*/}
 
 						</div>
 						<div className='col s12 m12'>

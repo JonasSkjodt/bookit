@@ -32,6 +32,11 @@ code {
 .flex-column {
   flex-direction: column;
 }
+.text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 /*header*/
 .head-nav, 
 .header-icons{

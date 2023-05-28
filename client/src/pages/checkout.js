@@ -294,7 +294,7 @@ const Checkout = () => {
               />
             </form>
           </div>
-          <div className="col s12 m12">
+          <div className="col s12 m6">
             <div className="table">
               <div className="layout-inline row th">
                 <div className="col col-pro">Product</div>

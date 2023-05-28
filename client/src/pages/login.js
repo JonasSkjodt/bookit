@@ -1,11 +1,11 @@
-import {React, useState, useEffect} from 'react';
+import {React} from 'react';
 import './login.css';
 import useLoggedIn from '../components/Navbar/useLoggedIn';
 import { useNavigate } from 'react-router-dom';
 
 
 const LogIn = () => {
-  const {loggedIn, setLoggedIn} = useLoggedIn(); 
+  const {setLoggedIn} = useLoggedIn(); 
   const navigate = useNavigate();
 
   const gotoSignUp = () => {
