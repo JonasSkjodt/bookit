@@ -79,22 +79,31 @@ const Product = () => {
   if (width > breakpoint) {
     // for desktop
     return (
-      <div className="container">
+      <div className="container m-t">
         <div className="row">
           <div className="col s9">
             <div className="row">
               <div className="col s4">
                 <img
                   id="book_img"
-                  src={book.image}
+                  src="https://source.unsplash.com/random/300×330/?bird"
                   style={{ borderradius: 20 }}
                 ></img>
               </div>
               <div className="col s8">
-                <h1>{book.bookName}</h1>
-                <p>{book.about}</p>
-                <p>Author: {book.author}</p>
+                <h1 className="product-title">{book.bookName}</h1>
                 <p>ISBN: {book.isbn}</p>
+                {customers.map((customer) => {
+                  if (customer.id === book.id) {
+                    return (
+                      <>
+                    <p>Author: {customer.bookAuthor}</p>
+                    <p>book condition: {customer.condition}</p>
+                    <p>Seller: {customer.username}</p>
+                    </>
+                    )
+                  }
+                })}
               </div>
             </div>
             <div id="other_books" className="row">
@@ -104,7 +113,7 @@ const Product = () => {
                   if (customer.id != book.id && count < 4) {
                     count++;
                     return (
-                      <div key={customer.id} className="col s6 m3">
+                      <div key={customer.id} className="col s6 m3 l4">
                         <Link
                           to="/product"
                           state={{
@@ -113,24 +122,19 @@ const Product = () => {
                         >
                           <div className="card bRad">
                             <div className="card-image waves-effect waves-block waves-light bRadT">
-                              <img src={customer.image} />
+                              <img src="https://source.unsplash.com/random/300×300" />
                             </div>
                             <div className="card-content">
-                              <span className="card-title white-text text-darken-4">
+                              <span className="card-title white-text text-darken-4 text-overflow">
                                 {customer.bookName}
                                 <i className="material-icons right">
                                   more_vert
                                 </i>
                               </span>
-                              <p>
-                                <a className="book-tag" href="#">
-                                  {customer.tags}
-                                </a>
-                              </p>
-                              <a className="btn-floating halfway-fab waves-effect waves-light red">
-                                <i className="material-icons">favorite</i>
-                              </a>
+                          
                             </div>
+                            <span className="btn-floating halfway-fab waves-effect waves-light">
+                              {customer.price} Kr.</span>
                           </div>
                         </Link>
                       </div>
@@ -202,21 +206,7 @@ const Product = () => {
                 </ul>
               </div>
             
-            <div className="row">
-              <div id="about_seller">
-                <h4>Book condition</h4>
-                {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <h5>Condition: {customer.condition}</h5>;
-                  }
-                })}
-                {customers.map((customer) => {
-                  if (customer.id === book.id) {
-                    return <p>Seller: {customer.username}</p>;
-                  }
-                })}
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
