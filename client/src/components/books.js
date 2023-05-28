@@ -21,7 +21,7 @@ function Books() {
             //const books = [];
                 //if(customer.username === localStorage.getItem('authUser').value) {
                   //books.push(
-                    <div key={customer.id} className="col s6 m3">
+                    <div key={customer.id} className="col s6 m4 l3">
                     <div className="card bRad">
                             <div className="card-image waves-effect waves-block waves-light bRadT">
                             <img className="activator" src="https://source.unsplash.com/random/300×330/?bird" alt="book" />
