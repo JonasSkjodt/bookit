@@ -32,6 +32,14 @@ code {
 .flex-column {
   flex-direction: column;
 }
+.text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.m-b {
+  margin-bottom:20px;
+}
 /*header*/
 .head-nav, 
 .header-icons{

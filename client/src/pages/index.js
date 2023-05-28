@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'; 
 import './index.css';
-import { Link, useNavigate } from 'react-router-dom';
+import Books from '../components/books';
+//import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
 	const [customers, setCustomers] = useState([]);
@@ -50,36 +51,7 @@ const Home = () => {
 					<h2 className="section-header__title">Browse our books</h2>
 					<div className="row">
 						
-						{customers.map((customer) => {
-							return (
-							<div key={customer.id} className="col s6 m3">
-								<div className="card bRad">
-									<div className="card-image waves-effect waves-block waves-light bRadT">
-									<img className="activator" src={customer.image} />
-									</div>
-									<div className="card-content">
-									<span className="card-title activator white-text text-darken-4">
-									{customer.bookName}<i className="material-icons right">more_vert</i>
-										</span>
-										<p><a className="book-tag" href="#">{customer.tags}</a></p>
-										<a className="btn-floating halfway-fab waves-effect waves-light red">
-										<i className="material-icons">favorite</i></a>
-									</div>
-									<div className="card-reveal">
-									<span className="card-title grey-text text-darken-4">{customer.bookName}<i className="material-icons right">close</i></span>
-									<p className="black-text">{customer.bookName} <span>{customer.about}</span></p>
-									<Link
-										to = "/product"
-										state={{
-											book: customer
-										}}
-									>
-										Product page
-									</Link>
-									</div>
-								</div>
-							</div>)
-						})}
+					<Books />
 						
 					</div>
 				</div>

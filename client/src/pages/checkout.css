@@ -167,3 +167,14 @@
 .checkout .transition {
 	transition: all 0.3s ease-in-out;
 }
+
+.checkout form {
+    background: #191e2e;
+    color: #e1e1ff;
+    border-radius: 12px;
+    margin: 4px 0 15px 0;
+    padding: 15px;
+}
+.checkout .table img {
+	max-width:9em;
+}

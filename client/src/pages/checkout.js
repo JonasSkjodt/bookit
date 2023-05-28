@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./checkout.css";
 import { useNavigate } from "react-router-dom";
+import useLoggedIn from "../components/Navbar/useLoggedIn";
 
 const Checkout = () => {
   const [valueFirstName, setValueFirstName] = useState("");
@@ -16,7 +17,12 @@ const Checkout = () => {
   const [valueDateY, setValueDateY] = useState("");
   const [valueCVC, setValueCVC] = useState("");
   const [cart, setCart] = useState([]);
+  const { loggedIn, setLoggedIn } = useLoggedIn();
   const navigate = useNavigate();
+  let totalPrice = 0;
+  cart.map((item) => {
+    totalPrice += parseInt(item.price);
+  });
 
   useEffect(() => {
     fetch("/api/cart")
@@ -118,206 +124,219 @@ const Checkout = () => {
     <div className="container checkout">
       <h1>Checkout</h1>
       <p>Please enter your information below to order your items</p>
-      <div className="row">
-        <div className="col s12 m6">
-          <form onSubmit={handleSubmit}>
-            <div className="row">
-              <div className="input-field col s6">
-                <input
-                  id="first_name_test_Test"
-                  type="text"
-                  className="validate white-text"
-                  value={valueFirstName}
-                  onChange={(event) => setValueFirstName(event.target.value)}
-                />
-                <label htmlFor="first_name">First Name</label>
+      {loggedIn ? (
+        <div className="row">
+          <div className="col s12 m6">
+            <form onSubmit={handleSubmit}>
+              <div className="row">
+                <div className="input-field col s6">
+                  <input
+                    id="first_name_test_Test"
+                    type="text"
+                    className="validate white-text"
+                    value={valueFirstName}
+                    onChange={(event) => setValueFirstName(event.target.value)}
+                  />
+                  <label htmlFor="first_name">First Name</label>
+                </div>
+                <div className="input-field col s6">
+                  <input
+                    id="last_name"
+                    type="text"
+                    className="validate white-text"
+                    value={valueLastName}
+                    onChange={(event) => setValueLastName(event.target.value)}
+                  />
+                  <label htmlFor="last_name">Last Name</label>
+                </div>
               </div>
-              <div className="input-field col s6">
-                <input
-                  id="last_name"
-                  type="text"
-                  className="validate white-text"
-                  value={valueLastName}
-                  onChange={(event) => setValueLastName(event.target.value)}
-                />
-                <label htmlFor="last_name">Last Name</label>
+              <div className="row">
+                <div className="input-field col s10">
+                  <input
+                    id="address"
+                    type="text"
+                    className="validate white-text"
+                    value={valueAddress}
+                    onChange={(event) => setValueAddress(event.target.value)}
+                  />
+                  <label htmlFor="address">Address</label>
+                </div>
+                <div className="input-field col s2">
+                  <input
+                    id="zip_code"
+                    type="text"
+                    className="validate white-text"
+                    value={valueZip}
+                    onChange={handleChangeZip}
+                    minLength="4"
+                    maxLength="4"
+                  />
+                  <label htmlFor="zip_code">Zip Code</label>
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s10">
-                <input
-                  id="address"
-                  type="text"
-                  className="validate white-text"
-                  value={valueAddress}
-                  onChange={(event) => setValueAddress(event.target.value)}
-                />
-                <label htmlFor="address">Address</label>
+              <div className="row">
+                <div className="input-field col s4">
+                  <input
+                    id="city"
+                    type="text"
+                    className="validate white-text"
+                    value={valueCity}
+                    onChange={(event) => setValueCity(event.target.value)}
+                  />
+                  <label htmlFor="city">City</label>
+                </div>
+                <div className="input-field col s4">
+                  <input
+                    id="country"
+                    type="text"
+                    className="validate white-text"
+                    value={valueCountry}
+                    onChange={(event) => setValueCountry(event.target.value)}
+                  />
+                  <label htmlFor="country">Country</label>
+                </div>
               </div>
-              <div className="input-field col s2">
-                <input
-                  id="zip_code"
-                  type="text"
-                  className="validate white-text"
-                  value={valueZip}
-                  onChange={handleChangeZip}
-                  minLength="4"
-                  maxLength="4"
-                />
-                <label htmlFor="zip_code">Zip Code</label>
+              <div className="row">
+                <div className="input-field col s12">
+                  <input
+                    id="email"
+                    type="email"
+                    className="validate white-text"
+                    value={valueEmail}
+                    onChange={(event) => setValueEmail(event.target.value)}
+                  />
+                  <label htmlFor="email">Email</label>
+                  <span
+                    className="helper-text"
+                    data-error="Insert an email again"
+                    data-success="right"
+                  >
+                    Insert an email
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s4">
+              <div className="input-field">
                 <input
-                  id="city"
+                  className="validate white-text"
+                  id="cardnumber"
                   type="text"
-                  className="validate white-text"
-                  value={valueCity}
-                  onChange={(event) => setValueCity(event.target.value)}
+                  pattern="\d*"
+                  max="9999999999999999"
+                  value={valueNumber}
+                  onChange={handleChangeNumber}
+                  inputMode="numeric"
+                  minLength="16"
+                  maxLength="16"
                 />
-                <label htmlFor="city">City</label>
-              </div>
-              <div className="input-field col s4">
-                <input
-                  id="country"
-                  type="text"
-                  className="validate white-text"
-                  value={valueCountry}
-                  onChange={(event) => setValueCountry(event.target.value)}
-                />
-                <label htmlFor="country">Country</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  id="email"
-                  type="email"
-                  className="validate white-text"
-                  value={valueEmail}
-                  onChange={(event) => setValueEmail(event.target.value)}
-                />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="cardnumber">Card Number</label>
                 <span
                   className="helper-text"
-                  data-error="Insert an email again"
+                  data-error="Insert the card number again"
                   data-success="right"
                 >
-                  Insert an email
+                  Insert the card number
                 </span>
+
+                <div className="row">
+                  <div className="input-field col s2">
+                    <input
+                      className="validate white-text"
+                      id="carddate1"
+                      type="text"
+                      pattern="\d*"
+                      inputMode="numeric"
+                      placeholder="MM"
+                      value={valueDateM}
+                      onChange={handleChangeDateM}
+                      onBlur={handleOnBlurDateM}
+                      maxLength="2"
+                    />
+                  </div>
+                  <div className="input-field col s1">
+                    <p> / </p>
+                  </div>
+
+                  <div className="input-field col s2">
+                    <input
+                      className="validate white-text"
+                      id="carddate2"
+                      type="text"
+                      pattern="\d*"
+                      inputMode="number"
+                      placeholder="YY"
+                      maxLength="2"
+                      value={valueDateY}
+                      onChange={handleChangeDateY}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s2">
+                    <input
+                      className="validate white-text"
+                      id="cardcvc"
+                      type="text"
+                      pattern="\d*"
+                      inputMode="number"
+                      placeholder="CVC"
+                      maxLength="3"
+                      value={valueCVC}
+                      onChange={handleChangeCVC}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="input-field">
               <input
-                className="validate white-text"
-                id="cardnumber"
-                type="text"
-                pattern="\d*"
-                max="9999999999999999"
-                value={valueNumber}
-                onChange={handleChangeNumber}
-                inputMode="numeric"
-                minLength="16"
-                maxLength="16"
+                className="validate white-text waves-effect waves-light btn-large"
+                id="checkoutSubmit"
+                type="submit"
+                value="Submit"
               />
-              <label htmlFor="cardnumber">Card Number</label>
-              <span
-                className="helper-text"
-                data-error="Insert the card number again"
-                data-success="right"
-              >
-                Insert the card number
-              </span>
-
-              <div className="row">
-                <div className="input-field col s2">
-                  <input
-                    className="validate white-text"
-                    id="carddate1"
-                    type="text"
-                    pattern="\d*"
-                    inputMode="numeric"
-                    placeholder="MM"
-                    value={valueDateM}
-                    onChange={handleChangeDateM}
-                    onBlur={handleOnBlurDateM}
-                    maxLength="2"
-                  />
-                </div>
-                <div className="input-field col s1">
-                  <p> / </p>
-                </div>
-
-                <div className="input-field col s2">
-                  <input
-                    className="validate white-text"
-                    id="carddate2"
-                    type="text"
-                    pattern="\d*"
-                    inputMode="number"
-                    placeholder="YY"
-                    maxLength="2"
-                    value={valueDateY}
-                    onChange={handleChangeDateY}
-                  />
-                </div>
+            </form>
+          </div>
+          <div className="col s12 m6">
+            <div className="table">
+              <div className="layout-inline row th">
+                <div className="col col-pro">Product</div>
+                <div className="col col-price align-center ">Price</div>
               </div>
-              <div className="row">
-                <div className="input-field col s2">
-                  <input
-                    className="validate white-text"
-                    id="cardcvc"
-                    type="text"
-                    pattern="\d*"
-                    inputMode="number"
-                    placeholder="CVC"
-                    maxLength="3"
-                    value={valueCVC}
-                    onChange={handleChangeCVC}
-                  />
-                </div>
-              </div>
-            </div>
-            <input
-              className="validate white-text waves-effect waves-light btn-large"
-              id="checkoutSubmit"
-              type="submit"
-              value="Submit"
-            />
-          </form>
-        </div>
-        <div className="col s12 m12">
-          <div className="table">
-            <div className="layout-inline row th">
-              <div className="col col-pro">Product</div>
-              <div className="col col-price align-center ">Price</div>
-            </div>
-            {cart.map((item) => {
-              return (
-                <div className="layout-inline row">
-                  <div className="col col-pro layout-inline">
-                    <img src="/alg4book.png" alt="Fun" />
-                    <p>{item.bookName}</p>
+              {cart.map((item) => {
+                return (
+                  <div className="layout-inline row">
+                    <div className="col col-pro layout-inline">
+                      <img src="/alg4book.png" alt="Fun" />
+                      <p>{item.bookName}</p>
+                    </div>
+
+                    <div className="col col-price col-numeric align-center ">
+                      <p>{item.price}kr.</p>
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="tf">
+                <div className="row layout-inline">
+                  <div className="col">
+                    <p>Total: </p>
                   </div>
 
-                  <div className="col col-price col-numeric align-center ">
-                    <p>{item.price}kr.</p>
+                  <div className="col">
+                    {isNaN(totalPrice) ? <p>0 kr.</p> : <p>{totalPrice} kr.</p>}
                   </div>
                 </div>
-              );
-            })}
-            <div className="tf">
-              <div className="row layout-inline">
-                <div className="col">
-                  <p>Total</p>
-                </div>
-                <div className="col"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <p>
+          Please{" "}
+          <a href="/login" rel="">
+            log in
+          </a>{" "}
+          to view the full benefits of BookIT.
+        </p>
+      )}
     </div>
   );
 };
