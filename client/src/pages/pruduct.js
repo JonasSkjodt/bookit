@@ -20,6 +20,7 @@ const Product = () => {
 
   const handleInputChange = (e) => {
       setLoanTime(e.target.value);
+      document.getElementById("LoanTimeDropDown").firstChild.disabled = true;
 
       if(e.target.value === "7d"){
         setLoanPrice(book.price * 0.1);
@@ -172,11 +173,12 @@ const Product = () => {
                   })}
                   <li>
                     <form>
-                    <select className="book_condition" id="condition"
-                name="condition"
+                    <select id="LoanTimeDropDown" 
+                name="loanTime"
                 onChange={handleInputChange}
                 value={loanTime}
                 >
+                  <option disabled={false} defaultValue value>Please select loan time</option>
                   <option value="7d">7 days</option>
                   <option value="14d">14 days</option>
                   <option value="30d">30 days</option>
