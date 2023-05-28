@@ -65,7 +65,7 @@ const CreateBook = () => {
         Want to sell your books? Fill out this form and we'll display it on
         BookIt.
       </p>
-      <div className="book-form">
+      <div className="">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -134,7 +134,7 @@ const CreateBook = () => {
             />
   </div>*/}
           <br />
-          <div>
+          <div className="button-form">
             <button className="btn btn-success" type="submit">
               Create
             </button>
