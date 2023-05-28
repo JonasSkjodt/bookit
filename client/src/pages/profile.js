@@ -153,7 +153,7 @@ const Profile = () => {
 									} else {
 										return null;
 									}
-								}}) : <p>No orders yet. Start <Link to="/products" rel="">shopping now!</Link></p>}
+								}}) : <p>No orders yet. Start <Link to="/#bookbrowsing" rel="">shopping now!</Link></p>}
 
 						</div>
 						<div className='col s12 m12'>
