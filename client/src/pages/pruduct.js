@@ -83,9 +83,8 @@ const Product = () => {
             <div className="row">
               <div className="col s4">
                 <img
-                  id="book_img"
+                  className="book_img"
                   src="https://source.unsplash.com/random/300×330/?bird"
-                  style={{ borderradius: 20 }}
                 ></img>
               </div>
               <div className="col s8">

@@ -5,8 +5,9 @@ h1.product-title {
     width: 100%;
 }
 
-#book_img {
+.book_img {
     width: 100%;
+    border-radius: 12px;
 }
 
 .add_to_cart_area {
