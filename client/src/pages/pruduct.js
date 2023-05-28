@@ -76,18 +76,15 @@ const Product = () => {
       .then((res) => res.json())
       .then((customers) => setCustomers(customers));
   });
-  if (width > breakpoint) {
-    // for desktop
     return (
       <div className="container m-t">
         <div className="row">
-          <div className="col s9">
+          <div className="col s12 m9">
             <div className="row">
               <div className="col s4">
                 <img
-                  id="book_img"
+                  className="book_img"
                   src="https://source.unsplash.com/random/300×330/?bird"
-                  style={{ borderradius: 20 }}
                 ></img>
               </div>
               <div className="col s8">
@@ -106,7 +103,71 @@ const Product = () => {
                 })}
               </div>
             </div>
-            <div id="other_books" className="row">
+          </div>
+          <div className="col s12 m3">
+            <div className="row">
+              <div className="add_to_cart_area">
+                <h5>Buy this book</h5>
+                <ul>
+                  {customers.map((customer) => {
+                    if (customer.id === book.id) {
+                      return (
+                        <li id="price_text" className="white-text m-b">Price: {customer.price} kr. </li>
+                      );
+                    }
+                  })}
+                  <li>
+                    <button
+                      id="add_to_cart_button"
+                      className="btn waves-effect waves-light"
+                      onClick={addToCart}
+                    >
+                      Buy Book
+                    </button>
+                  </li>
+                  
+                </ul>
+              </div>
+              <div className="add_to_cart_area">
+            <h5>Loan this book</h5>
+                <ul>
+                  {customers.map((customer) => {
+                    if (customer.id === book.id) {
+                      
+                      return (
+                        <li id="price_loan_text" className="white-text m-b">Price: {loanPrice} kr. </li>
+                      );
+                    }
+                  })}
+                  <li>
+                    <form>
+                    <select id="LoanTimeDropDown" 
+                name="loanTime"
+                onChange={handleInputChange}
+                value={loanTime}
+                >
+                  <option disabled={false} defaultValue value>Please select loan time</option>
+                  <option value="7d">7 days</option>
+                  <option value="14d">14 days</option>
+                  <option value="30d">30 days</option>
+                  <option value="3m">3 months</option>
+                </select>
+                    <button
+                      id="add_to_cart_button"
+                      className="btn waves-effect waves-light m-t"
+                      onClick={addToCartLoan}
+                      >
+                      Loan Book
+                    </button>
+                      </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="other_books" className="row">
+          <div className="col s12 m12">
               <h4 className="center">Other books</h4>
               <div className="row">
                 {customers.map((customer) => {
@@ -143,124 +204,10 @@ const Product = () => {
                 })}
               </div>
             </div>
-          </div>
-          <div className="col s3">
-            <div className="row">
-              <div className="add_to_cart_area">
-                <ul>
-                <li><h4>Price to buy</h4></li>
-                  {customers.map((customer) => {
-                    if (customer.id === book.id) {
-                      return (
-                        <li id="price_text">Price: {customer.price} kr. </li>
-                      );
-                    }
-                  })}
-                  <li>
-                    <button
-                      id="add_to_cart_button"
-                      className="btn waves-effect waves-light"
-                      onClick={addToCart}
-                    >
-                      Buy
-                    </button>
-                  </li>
-                  
-                </ul>
-              </div>
             </div>
-            <div className="add_to_cart_area">
-                <ul>
-                  <li><h4>Price to loan</h4></li>
-                  {customers.map((customer) => {
-                    if (customer.id === book.id) {
-                      
-                      return (
-                        <li id="price_text">Price: {loanPrice} kr. </li>
-                      );
-                    }
-                  })}
-                  <li>
-                    <form>
-                    <select id="LoanTimeDropDown" 
-                name="loanTime"
-                onChange={handleInputChange}
-                value={loanTime}
-                >
-                  <option disabled={false} defaultValue value>Please select loan time</option>
-                  <option value="7d">7 days</option>
-                  <option value="14d">14 days</option>
-                  <option value="30d">30 days</option>
-                  <option value="3m">3 months</option>
-                </select>
-                    <button
-                      id="add_to_cart_button"
-                      className="btn waves-effect waves-light"
-                      onClick={addToCartLoan}
-                      >
-                      Loan
-                    </button>
-                      </form>
-                  </li>
-                  
-                </ul>
-              </div>
-            
-            
-          </div>
-        </div>
       </div>
     );
-  } else {
-    // for mobile
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col s12">
-            <div className="row">
-              <div className="col s5">
-                <img
-                  id="book_img"
-                  src={book.image}
-                  style={{ borderradius: 20 }}
-                ></img>
-              </div>
-              <div className="col s7">
-                <h4 id="title">{book.bookName}</h4>
-                <p>{book.about}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col s12">
-            <div className="row">
-              <div id="add_to_cart_area">
-                <ul>
-                  <li>Price from new: //TODO add prices to books</li>
-                  <li>Price new: //TODO add prices</li>
-                </ul>
-                <button
-                  id="add_to_cart_button"
-                  className="btn waves-effect waves-light"
-                  onClick={addToCart}
-                >
-                  Buy
-                </button>
-              </div>
-            </div>
-            <div className="row">
-              <div id="about_seller">
-                <h5>About seller</h5>
-                <p>//Add info about seller??</p>
-                <p>Ads perhaps</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  
 };
 
 export default Product;
