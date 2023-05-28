@@ -37,6 +37,9 @@ code {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.m-b {
+  margin-bottom:20px;
+}
 /*header*/
 .head-nav, 
 .header-icons{

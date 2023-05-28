@@ -33,7 +33,7 @@ const Profile = () => {
 				<div className='user-profile'>
 					<div className="row">
 						<div className='col s12 m4'>
-							<img className='user-img' src="https://source.unsplash.com/random/300×300" alt="" />
+							<img className='user-img' alt="profile picture" src="https://source.unsplash.com/random/300×300?face"/>
 						</div>
 						<div className='col s12 m8'>
 							<div className="col s12 m6 p-y-1">
@@ -101,7 +101,7 @@ const Profile = () => {
 							</div>
 						</div>
 
-						<div className='col s12 m12'>
+						<div className='col s12 m12 user-stat'>
 							<p>Current Orders</p>
 							{/*
 							id (should make a random id)
@@ -162,7 +162,7 @@ const Profile = () => {
 									} else {
 										return null;
 									}
-								}}) : <p>No orders yet. Start <Link to="/products" rel="">shopping now!</Link></p>}
+								}}) : <p>No orders yet. Start <Link to="/#bookbrowsing" rel="">shopping now!</Link></p>}
 
 						</div>
 						<div className='col s12 m12'>
