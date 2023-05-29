@@ -16,6 +16,5 @@ npm i
 To run the website you can write this inside a terminal in the bookit folder:
 #### npm run dev 
 
-in the terminal to run both server and react client
 
 nodemon is installed to autorefresh on website changes
