@@ -119,9 +119,9 @@ const CreateBook = () => {
                 value={condition}
                 >
                   <option value="New">New</option>
-                  <option value="lightlyUsed">Lightly Used</option>
+                  <option value="Lightly used">Lightly Used</option>
                   <option value="Used">Used</option>
-                  <option value="battleScarred">Battle scarred</option>
+                  <option value="Battle scarred">Battle scarred</option>
                 </select>
           </div>
           <br />
