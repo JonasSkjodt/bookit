@@ -13,7 +13,7 @@ const CreateBook = () => {
   //const username = localStorage.getItem("authUser");
 
   const handleInputChange = (e) => {
-    document.getElementById("LoanTimeDropDown").firstChild.disabled = true;
+    document.getElementById("condition").firstChild.disabled = true;
     
       setBookID(randomNumberInRange());
     if (e.target.name === "bookName") {
@@ -118,7 +118,8 @@ const CreateBook = () => {
                 name="condition"
                 onChange={handleInputChange}
                 value={condition}
-                disabled={false}>
+                >
+                  <option disabled={false} defaultValue value>Please select a condition</option>
                   <option value="New">New</option>
                   <option value="lightlyUsed">Lightly Used</option>
                   <option value="Used">Used</option>
