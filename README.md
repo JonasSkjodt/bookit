@@ -3,7 +3,7 @@ Website in react
 
 If you have issues try uinstalling the depedencies and npm i again. Nodemon seems to cause issues sometimes.
 
-Write
+Terminal:
 
 in bookit write:
 npm i 
