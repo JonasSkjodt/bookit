@@ -11,18 +11,18 @@ const Profile = () => {
 	const [customers, setCustomers] = useState([]);
 
 	useEffect(() => {
-		fetch("/api/customers")
-			.then(res => res.json())
-			.then(customers => setCustomers(customers));
-	})
-	const [orders, setOrders] = useState([]);
-	const username = localStorage.getItem('authUser');
+        fetch("/api/customers")
+            .then(res => res.json())
+            .then(customers => setCustomers(customers));
+    }, [])
+    const [orders, setOrders] = useState([]);
+    const username = localStorage.getItem('authUser');
 
-	useEffect(() => {
-		fetch("/api/order")
-			.then(res => res.json())
-			.then(orders => setOrders(orders));
-	})
+    useEffect(() => {
+        fetch("/api/order")
+            .then(res => res.json())
+            .then(orders => setOrders(orders));
+    }, [])
 
 		return (
 			<div className="container">
