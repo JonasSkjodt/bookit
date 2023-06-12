@@ -54,11 +54,11 @@ app.post("/api/login", (req, res) => {
     body: { username, password },
   } = req;
   const user = users.map(
-    (user) => user.username === username && user.password === password
+    (user) => user.id === username && user.password.toString() === password
   );
 
   // if credentials valid
-  if (user) {
+  if (user.includes(true)) {
     console.log("User is logged in");
     res.json({
       message: `Welcome ${user.username}`,
